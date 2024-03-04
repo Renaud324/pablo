@@ -59,4 +59,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+  # 
+  def update_resource(resource, params)
+    if google_oauth?(resource)
+      params.delete('current_password')
+  
+      resource.password = params['password']
+      resource.update_without_password(params)
+    else
+      resource.update_with_password(params)
+    end
+  end
+  
+  private
+  
+  def google_oauth?(user)
+    user.provider == 'google_oauth2'
+  end
 end
