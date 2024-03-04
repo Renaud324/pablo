@@ -1,0 +1,16 @@
+<h1>Job Application Details</h1>
+
+<p><strong>Application Start Date:</strong> <%= @job_application.application_start_date %></p>
+<p><strong>Job Title:</strong> <%= @job_application.job_title %></p>
+<p><strong>Offer Link:</strong> <%= @job_application.offer_link %></p>
+<p><strong>Status:</strong> <%= @job_application.status %></p>
+<p><strong>Job Location:</strong> <%= @job_application.job_location %></p>
+<p><strong>Notes:</strong> <%= @job_application.notes %></p>
+<p><strong>Job Description:</strong> <%= @job_application.job_description %></p>
+<p><strong>Salary:</strong> <%= @job_application.salary %></p>
+<p><strong>Application Source:</strong> <%= @job_application.application_source %></p>
+<p><strong>User ID:</strong> <%= @job_application.user_id %></p>
+<p><strong>Company ID:</strong> <%= @job_application.company_id %></p>
+
+<%= link_to 'Edit', edit_job_application_path(@job_application) %> |
+<%= link_to 'Back', job_applications_path %>
