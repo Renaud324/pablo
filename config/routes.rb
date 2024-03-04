@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   # root "posts#index"
   resources :companies
   resources :applications
+  get 'openai', to: 'openai#index'
 end
