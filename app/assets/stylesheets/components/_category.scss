@@ -1,0 +1,28 @@
+.category-tag {
+  text-align: center;
+  height: fit-content;
+  width: fit-content;
+  background-image: linear-gradient(-20deg, #00cdac 0%, #8ddad5 100%);
+  // background-color: $light-gray; /* Couleur de fond pour l'étiquette */
+  color: #fff; /* Couleur du texte */
+  padding: 8px 12px; /* Espacement intérieur */
+  border-radius: 20px; /* Bord arrondi */
+  font-size: 12px; /* Taille de police */
+  font-weight: bold; /* Police en gras */
+  text-transform: uppercase; /* Convertit le texte en majuscules */
+  letter-spacing: 1px; /* Espacement entre les lettres */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre portée */
+  transition: background-color 0.3s ease;
+}
+
+.category-process {
+  text-align: center;
+  color: $white; /* Couleur du texte */
+  border-image: linear-gradient(to right, #9796f0, #fbc7d4) 1;
+  font-weight: bold; /* Police en gras pour attirer l'attention */
+  height: fit-content;
+  width: fit-content;
+  border-style: solid;
+  border-width: 4px;
+  padding: 10px;
+}
