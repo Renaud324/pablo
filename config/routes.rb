@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   resources :companies
+
   get 'openai', to: 'openai#index'
-  resources :job_applications
+  resources :job_applications do
+    resources :interaction, only: [:index]
+  end
+
 end

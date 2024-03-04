@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_04_160623) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_04_164725) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,6 +19,20 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_04_160623) do
     t.string "company_link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "interactions", force: :cascade do |t|
+    t.string "headline"
+    t.date "event_date"
+    t.time "event_time"
+    t.string "location"
+    t.integer "interaction_type"
+    t.bigint "user_id", null: false
+    t.bigint "job_application_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["job_application_id"], name: "index_interactions_on_job_application_id"
+    t.index ["user_id"], name: "index_interactions_on_user_id"
   end
 
   create_table "job_applications", force: :cascade do |t|
@@ -54,6 +68,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_04_160623) do
   end
 
 
+  add_foreign_key "interactions", "job_applications"
+  add_foreign_key "interactions", "users"
   add_foreign_key "job_applications", "companies"
   add_foreign_key "job_applications", "users"
 end
