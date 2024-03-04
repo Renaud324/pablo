@@ -1,0 +1,9 @@
+<div class="row">
+  <%= form_with url: openai_path, method: :get do |form| %>
+    <div class="form-group">
+      <%= form.label :query %>
+      <%= form.text_area :query %>
+      <%= form.submit 'get content' %>
+     </div>
+  <% end %>
+</div>
