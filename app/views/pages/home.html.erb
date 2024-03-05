@@ -1,5 +1,8 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
+    <% if current_user.present? %>
+      <%= current_user.id_token %>
+    <% end %>
     <%= link_to "#", class: "navbar-brand" do %>
       <%= image_tag "https://res.cloudinary.com/dkr1l2a2k/image/upload/v1709564584/Pablo_logo_1_af52g6.png" %>
     <% end %>

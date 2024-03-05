@@ -28,6 +28,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   #   super(scope)
   # end
   def google_oauth2
+    Rails.logger.info "OmniAuth Auth Hash: #{auth.extra}"
     user = User.from_omniauth(auth)
     if user.present?
       sign_out_all_scopes
