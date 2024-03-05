@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_04_160623) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_05_094249) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,6 +19,29 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_04_160623) do
     t.string "company_link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "email"
+    t.string "phone_number"
+    t.bigint "company_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_contacts_on_company_id"
+  end
+
+  create_table "interactions", force: :cascade do |t|
+    t.string "headline"
+    t.date "event_date"
+    t.time "event_time"
+    t.string "location"
+    t.integer "interaction_type"
+    t.bigint "user_id", null: false
+    t.bigint "job_application_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["job_application_id"], name: "index_interactions_on_job_application_id"
+    t.index ["user_id"], name: "index_interactions_on_user_id"
   end
 
   create_table "job_applications", force: :cascade do |t|
@@ -53,6 +76,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_04_160623) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "contacts", "companies"
+  add_foreign_key "interactions", "job_applications"
+  add_foreign_key "interactions", "users"
   add_foreign_key "job_applications", "companies"
   add_foreign_key "job_applications", "users"
 end
