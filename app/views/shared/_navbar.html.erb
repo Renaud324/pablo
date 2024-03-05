@@ -3,7 +3,6 @@
     <%= link_to "#", class: "navbar-brand" do %>
       <%= image_tag "https://res.cloudinary.com/dkr1l2a2k/image/upload/v1709564584/Pablo_logo_1_af52g6.png" %>
     <% end %>
-
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -24,11 +23,18 @@
 
           <li class="nav-item dropdown" style="display: flex; align-items: center;">
             <%= image_tag "https://cdn-icons-png.flaticon.com/128/1782/1782873.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% if current_user.present? %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Action", "#", class: "dropdown-item drop-down-avatar" %>
               <%= link_to "Another action", "#", class: "dropdown-item drop-down-avatar" %>
-              <%= link_to "Log out", "#", class: "dropdown-item drop-down-avatar", data: {turbo_method: :delete} %>
+              <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item drop-down-avatar", data: {turbo_method: :delete} %>
             </div>
+            <% else %>
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <%= link_to "Sign up", new_user_registration_path, class: "dropdown-item drop-down-avatar" %>
+                <%= link_to "Login", new_user_session_path, class: "dropdown-item drop-down-avatar" %>
+              </div>
+            <% end %>
           </li>
         <%# else %>
           <!--li class="nav-item"-->
