@@ -13,6 +13,7 @@ class User < ApplicationRecord
        user.fullname = auth.info.name
        user.avatar_url = auth.info.image
        user.id_token = auth.extra.id_token
+       user.access_token = auth.credentials.token
     end
   end
 end
