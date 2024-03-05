@@ -1,16 +1,129 @@
-<h1>Job Application Details</h1>
+<div class="container mt-5">
+
+
+  <h1>Job Journey</h1>
+  <h3><%= @job_application.job_title %></h3>
+
+
+  <div class="p-5 d-flex flex-row-reverse">
+    <div>
+      <p class="category-process">
+        <%= @job_application.status %>
+      </p>
+    </div>
+    <div>
+      <p class="m-3">
+      <i class="fa-solid fa-location-dot m-2"></i><%= @job_application.job_location %></p>
+      <p class="m-3">
+      <i class="fa-solid fa-sack-dollar m-2"></i><%= @job_application.salary %></p>
+    </div>
+  </div>
+
+<%# // -------------TIMELINE--------------- // %>
+ <ul class="timeline">
+    <div class="white-line"></div>
+    <li class="timeline-item">
+      <div class="timeline-item-content">
+        <div class="bubble-white my-4"></div>
+        <h3>Étape 1</h3>
+        <p>Description de l'étape 1...</p>
+        <span class="timeline-item-date">01/03/2024</span>
+      </div>
+    </li>
+    <div class="white-line"></div>
+    <li class="timeline-item">
+      <div class="timeline-item-content">
+        <div class="bubble-white my-4"></div>
+        <h3>Étape 2</h3>
+        <p>Description de l'étape 2...</p>
+        <span class="timeline-item-date">05/03/2024</span>
+      </div>
+    </li>
+    <div class="white-line"></div>
+    <li class="timeline-item">
+      <div class="timeline-item-content">
+        <div class="bubble-white my-4"></div>
+        <h3>Étape 3</h3>
+        <p>Description de l'étape 3...</p>
+        <span class="timeline-item-date">10/03/2024</span>
+      </div>
+    </li>
+    <div class="white-line"></div>
+    <li class="timeline-item">
+      <div class="timeline-item-content">
+        <div class="bubble-white my-4"></div>
+        <h3>Étape 4</h3>
+        <p>Description de l'étape 4...</p>
+        <span class="timeline-item-date">15/03/2024</span>
+      </div>
+    </li>
+    <div class="white-line"></div>
+  </ul>
+
+
+<%# // ------------------ SOURCE ---------------- // %>
+  <div class="p-5 d-flex flex-row-reverse">
+      <div>
+        <p class="category-tag">
+        <i class="fa-solid fa-magnifying-glass-location"></i>
+          # <%= @job_application.application_source %>
+        </p>
+        <a class="category-tag">
+        <i class="fa-solid fa-paperclip"></i>
+        <%= @job_application.offer_link %>
+        </a>
+      </div>
+  </div>
+
+<%# // ------------------ TABS ---------------- // %>
+  <div>
+    <ul class="list-inline tabs-underlined">
+      <li>
+        <i class="fa-solid fa-file-invoice"></i>
+        <a href="#" class="tab-underlined active">Job description</a>
+      </li>
+      <li>
+        <i class="fa-regular fa-comment-dots"></i>
+        <a href="#" class="tab-underlined">My past interactions</a>
+      </li>
+      <div class="d-flex justify-content-center">
+        <li>
+          <i class="fa-solid fa-pencil"></i>
+          <a href="#" class="tab-underlined">My notes</a>
+        </li>
+      </div>
+    </ul>
+  </div>
+
+  <div class="m-5" style="height: 300px;">
+    <p><%= @job_application.job_description %></p>
+  </div>
+
+
+  <div class="m-5" style="height: 300px;">
+    <div>
+      <div class="d-flex mb-3 card-task" style="align-items: center;">
+      <div class="icon-task p-3">
+        <i class="fa-solid fa-envelope"></i>
+      </div>
+        <div class="p-3">
+          <p class="padding-card card-task-title d-flex">Date</p>
+          <p class="padding-card">Content</p>
+        </div>
+        </div>
+    </div>
+  </div>
+
+
 
 <p><strong>Application Start Date:</strong> <%= @job_application.application_start_date %></p>
-<p><strong>Job Title:</strong> <%= @job_application.job_title %></p>
 <p><strong>Offer Link:</strong> <%= @job_application.offer_link %></p>
 <p><strong>Status:</strong> <%= @job_application.status %></p>
 <p><strong>Job Location:</strong> <%= @job_application.job_location %></p>
 <p><strong>Notes:</strong> <%= @job_application.notes %></p>
-<p><strong>Job Description:</strong> <%= @job_application.job_description %></p>
-<p><strong>Salary:</strong> <%= @job_application.salary %></p>
 <p><strong>Application Source:</strong> <%= @job_application.application_source %></p>
-<p><strong>User ID:</strong> <%= @job_application.user_id %></p>
-<p><strong>Company ID:</strong> <%= @job_application.company_id %></p>
 
 <%= link_to 'Edit', edit_job_application_path(@job_application) %> |
 <%= link_to 'Back', job_applications_path %>
+
+</div>
