@@ -14,6 +14,7 @@ class User < ApplicationRecord
        user.avatar_url = auth.info.image
        user.id_token = auth.extra.id_token
        user.access_token = auth.credentials.token
+       user.refresh_token = auth.credentials.refresh_token
     end
   end
 end
