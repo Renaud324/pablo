@@ -1,0 +1,29 @@
+.card-task i{
+  font-size: 20px;
+  background-image: linear-gradient(to right, #9796f0, #fbc7d4);
+  color: #9796f0;
+}
+
+.card-task-title {
+  font-weight: 600;
+}
+
+.card-task-details {
+  font-weight: 200;
+  font-size: 12px;
+  // margin-top: -30px;
+}
+
+.custom-checkbox {
+  width: 25px;
+  height: 25px;
+}
+
+.line-between-divs {
+  border-top: 0.2px solid $white;
+  margin-top: 1px;
+}
+
+.icon-task {
+  width: 48px;
+}
