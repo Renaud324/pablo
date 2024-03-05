@@ -1,7 +1,10 @@
 .card-task i{
-  font-size: 20px;
+  font-size: 30px;
   background-image: linear-gradient(to right, #9796f0, #fbc7d4);
   color: #9796f0;
+  -webkit-background-clip: text; /* Pour les navigateurs basés sur WebKit */
+  background-clip: text; /* Définir le clip sur le texte */
+  color: transparent;
 }
 
 .card-task-title {
@@ -24,6 +27,22 @@
   margin-top: 1px;
 }
 
-.icon-task {
-  width: 48px;
+.padding-card {
+  padding: 0.1rem !important;
+  margin-bottom: 0rem !important;
+}
+
+.progress {
+  width: 100%;
+  background-color: $white;
+  border-radius: 16px;
+  margin-bottom: 10px;
+  height: 24px;
+}
+
+.progress-bar {
+  color: $black;
+  text-align: center;
+  background-image: linear-gradient(to right, #9796f0, #fbc7d4);
+  border-radius: 16px;
 }

@@ -10,3 +10,25 @@
   background-image: linear-gradient(to left, #9796f0, #fbc7d4);
   color: $white;
 }
+
+.btn-task i{
+  background-image: linear-gradient(to right, #9796f0, #fbc7d4);
+  color: #9796f0;
+  -webkit-background-clip: text; /* Pour les navigateurs basés sur WebKit */
+  background-clip: text; /* Définir le clip sur le texte */
+  color: transparent;
+  font-size: 20px;
+}
+
+.btn-task {
+  text-align: center;
+  color: $white; /* Couleur du texte */
+  border-image: linear-gradient(to right, #9796f0, #fbc7d4) 1;
+  font-weight: bold; /* Police en gras pour attirer l'attention */
+  height: fit-content;
+  width: fit-content;
+  border-style: solid;
+  border-width: 1px;
+  padding: 10px;
+  border-radius: 16px;
+}
