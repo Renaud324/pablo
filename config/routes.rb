@@ -21,5 +21,8 @@ Rails.application.routes.draw do
   resources :job_applications do
     resources :interactions, only: [:index]
     resources :tasks, only: [:index]
+    collection do
+    post 'refresh'
+    end
   end
 end
