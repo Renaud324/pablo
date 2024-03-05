@@ -4,4 +4,5 @@ class Interaction < ApplicationRecord
   belongs_to :job_application
   has_many :interaction_contacts
   has_many :contacts, through: :interaction_contacts
+
 end
