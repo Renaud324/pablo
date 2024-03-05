@@ -1,12 +1,15 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+
+# ########################-CLEANING-###########################
+puts "cleaning all the databases seeds"
+InteractionContact.destroy_all
+Interaction.destroy_all
+JobApplication.destroy_all
+Contact.destroy_all
+Company.destroy_all
+User.destroy_all
+
+# ########################-USER-###########################
+puts "seeding the user"
 user1 = User.create!(
   email: 'example@example.com',
   password: 'password',
@@ -15,14 +18,44 @@ user1 = User.create!(
 )
 
 company1 = Company.create!(
-  name: 'Company A',
-  company_link: 'https://www.companya.com'
+  name: 'Monday.com',
+  company_link: 'https://www.monday.com'
 )
 
-JobApplication.create!(
+# ########################-COMPANIES-###########################
+puts "seeding the companies"
+
+company2 = Company.create(
+  name: 'Tech Innovations',
+  company_link: 'https://techinnovations.com'
+  )
+
+company3 = Company.create(
+  name: 'Health Solutions',
+  company_link: 'https://healthsolutions.com'
+  )
+
+# ########################-CONTACTS-###########################
+puts "seeding the contacts"
+
+contact1 = Contact.create(
+  email: 'contact1@company1.com',
+  phone_number: '123-456-7890',
+  company: company2
+  )
+
+contact2 = Contact.create(
+  email: 'contact2@company2.com',
+  phone_number: '098-765-4321',
+  company: company3)
+
+# ########################-APPLICATIONS-###########################
+puts "seeding the applications"
+
+job_application1 = JobApplication.create!(
   job_title: 'Software Engineer',
   offer_link: 'https://www.companya.com/job/123',
-  status: 'Pending',
+  status: 'First Interview ',
   job_location: 'New York',
   notes: 'Interview scheduled for next week',
   job_description: 'Description of the job...',
@@ -31,3 +64,61 @@ JobApplication.create!(
   user: user1,
   company: company1
 )
+
+job_application2 = JobApplication.create!(
+  application_start_date: Date.today,
+  job_title: 'Software Engineer',
+  offer_link: 'https://jobs.example.com/se',
+  status: 'Just Applied ',
+  job_location: 'Remote',
+  notes: 'First round interview completed.',
+  job_description: 'Develop and maintain web applications.',
+  salary: 85000.0,
+  application_source: 'LinkedIn',
+  user: user1,
+  company: company2
+  )
+
+job_application3 = JobApplication.create!(
+  application_start_date: Date.today - 5,
+  job_title: 'Product Manager',
+  offer_link: 'https://jobs.example.com/pm',
+  status: '3. Advanced Process',
+  job_location: 'New York, NY',
+  notes: 'Awaiting response.',
+  job_description: 'Lead product development teams.',
+  salary: 95000.0,
+  application_source: 'Indeed',
+  user: user1,
+  company: company3
+  )
+
+# ########################-INTERACTIONS-###########################
+puts "seeding the interactions"
+
+interaction1 = Interaction.create(
+  headline: 'Initial Interview',
+  event_date: Date.today - 2,
+  event_time: '10:00',
+  location: 'Zoom',
+  interaction_type: 0,
+  user: user1,
+  job_application: job_application1
+  )
+
+interaction2 = Interaction.create(
+  headline: 'Follow-up Meeting',
+  event_date: Date.today - 1,
+  event_time: '14:00',
+  location: 'Zoom',
+  interaction_type: 1,
+  user: user1,
+  job_application: job_application2
+)
+
+# ########################-INTERACTIONS/CONACTS-###########################
+puts "linking interactions and contacts"
+InteractionContact.create(contact: contact1, interaction: interaction1)
+InteractionContact.create(contact: contact2, interaction: interaction2)
+
+puts "finished seeding"
