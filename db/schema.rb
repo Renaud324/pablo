@@ -71,13 +71,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_05_103740) do
     t.index ["user_id"], name: "index_job_applications_on_user_id"
   end
 
-  create_table "companies", force: :cascade do |t|
-    t.string "name"
-    t.string "company_link"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -88,6 +81,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_05_103740) do
     t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "last_name"
+    t.string "fullname"
+    t.string "uid"
+    t.string "avatar_url"
+    t.string "provider"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -99,5 +96,4 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_05_103740) do
   add_foreign_key "interactions", "users"
   add_foreign_key "job_applications", "companies"
   add_foreign_key "job_applications", "users"
-  add_foreign_key "contacts", "companies"
 end
