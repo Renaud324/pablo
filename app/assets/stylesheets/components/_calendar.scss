@@ -21,7 +21,6 @@
     border-right: none;
   }
 
-
   .day {
     color: white;
   }
@@ -56,10 +55,6 @@
     color:blue;
   }
 
-
-
-
-
   .flexbox {
     display: flex;
     justify-content: space-evenly; // justify-content: space-between;
@@ -76,7 +71,7 @@
     height: 20px; /* Adjust size as needed */
     background-color: rgba(243, 58, 58, 0.708);
     border-radius: 50%; /* Makes the div round */
-    color: white;
+    color: $white;
     display: flex;
     justify-content: center;
     align-items: center;
