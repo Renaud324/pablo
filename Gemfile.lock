@@ -351,13 +351,10 @@ DEPENDENCIES
   httparty
   importmap-rails
   jbuilder
-<<<<<<< HEAD
   omniauth
   omniauth-google-oauth2
   omniauth-rails_csrf_protection
-=======
   openai
->>>>>>> master
   pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 7.1.3, >= 7.1.3.2)
