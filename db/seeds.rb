@@ -3,6 +3,7 @@
 puts "cleaning all the databases seeds"
 InteractionContact.destroy_all
 Interaction.destroy_all
+Task.destroy_all
 JobApplication.destroy_all
 Contact.destroy_all
 Company.destroy_all
@@ -92,6 +93,45 @@ job_application3 = JobApplication.create!(
   user: user1,
   company: company3
   )
+
+# ########################-TASKS-###########################
+puts "seeding the tasks"
+
+task1 = Task.create!(
+  name: 'Update Resume',
+  description: 'Revise and update my resume to better match the job requirements.',
+  deadline_date: Date.today + 7,
+  status: :pending, # using the enum
+  completion_date: nil,
+  job_application: job_application1
+)
+
+task2 = Task.create!(
+  name: 'Prepare for Interview',
+  description: 'Research the company and prepare answers to common interview questions.',
+  deadline_date: Date.today + 3,
+  status: :in_progress,
+  completion_date: nil,
+  job_application: job_application1
+)
+
+task3 = Task.create!(
+  name: 'Send Follow-up Email',
+  description: 'Draft and send a follow-up email thanking the interviewer for their time.',
+  deadline_date: Date.today + 1,
+  status: :pending,
+  completion_date: nil,
+  job_application: job_application2
+)
+
+task4 = Task.create!(
+  name: 'Review Product Portfolio',
+  description: 'Review and update the product portfolio to include the latest projects.',
+  deadline_date: Date.today + 14,
+  status: :pending,
+  completion_date: nil,
+  job_application: job_application3
+)
 
 # ########################-INTERACTIONS-###########################
 puts "seeding the interactions"
