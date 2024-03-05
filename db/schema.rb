@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema[7.1].define(version: 2024_03_05_103740) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -30,6 +32,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_05_103740) do
     t.index ["company_id"], name: "index_contacts_on_company_id"
   end
 
+
   create_table "interaction_contacts", force: :cascade do |t|
     t.bigint "contact_id", null: false
     t.bigint "interaction_id", null: false
@@ -37,7 +40,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_05_103740) do
     t.datetime "updated_at", null: false
     t.index ["contact_id"], name: "index_interaction_contacts_on_contact_id"
     t.index ["interaction_id"], name: "index_interaction_contacts_on_interaction_id"
-  end
 
   create_table "interactions", force: :cascade do |t|
     t.string "headline"
