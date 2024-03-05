@@ -1,3 +1,8 @@
+.container {
+  width: 400px;
+}
+
+
 .simple-calendar {
 
   th {
@@ -6,6 +11,11 @@
     border-bottom: 1px solid $grey;
     text-align: center;
     color: $grey;
+  }
+
+  table {
+    table-layout: fixed;
+    width: 100%;
   }
 
   td {
@@ -71,19 +81,12 @@
     height: 20px; /* Adjust size as needed */
     background-color: rgba(243, 58, 58, 0.708);
     border-radius: 50%; /* Makes the div round */
-    color: $white;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 12px;
   }
-
-  thead {
-    border: none;
-    border-top: none !important;
-    border-color: aquamarine;
-  }
-
 
 
 }
