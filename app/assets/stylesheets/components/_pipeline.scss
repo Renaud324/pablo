@@ -1,0 +1,28 @@
+
+.column {
+  flex: 1;
+  margin: 0 30px 20px;
+  width: 300px;
+
+}
+
+.column-content {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+.job-card {
+  padding: 10px;
+  margin-bottom: 10px;
+  color: $white; /* Couleur du texte */
+  // border-image: linear-gradient(to right, #9796f0, #fbc7d4) 1;
+  height: fit-content;
+  // border-style: solid;
+  // border-width: 1px;
+  // border-radius: 10px;
+  margin-top: 15px;
+  border-left: 1px solid;
+  border-image: linear-gradient(to top, #9796f0, #fbc7d4) 1;
+
+}
