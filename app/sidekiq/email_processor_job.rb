@@ -22,7 +22,7 @@ class EmailProcessorJob
 
     result = service.list_user_messages('me', q: query)
 
-    raise
+    #stores the result in the 
   end
 
   private
