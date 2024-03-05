@@ -1,0 +1,12 @@
+.btn-flat {
+  color: $white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background-image: linear-gradient(to right, #9796f0, #fbc7d4);
+  transition: background 0.3s ease;
+}
+
+.btn-flat:hover {
+  background-image: linear-gradient(to left, #9796f0, #fbc7d4);
+  color: $white;
+}
