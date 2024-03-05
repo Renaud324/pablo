@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_05_110156) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_05_114215) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -71,6 +71,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_05_110156) do
     t.index ["user_id"], name: "index_job_applications_on_user_id"
   end
 
+  create_table "tasks", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.date "deadline_date"
+    t.integer "status"
+    t.date "completion_date"
+    t.bigint "job_application_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["job_application_id"], name: "index_tasks_on_job_application_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -98,4 +110,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_05_110156) do
   add_foreign_key "interactions", "users"
   add_foreign_key "job_applications", "companies"
   add_foreign_key "job_applications", "users"
+  add_foreign_key "tasks", "job_applications"
 end
