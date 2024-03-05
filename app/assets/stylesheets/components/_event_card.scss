@@ -1,0 +1,14 @@
+.event-card {
+  background-color: #1C1C21;
+  color: $white;
+  width: 345px;
+  height: 72px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.event-card img{
+  width: 48px;
+  border-radius: 8px;
+}
