@@ -92,7 +92,49 @@ job_application3 = JobApplication.create!(
   application_source: 'Indeed',
   user: user1,
   company: company3
-  )
+)
+
+job_application4 = JobApplication.create!(
+  application_start_date: Date.today - 5,
+  job_title: 'Product Owner',
+  offer_link: 'https://jobs.example.com/pm',
+  status: 'Just Applied',
+  job_location: 'Paris',
+  notes: 'Awaiting response.',
+  job_description: 'Lead product development teams.',
+  salary: 100000,
+  application_source: 'Indeed',
+  user: user1,
+  company: company3
+)
+
+job_application5 = JobApplication.create!(
+  application_start_date: Date.today - 5,
+  job_title: 'Junior Dev',
+  offer_link: 'https://jobs.example.com/pm',
+  status: 'Just Applied',
+  job_location: 'Madrid',
+  notes: 'Awaiting response.',
+  job_description: 'Lead product development teams.',
+  salary: 30000,
+  application_source: 'Indeed',
+  user: user1,
+  company: company2
+)
+
+job_application6 = JobApplication.create!(
+  application_start_date: Date.today - 5,
+  job_title: 'Fullstack Dev',
+  offer_link: 'https://jobs.example.com/pm',
+  status: 'First Interview',
+  job_location: 'London',
+  notes: 'Awaiting response.',
+  job_description: 'Lead product development teams.',
+  salary: 60000,
+  application_source: 'Linkedin',
+  user: user1,
+  company: company1
+)
 
 # ########################-TASKS-###########################
 puts "seeding the tasks"
