@@ -13,7 +13,9 @@
 }
 
 .job-card {
-  padding: 10px;
+  padding-left: 11px;
+  padding-top: 3px;
+  padding-bottom: 0.5px;
   margin-bottom: 10px;
   color: $white; /* Couleur du texte */
   // border-image: linear-gradient(to right, #9796f0, #fbc7d4) 1;
@@ -24,5 +26,6 @@
   margin-top: 15px;
   border-left: 1px solid;
   border-image: linear-gradient(to top, #9796f0, #fbc7d4) 1;
-
+  margin-left: 9px;
+  cursor: pointer;
 }
