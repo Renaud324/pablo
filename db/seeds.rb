@@ -8,7 +8,7 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 user1 = User.create!(
-  email: 'example@example.com',
+  email: 'olele@example.com',
   password: 'password',
   first_name: 'John',
   last_name: 'Doe'
@@ -22,12 +22,25 @@ company1 = Company.create!(
 JobApplication.create!(
   job_title: 'Software Engineer',
   offer_link: 'https://www.companya.com/job/123',
-  status: 'Pending',
+  status: 'Just Applied',
   job_location: 'New York',
-  notes: 'Interview scheduled for next week',
+  notes: 'Application sent',
   job_description: 'Description of the job...',
   salary: 80000,
   application_source: 'LinkedIn',
+  user: user1,
+  company: company1
+)
+
+JobApplication.create!(
+  job_title: 'Web Dev',
+  offer_link: 'https://www.companya.com/job/123',
+  status: 'First Interview',
+  job_location: 'London',
+  notes: 'Interview scheduled for next week',
+  job_description: 'Description of the job...',
+  salary: 60000,
+  application_source: 'Network',
   user: user1,
   company: company1
 )

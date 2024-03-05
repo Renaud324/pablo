@@ -1,12 +1,37 @@
+
+
+  <div class="pipeline">
+    <div class="column">
+      <h2>Just Applied</h2>
+      <% @just_applied_applications.each do |job_application| %>
+        <%= render 'job_card', job_application: job_application %>
+      <% end %>
+    </div>
+
+    <div class="column">
+      <h2>First Interview</h2>
+      <% @first_interview_applications.each do |job_application| %>
+        <%= render 'job_card', job_application: job_application %>
+      <% end %>
+    </div>
+
+    <div class="column">
+      <h2>Advanced Process</h2>
+      <% @advanced_process_applications.each do |job_application| %>
+        <%= render 'job_card', job_application: job_application %>
+      <% end %>
+    </div>
+  </div>
+
+
 <h1>All Job Applications</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Application Start Date</th>
-      <th>Job Title</th>
-      <th>Status</th>
-      <th>Actions</th>
+      <th>Just Applied</th>
+      <th>First interview</th>
+      <th>Advanced process</th>
     </tr>
   </thead>
   <tbody>
