@@ -16,11 +16,15 @@
   height: 3.5rem;
   background-color: $darkgrey;
   border-radius: 16px;
+  border-width: 1px;
+  border-color: transparent;
 }
 
 .search-form-control .form-control:focus {
-  border-image: linear-gradient(to right, #9796f0, #fbc7d4) 1;
-  border-style: solid;
-  border-width: 1px;
+  border-image: linear-gradient(to right, #9796f0, #fbc7d4) 1 !important;
+  border-style: solid !important;
+  border-width: 1px !important;
   border-image-width: 1;
+  box-shadow: none;
+  border-width: 1px !important;
 }
