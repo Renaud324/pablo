@@ -10,7 +10,6 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem "simple_calendar"
 
 gem "uri"
-gem "net/http"
 gem "json"
 
 # Omniauth and Google OAuth2

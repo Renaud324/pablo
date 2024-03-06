@@ -1,13 +1,29 @@
 class GmailJob < ApplicationJob
   queue_as :default
 
-  def perform(current_user)
 
+  def perform(current_user)
+    # Afficher l'objet utilisateur
     p current_user
 
+    # Définir l'URL de l'API et le header d'autorisation
+    url = 'https://gmail.googleapis.com/gmail/v1/users/me/messages'
+    headers = { "Authorization" => "Bearer #{current_user.access_token}" }
 
-    
+    # Effectuer la requête GET
+    response = HTTParty.get(url, headers: headers)
+
+    # Afficher la réponse
+    puts "Response Code: #{response.code}"
+    if response.success?
+      # Si la requête a réussi, afficher le corps de la réponse
+      puts "Response Body: #{response.body}"
+    else
+      # Gérer les réponses d'erreur
+      puts "Error: #{response.message}"
   end
+end
+
 
   private
 
