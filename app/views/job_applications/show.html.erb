@@ -8,7 +8,8 @@
       <div class="p-2 flex-shrink-0">
           <div>
             <p class="category-process">
-              <%= @job_application.status %>
+            <i class="fa-solid fa-building"></i>
+              Company name
             </p>
           </div>
           <div class="d-flex">
@@ -69,28 +70,76 @@
     </div>
   </div>
 
-<%# // ------------------ COLONNE 1 ---------------- // %>
-<div class="row">
-<div class="container-application col-md-9">
-<%# // ------------------ TABS ---------------- // %>
-  <div>
-    <ul class="list-inline tabs-underlined">
-      <li>
-        <i class="fa-solid fa-file-invoice"></i>
-        <a href="#" class="tab-underlined active">Job description</a>
-      </li>
-      <li>
-        <i class="fa-regular fa-comment-dots"></i>
-        <a href="#" class="tab-underlined">My past interactions</a>
-      </li>
-      <div class="d-flex justify-content-center">
-        <li>
-          <i class="fa-solid fa-pencil"></i>
-          <a href="#" class="tab-underlined">My notes</a>
-        </li>
+
+
+
+<%# // ----------------- COLONNES 💖 ------------- // %>
+
+    <div class="container-application">
+      <div class="row">
+        <div class="col-md-9">
+            <ul class="list-inline tabs-underlined">
+              <li class="d-flex flex-column align-items-center">
+                <div>
+                  <i class="fa-solid fa-file-invoice"></i>
+                </div>
+                <div>
+                  <a href="#" class="tab-underlined active">Job description</a>
+                </div>
+              </li>
+              <li class="d-flex flex-column align-items-center">
+                <div>
+                  <i class="fa-regular fa-comment-dots"></i>
+                </div>
+                <div>
+                  <a href="#" class="tab-underlined">My past interactions</a>
+                </div>
+              </li>
+              <li class="d-flex flex-column align-items-center">
+                <div>
+                  <i class="fa-solid fa-pencil"></i>
+                </div>
+                <div>
+                  <a href="#" class="tab-underlined">My notes</a>
+                </div>
+
+              </li>
+              </div>
+            </ul>
+        <div class="col-md-3">
+          <div class="d-flex">
+            <div>
+              <p class="category-tag">
+              <i class="fa-solid fa-magnifying-glass-location"></i>
+                # <%= @job_application.application_source %>
+              </p>
+              <a class="category-tag">
+              <i class="fa-solid fa-paperclip"></i>
+              <%= @job_application.offer_link %>
+              </a>
+            </div>
+          </div>
+
+          <div class="mt-5">
+            <h4>Contact</h4>
+            <div class="d-flex mb-3" style="align-items: center;">
+            <div class="p-3">
+              <img src="https://cdn-icons-png.flaticon.com/128/1177/1177568.png" alt="Avatar contact" class="contact-card-img">
+            </div>
+              <div class="p-3">
+                <p class="padding-card card-task-title d-flex">First Name - Name</p>
+                <p class="padding-card">Job Title</p>
+                <i class="fa-solid fa-phone contact-card-i"></i>
+                <i class="fa-solid fa-envelope contact-card-i"></i>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </ul>
-  </div>
+    </div>
+
+
+
 <%# // ------------------ JOB DESCRIPTION ---------------- // %>
   <div class="m-5" style="height: 300px;">
     <p><%= @job_application.job_description %></p>
@@ -130,52 +179,16 @@
     </div>
   </div>
 
-  <%# // ------------------ COLONNE 2 ---------------- // %>
-  <div class="col-md-3">
 
-  <%# // ------------------ SOURCES ---------------- // %>
-  <div class="p-5 d-flex flex-row-reverse">
-      <div>
-        <p class="category-tag">
-        <i class="fa-solid fa-magnifying-glass-location"></i>
-          # <%= @job_application.application_source %>
-        </p>
-        <a class="category-tag">
-        <i class="fa-solid fa-paperclip"></i>
-        <%= @job_application.offer_link %>
-        </a>
-      </div>
-  </div>
-<%# // ------------------ Contacts ---------------- // %>
-  <div class="ms-5 me-5">
-    <div class="d-flex mb-3" style="align-items: center;">
-    <div class="p-3">
-      <img src="https://cdn-icons-png.flaticon.com/128/1177/1177568.png" alt="Avatar contact" class="contact-card-img">
-    </div>
-      <div class="p-3">
-        <p class="padding-card card-task-title d-flex">First Name - Name</p>
-        <p class="padding-card">Job Title</p>
-        <i class="fa-solid fa-phone contact-card-i"></i>
-        <i class="fa-solid fa-envelope contact-card-i"></i>
-      </div>
-    </div>
-  </div>
+<%# <div class="container"> %>
+<%# <p><strong>Application Start Date:</strong> 01/01/2023</p> %>
+<%# <p><strong>Offer Link:</strong> <%= @job_application.offer_link %>
+<%# <p><strong>Status:</strong> <%= @job_application.status %>
+<%# <p><strong>Job Location:</strong> <%= @job_application.job_location %>
+<%# <p><strong>Notes:</strong> <%= @job_application.notes %>
+<%# <p><strong>Application Source:</strong> <%= @job_application.application_source %>
+<%# <%= link_to 'Edit', edit_job_application_path(@job_application) %>
+<%# <%= link_to 'Back', job_applications_path %>
+<%#
 </div>
-</div>
-
-
-
-
-
-
-<p><strong>Application Start Date:</strong> 01/01/2023</p>
-<p><strong>Offer Link:</strong> <%= @job_application.offer_link %></p>
-<p><strong>Status:</strong> <%= @job_application.status %></p>
-<p><strong>Job Location:</strong> <%= @job_application.job_location %></p>
-<p><strong>Notes:</strong> <%= @job_application.notes %></p>
-<p><strong>Application Source:</strong> <%= @job_application.application_source %></p>
-
-<%= link_to 'Edit', edit_job_application_path(@job_application) %> |
-<%= link_to 'Back', job_applications_path %>
-
-</div>
+</div> %>
