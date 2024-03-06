@@ -3,12 +3,16 @@ class GmailJob < ApplicationJob
 
 
   def perform(current_user)
+
+    interactions = current_user.interactions
+
+
     # Définir l'URL de l'API et le header d'autorisation
     url = 'https://gmail.googleapis.com/gmail/v1/users/me/messages'
     headers = { "Authorization" => "Bearer #{current_user.access_token}" }
 
     url_message_gmail = "https://gmail.googleapis.com/gmail/v1/users/me/messages/"
-    headers_message_gmail = { "Authorization" => "Bearer #{current_user.access_token}" }
+    headers_message_gmail = { "Authorization" => "Bearer #{ current_user.access_token }" }
 
     # Effectuer la requête GET
     response = HTTParty.get(url, headers: headers)
@@ -16,16 +20,18 @@ class GmailJob < ApplicationJob
     # Afficher la réponse
     puts "Response Code: #{response.code}"
     if response.success?
-      # Si la requête a réussi, afficher le corps de la réponse
       # 
       p "-----------------------------------------------------"
       p "BODY ->>>>>>>>>>>"
-      puts "Response Body: #{response.body}"
+      messages = response["messages"]
+      puts messages
       p "-----------------------------------------------------"
 
+      # messages = messages.reject { |message| interactions.pluck(:email_id).includes(message['id']) }
+
       p "-----------------------------------------------------"
-      response.body[:messages].each do |message|
-        call_message = HTTParty.get(url_message_gmail + message.id, headers: headers_message_gmail)
+      messages.each do |message|
+        call_message = HTTParty.get(url_message_gmail + message["id"], headers: headers_message_gmail)
         puts "Response Body: #{call_message.body}"
       end
       p "-----------------------------------------------------"
