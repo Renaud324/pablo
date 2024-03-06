@@ -6,6 +6,7 @@ class JobApplicationsController < ApplicationController
     @just_applied_applications = JobApplication.where(status: 'Just Applied')
     @first_interview_applications = JobApplication.where(status: 'First Interview')
     @advanced_process_applications = JobApplication.where(status: 'Advanced Process')
+    @tasks = Task.where(job_application_id: params[:id])
   end
 
   def show
@@ -44,5 +45,9 @@ class JobApplicationsController < ApplicationController
 
   def job_application_params
     params.require(:job_application).permit(:application_start_date, :job_title, :offer_link, :status, :job_location, :notes, :job_description, :salary, :application_source, :user_id, :company_id)
+  end
+
+  def task_params
+    params.require(:task).permit(:name, :description)
   end
 end
