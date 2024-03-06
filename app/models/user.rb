@@ -12,9 +12,9 @@ class User < ApplicationRecord
        user.password = Devise.friendly_token[0,20]
        user.fullname = auth.info.name
        user.avatar_url = auth.info.image
-       user.id_token = auth.extra.id_token
-       user.access_token = auth.credentials.token
-       user.refresh_token = auth.credentials.refresh_token
+       user.id_token = auth.extra.id_token # jwt token
+       user.access_token = auth.credentials.token # access_token
+       user.refresh_token = auth.credentials.refresh_token # refresh_token
     end
   end
 end

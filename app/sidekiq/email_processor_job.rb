@@ -3,6 +3,17 @@ class EmailProcessorJob
 
   def perform(user_id)
 
+    # IGNORE THIS COMMENTED CODE
+    # curl --request GET \
+    # --url https://gmail.googleapis.com/gmail/v1/users/me/messages \
+    # --header 'authorization: Bearer ya29.a0Ad52N38geXRb5RTkwQnzMh_Ehoy59v1ombk0LKX1V5vsg7J8Txg9PWMBh9Q5YXsVdGpmDg9o4agKLYhz1M_iElCt5xV_QCEoF3tC4rqR7zAmVBUS8cj8O_d8yEDgNFqZ66oqkNpgmbCX3xj97_hp_jQBNptMszcTQrp-aCgYKAYsSARASFQHGX2MiLs0tZk7eDfCPoxxtOdYgNQ0171'
+    #
+    # curl --request GET \
+    # --url https://gmail.googleapis.com/gmail/v1/users/me/messages/18de66f61c3b2d61 \
+    # --header 'authorization: Bearer ya29.a0Ad52N38geXRb5RTkwQnzMh_Ehoy59v1ombk0LKX1V5vsg7J8Txg9PWMBh9Q5YXsVdGpmDg9o4agKLYhz1M_iElCt5xV_QCEoF3tC4rqR7zAmVBUS8cj8O_d8yEDgNFqZ66oqkNpgmbCX3xj97_hp_jQBNptMszcTQrp-aCgYKAYsSARASFQHGX2MiLs0tZk7eDfCPoxxtOdYgNQ0171'
+    #
+    #
+
     user = User.find(user_id)
 
     # Initialize the Gmail service
