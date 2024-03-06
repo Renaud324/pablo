@@ -1,42 +1,88 @@
+.container-timeline {
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: -70px;
+  background-color: $white;
+  border-image: linear-gradient(to right, #9796f0, #fbc7d4) 1;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Boîte d'ombre légère */
+  border-radius: 8px; /* Coins arrondis */
+}
+
+.border-active-process {
+  background-image: linear-gradient(to right, #9796f0, #fbc7d4);
+  font-weight: bolder;
+  padding: 5px; /* Police en gras pour attirer l'attention */
+}
+
 .timeline {
   display: flex;
   align-items: center;
   list-style: none;
   padding: 0;
-  margin: 50px 0;
+  margin: 0; /* Réglage du margin pour annuler la marge précédente */ /* Correction de la déclaration de fond */
+  color: $black; /* Si $black est une variable Sass, assurez-vous qu'elle est correctement définie et utilisée */
 }
+
 
 .timeline-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
+  height: min($numbers: 90px);
+  width: 25%;
 }
 
 .white-line {
   height: 2px;
-  background-color: $white;
-  width: 100px;
+  background-color: $black;
+  width: 25%;
 }
 
-.bubble-white {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background-color: $white;
+.icone-sent {
+  width: 60px;
+  height: 50px;
+  background-image: url("https://cdn-icons-png.flaticon.com/128/149/149989.png");
+  background-size: cover; /* Ajuste la taille de l'image pour remplir le conteneur */
+  background-position: center; /* Centre l'image à l'intérieur du conteneur */
   margin-left: auto;
   margin-right: auto;
+  border: 10px solid $white;/* Remplace $black par la couleur souhaitée */
 }
 
-// .timeline-item:before {
-//   content: '';
-//   width: 15px;
-//   height: 15px;
-//   border-radius: 50%;
-//   flex: 1;
-//   background-color: $white;
-// }
+.icone-interview {
+  width: 60px;
+  height: 50px;
+  background-image: url("https://cdn-icons-png.flaticon.com/128/134/134808.png");
+  background-size: cover; /* Ajuste la taille de l'image pour remplir le conteneur */
+  background-position: center; /* Centre l'image à l'intérieur du conteneur */
+  margin-left: auto;
+  margin-right: auto;
+  border: 10px solid $white; /* Remplace $black par la couleur souhaitée */
+}
 
+.icone-advanced {
+  width: 60px;
+  height: 50px;
+  background-image: url("https://cdn-icons-png.flaticon.com/128/15/15515.png");
+  background-size: cover; /* Ajuste la taille de l'image pour remplir le conteneur */
+  background-position: center; /* Centre l'image à l'intérieur du conteneur */
+  margin-left: auto;
+  margin-right: auto;
+  border: 10px solid $white; /* Remplace $black par la couleur souhaitée */
+}
+
+.icone-offer {
+  width: 60px;
+  height: 50px;
+  background-image: url("https://cdn-icons-png.flaticon.com/128/2595/2595083.png");
+  background-size: cover; /* Ajuste la taille de l'image pour remplir le conteneur */
+  background-position: center; /* Centre l'image à l'intérieur du conteneur */
+  margin-left: auto;
+  margin-right: auto;
+  border: 10px solid $white; /* Remplace $black par la couleur souhaitée */
+}
 .timeline-item:not(:last-child) {
   margin-right: 20px; /* Marge entre chaque élément */
   flex-grow: 1; /* Divise l'espace entre chaque élément */
@@ -48,15 +94,18 @@
 
 .timeline-item-content h3 {
   margin-top: 0;
-  font-size: 18px;
+  font-size: 14px;
+  color: $darkgrey;
 }
 
 .timeline-item-content p {
   margin: 10px 0;
+  font-size: 13px;
 }
 
 .timeline-item-date {
-  font-size: 14px;
-  color: #777;
+  font-size: 13px;
   margin-top: 5px;
+  color: $darkgrey;
+  font-size: 11px;
 }

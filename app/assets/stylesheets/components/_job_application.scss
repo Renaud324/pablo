@@ -1,0 +1,27 @@
+.container-application {
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.container-application-column {
+  display: flex;
+}
+
+.column1 {
+  flex: 3; /* La colonne 1 occupe 3 fois plus d'espace que la colonne 2 */
+  width: 900px; /* Largeur spécifique pour la colonne 1 */
+}
+
+.column2 {
+  flex: 1; /* La colonne 2 occupe 1 fois l'espace de la colonne 1 */
+  width: 300px; /* Largeur spécifique pour la colonne 2 */
+}
+
+.container-background {
+  background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)),url(https://images.unsplash.com/photo-1617526738882-1ea945ce3e56?q=80&w=2990&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+  background-size: cover;
+  background-position: center;
+  padding: 50px 0;
+}
