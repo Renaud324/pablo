@@ -12,7 +12,7 @@ class TasksController < ApplicationController
   def create
     @task = @job_application.tasks.build(task_params)
     if @task.save
-      redirect_to job_application_tasks_path(@job_application), notice: 'Task was successfully created.'
+      redirect_to home, notice: 'Task was successfully created.'
     else
       render :new
     end

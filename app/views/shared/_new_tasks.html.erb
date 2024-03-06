@@ -1,5 +1,4 @@
-
-<div class="modal fade" id="newTaskModal" tabindex="-1" role="dialog">
+<div class="modal fade" id="newTaskModal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -9,10 +8,13 @@
         </button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for(@task, url: tasks_path) do |f| %>
+        <%= simple_form_for(task) do |f| %>
           <%= f.input :name %>
           <%= f.input :description %>
-          <%= f.button :submit, class: 'btn btn-primary' %>
+          <%= f.association :job_application,
+                            label: "Select Job Application",
+                            label_method: ->(e){ "#{e.job_title} - #{e.company.name}" } %>
+          <%= f.button :submit, class: 'btn-task' %>
         <% end %>
       </div>
     </div>
