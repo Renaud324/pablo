@@ -17,10 +17,19 @@ class GmailJob < ApplicationJob
     puts "Response Code: #{response.code}"
     if response.success?
       # Si la requête a réussi, afficher le corps de la réponse
-      response.body.messages.each do |message|
+      # 
+      p "-----------------------------------------------------"
+      p "BODY ->>>>>>>>>>>"
+      puts "Response Body: #{response.body}"
+      p "-----------------------------------------------------"
+
+      p "-----------------------------------------------------"
+      response.body[:messages].each do |message|
         call_message = HTTParty.get(url_message_gmail + message.id, headers: headers_message_gmail)
         puts "Response Body: #{call_message.body}"
       end
+      p "-----------------------------------------------------"
+
     else
       # Gérer les réponses d'erreur
       puts "Error: #{response.message}"
