@@ -11,7 +11,7 @@
     font-size: 24px;
   }
 
-  img {
+  i {
     position: relative;
     width: 100%; /* Adjust as needed */
     height: 100%; /* Ensure this is uncommented and set appropriately */
@@ -59,6 +59,11 @@
 
 
 .simple-calendar {
+
+  a {
+    text-decoration: none;
+    color: $white;
+  }
 
   th {
     border-right: none;

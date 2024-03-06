@@ -179,11 +179,11 @@ task4 = Task.create!(
 puts "seeding the interactions"
 
 interaction1 = Interaction.create(
-  headline: 'Initial Interview',
+  headline: 'Initial phone interview',
   event_date: Date.today - 2,
   event_time: '10:00',
   location: 'Zoom',
-  interaction_type: 0,
+  interaction_type: 1,
   user: user1,
   job_application: job_application1
   )
@@ -192,28 +192,28 @@ interaction2 = Interaction.create(
   headline: 'Follow-up Meeting',
   event_date: Date.today - 1,
   event_time: '14:00',
-  location: 'Zoom',
-  interaction_type: 1,
+  location: 'Berlin',
+  interaction_type: 5,
   user: user1,
   job_application: job_application2
 )
 
 interaction3 = Interaction.create(
-  headline: 'On site interview',
+  headline: 'On-site interview',
   event_date: Date.today + 3,
   event_time: '14:00',
   location: 'Paris',
-  interaction_type: 1,
+  interaction_type: 2,
   user: user1,
   job_application: job_application2
 )
 
 interaction3 = Interaction.create(
-  headline: 'Technical challenge',
+  headline: 'On-site technical interview',
   event_date: Date.today + 15,
   event_time: '14:00',
-  location: 'Paris',
-  interaction_type: 1,
+  location: 'London',
+  interaction_type: 5,
   user: user1,
   job_application: job_application2
 )
@@ -222,7 +222,7 @@ interaction4 = Interaction.create(
   headline: 'Call with HR',
   event_date: Date.today + 15,
   event_time: '14:00',
-  location: 'Paris',
+  location: '',
   interaction_type: 1,
   user: user1,
   job_application: job_application2
