@@ -3,7 +3,18 @@
   align-items: center;
   list-style: none;
   padding: 0;
-  margin: 50px 0;
+  margin: 0; /* Réglage du margin pour annuler la marge précédente */
+  background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), $white; /* Correction de la déclaration de fond */
+  color: $black; /* Si $black est une variable Sass, assurez-vous qu'elle est correctement définie et utilisée */
+}
+
+
+.container-timeline {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: -70px;
 }
 
 .timeline-item {
@@ -11,6 +22,7 @@
   flex-direction: column;
   align-items: center;
   position: relative;
+  height: min($numbers: 90px);
 }
 
 .white-line {
@@ -23,7 +35,7 @@
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background-color: $white;
+  background-color: $grey;
   margin-left: auto;
   margin-right: auto;
 }
@@ -48,15 +60,18 @@
 
 .timeline-item-content h3 {
   margin-top: 0;
-  font-size: 18px;
+  font-size: 14px;
+  font-weight: bold;
+  color: $darkgrey;
 }
 
 .timeline-item-content p {
   margin: 10px 0;
+  font-size: 13px;
 }
 
 .timeline-item-date {
-  font-size: 14px;
-  color: #777;
+  font-size: 13px;
   margin-top: 5px;
+  color: $white;
 }
