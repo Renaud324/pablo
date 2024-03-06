@@ -24,46 +24,49 @@
 
 
 <%# // -------------TIMELINE--------------- // %>
-  <div>
-    <ul class="timeline container-timeline">
+  <div class="d-flex flex-column container-timeline">
+    <div class="d-flex align-items-center justify-content-center timeline" style="padding-bottom: 45px;">
+      <div style="width: 11%;"></div>
+      <div class="icone-sent my-1">
+      </div>
       <div class="white-line"></div>
-      <li class="timeline-item">
-        <div class="timeline-item-content">
-          <div class="bubble-white my-1"></div>
-          <h3>STEP 1</h3>
-          <p>Description de l'Step 1</p>
-          <span class="timeline-item-date"><%= @job_application.application_start_date %></span>
+      <div class="icone-interview my-1"></div>
+      <div class="white-line"></div>
+      <div class="icone-advanced my-1"></div>
+      <div class="white-line"></div>
+      <div class="icone-offer my-1"></div>
+      <div style="width: 11%;"></div>
+    </div>
+    <div class="d-flex align-items-center justify-content-center" style="margin-top: -40px;">
+        <div class="timeline-item">
+          <div class="timeline-item-content">
+            <h3>STEP 1</h3>
+            <h3><strong>Just applied</strong></h3>
+            <span class="timeline-item-date">01/01/2023</span>
+          </div>
         </div>
-      </li>
-      <div class="white-line"></div>
-      <li class="timeline-item">
-        <div class="timeline-item-content">
-          <div class="bubble-white my-1"></div>
-          <h3>Step 2</h3>
-          <p>Description de l'Step 2...</p>
-          <span class="timeline-item-date">05/03/2024</span>
+        <div class="timeline-item">
+          <div class="timeline-item-content">
+            <h3>STEP 2</h3>
+            <h3><strong>1st interview</strong></h3>
+            <span class="timeline-item-date">01/01/2023</span>
+          </div>
         </div>
-      </li>
-      <div class="white-line"></div>
-      <li class="timeline-item">
-        <div class="timeline-item-content">
-          <div class="bubble-white my-1"></div>
-          <h3>Step 3</h3>
-          <p>Description de l'Step 3...</p>
-          <span class="timeline-item-date">10/03/2024</span>
+        <div class="timeline-item">
+          <div class="timeline-item-content">
+            <h3>STEP 3</h3>
+            <h3><strong>Advanced process</strong></h3>
+            <span class="timeline-item-date">01/01/2023</span>
+          </div>
         </div>
-      </li>
-      <div class="white-line"></div>
-      <li class="timeline-item">
-        <div class="timeline-item-content">
-          <div class="bubble-white my-1"></div>
-          <h3>Step 4</h3>
-          <p>Description de l'Step 4...</p>
-          <span class="timeline-item-date">15/03/2024</span>
+        <div class="timeline-item">
+          <div class="timeline-item-content">
+            <h3>STEP 4</h3>
+            <h3><strong>Offer</strong></h3>
+            <span class="timeline-item-date">01/01/2023</span>
+          </div>
         </div>
-      </li>
-      <div class="white-line"></div>
-    </ul>
+    </div>
   </div>
 
 <%# // ------------------ COLONNE 1 ---------------- // %>
@@ -165,74 +168,7 @@
 
 
 
-<div class="container-background">
-  <div class="container-application">
-    <div class="d-flex">
-      <div class="p-2 w-100">
-        <h1>Job Journey</h1>
-        <h3><%= @job_application.job_title %></h3>
-      </div>
-      <div class="p-2 flex-shrink-0">
-        <div>
-          <p class="category-process">
-            <%= @job_application.status %>
-          </p>
-        </div>
-        <div class="d-flex">
-          <p class="m-3">
-            <i class="fa-solid fa-location-dot m-2"></i><%= @job_application.job_location %></p>
-          <p class="m-3">
-            <i class="fa-solid fa-sack-dollar m-2"></i><%= @job_application.salary %></p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<%# // -------------TIMELINE--------------- // %>
-<div>
-  <ul class="timeline container-timeline">
-    <li class="timeline-item">
-      <div class="timeline-item-content">
-        <div class="bubble-white my-1"></div>
-        <div class="white-line"></div>
-        <h3>STEP 1</h3>
-        <p>Description de l'étape 1</p>
-        <span class="timeline-item-date"><%= @job_application.application_start_date %></span>
-      </div>
-    </li>
-    <li class="timeline-item">
-      <div class="timeline-item-content">
-        <div class="bubble-white my-1"></div>
-        <div class="white-line"></div>
-        <h3>Step 2</h3>
-        <p>Description de l'étape 2...</p>
-        <span class="timeline-item-date">05/03/2024</span>
-      </div>
-    </li>
-    <li class="timeline-item">
-      <div class="timeline-item-content">
-        <div class="bubble-white my-1"></div>
-        <div class="white-line"></div>
-        <h3>Step 3</h3>
-        <p>Description de l'étape 3...</p>
-        <span class="timeline-item-date">10/03/2024</span>
-      </div>
-    </li>
-    <li class="timeline-item">
-      <div class="timeline-item-content">
-        <div class="bubble-white my-1"></div>
-        <h3>Step 4</h3>
-        <p>Description de l'étape 4...</p>
-        <span class="timeline-item-date">15/03/2024</span>
-      </div>
-    </li>
-  </ul>
-</div>
-
-
-
-<p><strong>Application Start Date:</strong> <%= @job_application.application_start_date %></p>
+<p><strong>Application Start Date:</strong> 01/01/2023</p>
 <p><strong>Offer Link:</strong> <%= @job_application.offer_link %></p>
 <p><strong>Status:</strong> <%= @job_application.status %></p>
 <p><strong>Job Location:</strong> <%= @job_application.job_location %></p>
