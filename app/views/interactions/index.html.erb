@@ -1,15 +1,5 @@
 <div class="container-calendar">
   <h1>Interactions</h1>
-  <ul>
-  <% @interactions.each do |interaction| %>
-    <li>
-      <span>
-        <%= interaction.headline %> - <%= interaction.event_date %>
-      </span>
-    </li>
-  <% end %>
-  </ul>
-
 
   <%= month_calendar(attribute: :event_date, events: @interactions) do |date, interactions| %>
     <div>
@@ -24,36 +14,45 @@
     </div>
   <% end %>
 
+<%# <i class="fa-solid fa-chevron-left"></i> %>
+
 
 <%# Assuming Rails automatically requires necessary libraries %>
 
 
-
-  <div class='upcoming'>
+<div class='upcoming'>
   <h1>Upcoming events</h1>
-    <div class="flexbox">
-      <% @interactions.each do |interaction| %>
-        <div class="container">
-          <div class="row">
-            <div class="col-3">
-              <div class="img-div">
-                <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-              </div>
-            </div>
-            <div class="col-6">
-              <h3><%= interaction.headline %></h3>
-              <p><%= interaction.event_date.strftime('%b %d, %A') %></p>
-            </div>
-            <div class="col-3">
-              <h3><%= interaction.event_time.strftime('%I:%M %p') %></h3>
-              <p><%= interaction.location %></p>
-              <%# <p><%= interaction.interaction_type %></p>
+  <div class="flexbox">
+    <% @interactions.each do |interaction| %>
+      <div class="container">
+        <div class="row">
+          <div class="col-2">
+            <div class="img-div">
+              <% if interaction.interaction_type == "phone" %>
+                <i class="fa-solid fa-phone"></i>
+              <% elsif interaction.interaction_type == "videocall" %>
+                <i class="fa-solid fa-video"></i>
+              <% elsif interaction.interaction_type == "f2f" %>
+                <i class="fa-solid fa-map-marker-alt"></i>
+              <% else %>
+                <i class="fa-solid fa-map-marker-alt"></i>
+              <% end %>
             </div>
           </div>
+          <div class="col-7">
+            <h3><%= interaction.headline %></h3>
+            <p><%= interaction.event_date.strftime('%b %d, %A') %></p>
+          </div>
+          <div class="col-3">
+            <h3><%= interaction.event_time.strftime('%I:%M %p') %></h3>
+            <p><%= interaction.location %></p>
+          </div>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
+</div>
+
 
 
 
