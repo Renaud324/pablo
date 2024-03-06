@@ -9,6 +9,8 @@
       <% interactions.each do |interaction| %>
         <div class="flexbox">
           <%= interaction.headline %>
+           <!-- TOCHANGE TODO -->
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Launch demo modal</button>
         </div>
       <% end %>
     </div>
@@ -54,31 +56,35 @@
 </div>
 
 
+<h1>Modal</h1>
 
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Launch demo modal</button>
 
-
-<!--
-<h1>Upcoming events</h1>
-  <div class="container">
-    <% @interactions.each do |interaction| %>
-      <div class="row">
-        <div class="card-product">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-          <div class="card-product-infos container">
-            <div class="col-8">
-              <h2><%= interaction.headline %></h2>
-              <p><%= interaction.event_date.strftime('%b %d, %A') %></p>
-            </div>
-            <div class="col-4">
-              <p><%= interaction.event_time.strftime('%I:%M %p') %></p>
-              <p><%= interaction.location %></p>
-              <%# <p><%= interaction.interaction_type %></p>
-            </div>
-        </div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-    <% end %>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
   </div>
--->
+</div>
+
+
+
+
+
+
 
 
 
