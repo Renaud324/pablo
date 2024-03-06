@@ -5,8 +5,7 @@ class GmailJob < ApplicationJob
   def perform(current_user)
 
     interactions = current_user.interactions
-
-
+    
     # Définir l'URL de l'API et le header d'autorisation
     url = 'https://gmail.googleapis.com/gmail/v1/users/me/messages'
     headers = { "Authorization" => "Bearer #{current_user.access_token}" }
