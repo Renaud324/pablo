@@ -21,6 +21,6 @@ Rails.application.routes.draw do
   get 'openai', to: 'openai#index'
   resources :job_applications do
     resources :interactions, only: [:index]
-    resources :tasks, only: [:index]
+    resources :tasks, only: %i[index new create]
   end
 end
