@@ -198,9 +198,40 @@ interaction2 = Interaction.create(
   job_application: job_application2
 )
 
+interaction3 = Interaction.create(
+  headline: 'On site interview',
+  event_date: Date.today + 3,
+  event_time: '14:00',
+  location: 'Paris',
+  interaction_type: 1,
+  user: user1,
+  job_application: job_application2
+)
+
+interaction3 = Interaction.create(
+  headline: 'Technical challenge',
+  event_date: Date.today + 15,
+  event_time: '14:00',
+  location: 'Paris',
+  interaction_type: 1,
+  user: user1,
+  job_application: job_application2
+)
+
+interaction4 = Interaction.create(
+  headline: 'Call with HR',
+  event_date: Date.today + 15,
+  event_time: '14:00',
+  location: 'Paris',
+  interaction_type: 1,
+  user: user1,
+  job_application: job_application2
+)
+
 # ########################-INTERACTIONS/CONACTS-###########################
 puts "linking interactions and contacts"
 InteractionContact.create(contact: contact1, interaction: interaction1)
 InteractionContact.create(contact: contact2, interaction: interaction2)
+InteractionContact.create(contact: contact2, interaction: interaction3)
 
 puts "finished seeding"

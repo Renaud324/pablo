@@ -1,4 +1,27 @@
-<h1>Interactions</h1>
-<% @interactions.each do |interaction| %>
-<%= interaction %>
-<% end %>
+<div class="container-calendar">
+  <h1>Interactions</h1>
+  <ul>
+  <% @interactions.each do |interaction| %>
+    <li>
+      <span>
+        <%= interaction.headline %> - <%= interaction.event_date %>
+      </span>
+    </li>
+  <% end %>
+  </ul>
+
+
+  <%= month_calendar(attribute: :event_date, events: @interactions) do |date, interactions| %>
+    <div>
+      <div class="<%= 'red-circle' if date == Date.today %>">
+        <%= date.day %>
+      </div>
+      <% interactions.each do |interaction| %>
+        <div class="flexbox">
+          <%= interaction.headline %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+</div>
