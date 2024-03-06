@@ -1,16 +1,181 @@
-<h1>Job Application Details</h1>
+<div class="container-background ">
+  <div class="container-application">
+    <div class="d-flex">
+      <div class="p-2 w-100">
+        <h1>Job Journey</h1>
+        <h3><%= @job_application.job_title %></h3>
+      </div>
+      <div class="p-2 flex-shrink-0">
+          <div>
+            <p class="category-process">
+              <%= @job_application.status %>
+            </p>
+          </div>
+          <div class="d-flex">
+            <p class="m-3">
+            <i class="fa-solid fa-location-dot m-2"></i><%= @job_application.job_location %></p>
+            <p class="m-3">
+            <i class="fa-solid fa-sack-dollar m-2"></i><%= @job_application.salary %></p>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
 
-<p><strong>Application Start Date:</strong> <%= @job_application.application_start_date %></p>
-<p><strong>Job Title:</strong> <%= @job_application.job_title %></p>
+
+<%# // -------------TIMELINE--------------- // %>
+  <div class="d-flex flex-column container-timeline">
+    <div class="d-flex align-items-center justify-content-center timeline" style="padding-bottom: 45px;">
+      <div style="width: 11%;"></div>
+      <div class="icone-sent my-1">
+      </div>
+      <div class="white-line"></div>
+      <div class="icone-interview my-1"></div>
+      <div class="white-line"></div>
+      <div class="icone-advanced my-1"></div>
+      <div class="white-line"></div>
+      <div class="icone-offer my-1"></div>
+      <div style="width: 11%;"></div>
+    </div>
+    <div class="d-flex align-items-center justify-content-center" style="margin-top: -40px;">
+        <div class="timeline-item">
+          <div class="timeline-item-content">
+            <h3>STEP 1</h3>
+            <h3><strong>Just applied</strong></h3>
+            <span class="timeline-item-date">01/01/2023</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-item-content">
+            <h3 class="border-active-process">STEP 2</h3>
+            <h3><strong>1st interview</strong></h3>
+            <span class="timeline-item-date">01/01/2023</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-item-content">
+            <h3>STEP 3</h3>
+            <h3><strong>Advanced process</strong></h3>
+            <span class="timeline-item-date">01/01/2023</span>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-item-content">
+            <h3>STEP 4</h3>
+            <h3><strong>Offer</strong></h3>
+            <span class="timeline-item-date">01/01/2023</span>
+          </div>
+        </div>
+    </div>
+  </div>
+
+<%# // ------------------ COLONNE 1 ---------------- // %>
+<div class="row">
+<div class="container-application col-md-9">
+<%# // ------------------ TABS ---------------- // %>
+  <div>
+    <ul class="list-inline tabs-underlined">
+      <li>
+        <i class="fa-solid fa-file-invoice"></i>
+        <a href="#" class="tab-underlined active">Job description</a>
+      </li>
+      <li>
+        <i class="fa-regular fa-comment-dots"></i>
+        <a href="#" class="tab-underlined">My past interactions</a>
+      </li>
+      <div class="d-flex justify-content-center">
+        <li>
+          <i class="fa-solid fa-pencil"></i>
+          <a href="#" class="tab-underlined">My notes</a>
+        </li>
+      </div>
+    </ul>
+  </div>
+<%# // ------------------ JOB DESCRIPTION ---------------- // %>
+  <div class="m-5" style="height: 300px;">
+    <p><%= @job_application.job_description %></p>
+  </div>
+<%# // ------------------ INTERACTIONS ---------------- // %>
+  <div class="m-5" style="height: 300px;">
+    <div>
+      <button name="button" type="submit" class="btn">
+        <i class="fa-solid fa-circle-plus btn-text"></i> Add an interaction
+      </button>
+      <div class="d-flex mb-3 card-task" style="align-items: center;">
+      <div class="icon-task p-3">
+        <i class="fa-solid fa-envelope"></i>
+      </div>
+        <div class="p-3">
+          <p class="padding-card card-task-title d-flex">Date - Contacts</p>
+          <p class="padding-card">Content</p>
+        </div>
+        </div>
+    </div>
+  </div>
+<%# // ------------------ NOTES ---------------- // %>
+  <div class="m-5" style="height: 300px;">
+    <div>
+      <button name="button" type="submit" class="btn">
+        <i class="fa-solid fa-circle-plus btn-text"></i> Add a note
+      </button>
+      <div class="d-flex mb-3 card-task" style="align-items: center;">
+      <div class="icon-task p-3">
+        <i class="fa-regular fa-note-sticky"></i>
+      </div>
+        <div class="p-3">
+          <p class="padding-card card-task-title d-flex">Title - Date</p>
+          <p class="padding-card">Content</p>
+        </div>
+        </div>
+    </div>
+  </div>
+
+  <%# // ------------------ COLONNE 2 ---------------- // %>
+  <div class="col-md-3">
+
+  <%# // ------------------ SOURCES ---------------- // %>
+  <div class="p-5 d-flex flex-row-reverse">
+      <div>
+        <p class="category-tag">
+        <i class="fa-solid fa-magnifying-glass-location"></i>
+          # <%= @job_application.application_source %>
+        </p>
+        <a class="category-tag">
+        <i class="fa-solid fa-paperclip"></i>
+        <%= @job_application.offer_link %>
+        </a>
+      </div>
+  </div>
+<%# // ------------------ Contacts ---------------- // %>
+  <div class="ms-5 me-5">
+    <div class="d-flex mb-3" style="align-items: center;">
+    <div class="p-3">
+      <img src="https://cdn-icons-png.flaticon.com/128/1177/1177568.png" alt="Avatar contact" class="contact-card-img">
+    </div>
+      <div class="p-3">
+        <p class="padding-card card-task-title d-flex">First Name - Name</p>
+        <p class="padding-card">Job Title</p>
+        <i class="fa-solid fa-phone contact-card-i"></i>
+        <i class="fa-solid fa-envelope contact-card-i"></i>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+<p><strong>Application Start Date:</strong> 01/01/2023</p>
 <p><strong>Offer Link:</strong> <%= @job_application.offer_link %></p>
 <p><strong>Status:</strong> <%= @job_application.status %></p>
 <p><strong>Job Location:</strong> <%= @job_application.job_location %></p>
 <p><strong>Notes:</strong> <%= @job_application.notes %></p>
-<p><strong>Job Description:</strong> <%= @job_application.job_description %></p>
-<p><strong>Salary:</strong> <%= @job_application.salary %></p>
 <p><strong>Application Source:</strong> <%= @job_application.application_source %></p>
-<p><strong>User ID:</strong> <%= @job_application.user_id %></p>
-<p><strong>Company ID:</strong> <%= @job_application.company_id %></p>
 
 <%= link_to 'Edit', edit_job_application_path(@job_application) %> |
 <%= link_to 'Back', job_applications_path %>
+
+</div>

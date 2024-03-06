@@ -1,14 +1,9 @@
-.contact-card {
-  background-color: #1C1C21;
-  color: $white;
-  width: 220px;
-  height: 63px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.contact-card-img {
+  width: 40px;
+  height: 40px;
 }
 
-.contact-card img{
-  width: 40px;
-  border-radius: 50%;
+.contact-card-i {
+  width: 16px !important;
+  height: 16px !important;
 }
