@@ -1,13 +1,3 @@
-.timeline {
-  display: flex;
-  align-items: center;
-  list-style: none;
-  padding: 0;
-  margin: 0; /* Réglage du margin pour annuler la marge précédente */ /* Correction de la déclaration de fond */
-  color: $black; /* Si $black est une variable Sass, assurez-vous qu'elle est correctement définie et utilisée */
-}
-
-
 .container-timeline {
   margin-left: 100px;
   margin-right: 100px;
@@ -17,6 +7,21 @@
   padding: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Boîte d'ombre légère */
   border-radius: 8px; /* Coins arrondis */
+}
+
+.border-active-process {
+  background-image: linear-gradient(to right, #9796f0, #fbc7d4);
+  font-weight: bolder;
+  padding: 5px; /* Police en gras pour attirer l'attention */
+}
+
+.timeline {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0; /* Réglage du margin pour annuler la marge précédente */ /* Correction de la déclaration de fond */
+  color: $black; /* Si $black est une variable Sass, assurez-vous qu'elle est correctement définie et utilisée */
 }
 
 
