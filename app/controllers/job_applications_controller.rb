@@ -10,8 +10,8 @@ class JobApplicationsController < ApplicationController
   end
 
    def refresh
-    EmailProcessorJob.perform_later(current_user.id)
-    redirect_to job_applications_path, notice: 'Refresh in progress. Please wait a moment for changes to reflect.'
+    GmailJob.perform_later(current_user)
+    # redirect_to job_applications_path, notice: 'Refresh in progress. Please wait a moment for changes to reflect.'
   end
 
   def show

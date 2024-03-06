@@ -1,36 +1,12 @@
-require 'google/apis/gmail_v1'
-
 class GmailJob < ApplicationJob
   queue_as :default
 
-  def perform(user_id)
+  def perform(current_user)
 
-    user = User.find(user_id)
+    p current_user
 
-    # Initialize the Gmail service
-    service = Google::Apis::GmailV1::GmailService.new
 
-    # Obtain a new access token with the refresh token
-    # if user.needs_refresh?
-    #   new_access_token = get_new_access_token(user.refresh_token)
-    #   user.update(access_token: new_access_token)
-    # end
-
-    # Assign the user's access token to the service
-    service.authorization = user.access_token
-
-    # Fetch emails with specific keywords
-    query = 'subject:job offer OR subject:application'
-
-    result = service.list_user_messages('me', q: query)
-
-    if result.messages
-      result.messages.each do |message|
-        puts message
-      end
-    else
-      puts "No messages found."
-    end
+    
   end
 
   private
@@ -61,3 +37,31 @@ class GmailJob < ApplicationJob
     nil
   end
 end
+
+
+# user = User.find(user_id)
+# 
+    # # Initialize the Gmail service
+    # service = Google::Apis::GmailV1::GmailService.new
+# 
+    # # Obtain a new access token with the refresh token
+    # # if user.needs_refresh?
+    # #   new_access_token = get_new_access_token(user.refresh_token)
+    # #   user.update(access_token: new_access_token)
+    # # end
+# 
+    # # Assign the user's access token to the service
+    # service.authorization = user.access_token
+# 
+    # # Fetch emails with specific keywords
+    # query = 'subject:job offer OR subject:application'
+# 
+    # result = service.list_user_messages('me', q: query)
+# 
+    # if result.messages
+    #   result.messages.each do |message|
+    #     puts message
+    #   end
+    # else
+    #   puts "No messages found."
+    # end
