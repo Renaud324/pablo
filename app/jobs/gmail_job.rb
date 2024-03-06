@@ -1,5 +1,7 @@
-class EmailProcessorJob
-  include Sidekiq::Job
+require 'google/apis/gmail_v1'
+
+class GmailJob < ApplicationJob
+  queue_as :default
 
   def perform(user_id)
 
@@ -9,10 +11,10 @@ class EmailProcessorJob
     service = Google::Apis::GmailV1::GmailService.new
 
     # Obtain a new access token with the refresh token
-    if user.needs_refresh?
-      new_access_token = get_new_access_token(user.refresh_token)
-      user.update(access_token: new_access_token)
-    end
+    # if user.needs_refresh?
+    #   new_access_token = get_new_access_token(user.refresh_token)
+    #   user.update(access_token: new_access_token)
+    # end
 
     # Assign the user's access token to the service
     service.authorization = user.access_token
@@ -29,17 +31,13 @@ class EmailProcessorJob
     else
       puts "No messages found."
     end
-
   end
 
   private
 
   def get_new_access_token(refresh_token)
   client_id = ENV['GOOGLE_OAUTH_CLIENT_ID']
-  client_secret = ENV['GOOGLE_OAUTH_CLIENT_SECRET']
-  additional_parameters = {
-    # Include any additional parameters required by the OAuth provider
-  }
+
   token_credential_uri = 'https://oauth2.googleapis.com/token'
 
   # Initialize the Signet OAuth2 client
@@ -48,7 +46,7 @@ class EmailProcessorJob
     client_id:            client_id,
     client_secret:        client_secret,
     refresh_token:        refresh_token,
-    grant_type:           'refresh_token',
+    grant_type:           refresh_token,
     additional_parameters: additional_parameters,
   )
 
@@ -62,5 +60,4 @@ class EmailProcessorJob
     puts "Failed to refresh access token: #{e.message}"
     nil
   end
-
 end

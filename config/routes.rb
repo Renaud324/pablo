@@ -1,3 +1,5 @@
+require "sidekiq/web"
+
 Rails.application.routes.draw do
   root 'pages#home'
 
@@ -16,6 +18,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   resources :companies
+
+
+  mount Sidekiq::Web => '/sidekiq'
 
   get 'openai', to: 'openai#index'
   resources :job_applications do
