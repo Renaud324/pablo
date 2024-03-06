@@ -1,50 +1,43 @@
-<div class="container ">
-
+<div class="container">
 <%# ------------- // BUTTON // ------- %>
-
-<div class="p-5 d-flex flex-row-reverse">
-  <button type="button" class="btn btn-task" data-bs-toggle="modal" data-bs-target="#newTaskModal">
-  <i class="fa-solid fa-circle-plus"></i> Add a task
-</button>
-</div>
-    <%= render 'shared/new_tasks', task: @task %>
-
-
+  <div class="pb-5 d-flex flex-row-reverse">
+    <button type="button" class="btn btn-task" data-bs-toggle="modal" data-bs-target="#newTaskModal">
+      <i class="fa-solid fa-circle-plus"></i> Add a task
+    </button>
+  </div>
+  <%= render 'shared/new_tasks', task: @task %>
 
 <%# ------------- // TASKS MESSAGE // ------- %>
-    <div class="ms-5 me-5 d-flex justify-content-between">
-      <p style="font-size: 20px; font-weight: bold;">Well done! You're almost done</p>
-      <p style="font-size: 20px; font-weight: bold;">3 steps to complete</p>
-    </div>
-
-  <%# <div class="line-between-divs"></div> %>
-
+  <div class="ms-5 me-5 d-flex justify-content-between">
+    <p style="font-size: 18px; font-weight: bold;">Well done! You're almost done</p>
+    <p style="font-size: 18px; font-weight: bold;">3 tasks to complete</p>
+  </div>
 <%# ------------- // PROGRESS BAR // ------- %>
   <div class="progress">
     <div class="progress-bar" style="width: 70%; font-weight: bold; font-size: 16px">70%</div>
   </div>
 
-
 <%# ------------- // TASKS CARDS // ------- %>
-<div class="ms-5 me-5">
-  <div class="d-flex flex-column mb-3 card-task">
-    <% if current_user.present? %>
-      <% @tasks.each do |task| %>
-        <div class="p-3 d-flex align-items-center">
-          <div class="icon-task me-3">
-            <i class="fa-solid fa-envelope"></i>
+  <div class="ms-5 me-5">
+    <div class="d-flex flex-column mb-3 card-task">
+      <% if current_user.present? %>
+        <% @tasks.each do |task| %>
+          <div class="d-flex align-items-center">
+            <div class="icon-task me-3">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div class="task-card" style="margin-bottom:0">
+              <p><strong><%= task.name %></strong></p>
+              <p style="margin-top: -15px; font-size: 14px;"><%= task.description %></p>
+            </div>
+            <div class="ms-auto p-2 custom-checkbox d-flex justify-content-center align-items-center">
+              <input type="checkbox" id="task_<%= task.id %>" name="task_<%= task.id %>" style="transform: scale(1.5);"/>
+            </div>
           </div>
-          <div class="task-card" style="margin-bottom:0">
-            <h5><%= task.name %></h5>
-            <p><%= task.description %></p>
-          </div>
-          <div class="ms-auto p-2 custom-checkbox d-flex justify-content-center align-items-center">
-            <input type="checkbox" id="task_<%= task.id %>" name="task_<%= task.id %>" style="transform: scale(1.5);"/>
-          </div>
-        </div>
+        <% end %>
+      <% else %>
+        <p>No tasks available.</p>
       <% end %>
-    <% else %>
-      <p>No tasks available.</p>
-    <% end %>
+    </div>
   </div>
 </div>
