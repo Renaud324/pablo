@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   # root "posts#index"
   resources :companies
   resources :tasks, only: %i[index create]
+  resources :job_applications
 
   get 'openai', to: 'openai#index'
   resources :job_applications do
