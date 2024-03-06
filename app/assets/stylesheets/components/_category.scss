@@ -21,8 +21,9 @@
   border-image: linear-gradient(to right, #9796f0, #fbc7d4) 1;
   font-weight: bold; /* Police en gras pour attirer l'attention */
   height: fit-content;
-  width: fit-content;
+  width: 100%;
   border-style: solid;
   border-width: 4px;
   padding: 10px;
+  background-color: $darkgrey;
 }

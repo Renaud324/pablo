@@ -32,3 +32,13 @@
   padding: 10px;
   border-radius: 16px;
 }
+
+.btn-text {
+  background-image: linear-gradient(to right, #9796f0, #fbc7d4);
+  color: #9796f0;
+  -webkit-background-clip: text; /* Pour les navigateurs basés sur WebKit */
+  background-clip: text; /* Définir le clip sur le texte */
+  color: transparent;
+  border: $white;
+  font-size: 16px;
+}

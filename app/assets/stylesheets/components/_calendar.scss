@@ -1,5 +1,99 @@
+.container-calendar {
+  width: 400px;
+}
+
+.upcoming {
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    margin-bottom: 32px;
+    font-size: 24px;
+  }
+
+  i {
+    position: relative;
+    width: 100%; /* Adjust as needed */
+    height: 100%; /* Ensure this is uncommented and set appropriately */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    overflow: hidden;
+  }
+
+  .img-div {
+    position: relative;
+    width: 100%; /* Adjust as needed */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    overflow: hidden;
+  }
+
+  .container {
+    margin-bottom: 4px;
+    overflow: hidden;
+  }
+
+  h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    white-space: nowrap; /* Prevents the text from wrapping to a new line */
+    overflow: hidden; /* Hides the overflow text */
+    text-overflow: ellipsis; /* Displays an ellipsis ('...') to indicate text has been cut off */
+    width: 100%; /* Adjust this as needed, could be a specific pixel value or percentage */
+  }
+
+  p {
+    font-size: 12px;
+    line-height: 1.4;
+    opacity: .7;
+    margin-bottom: 0;
+    margin-top: 8px;
+  }
+}
+
+
+
+
+
 .simple-calendar {
-  .day {}
+
+  a {
+    text-decoration: none;
+    color: $white;
+  }
+
+  th {
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid $grey;
+    text-align: center;
+    color: $grey;
+  }
+
+  table {
+    table-layout: fixed;
+    width: 100%;
+  }
+
+  td {
+    border-bottom-color: $grey;
+    border-top-color: $grey;
+    border-left-color: $grey;
+    border-right-color: $grey;
+  }
+
+  table {
+    border-top:none;
+    border-left: none;
+    border-right: none;
+  }
+
+  .day {
+    color: white;
+  }
 
   .wday-0 {}
   .wday-1 {}
@@ -9,15 +103,50 @@
   .wday-5 {}
   .wday-6 {}
 
-  .today {}
+  .today {
+    background-color: transparent
+  }
   .past {}
   .future {}
 
   .start-date {}
 
-  .prev-month {}
+  .prev-month {
+    color: $gray;
+    background-color: transparent
+  }
   .next-month { }
   .current-month {}
 
-  .has-events {}
+  .has-events {
+  }
+
+  tr {
+    color:blue;
+  }
+
+  .flexbox {
+    display: flex;
+    justify-content: space-evenly; // justify-content: space-between;
+    flex-direction: column;
+    background-color:$darkgrey;
+    border-radius: 4px;
+    padding: 2px;
+    margin-bottom: 4px;
+    margin-top: 4px;
+  }
+
+  .red-circle {
+    width: 20px; /* Adjust size as needed */
+    height: 20px; /* Adjust size as needed */
+    background-color: rgba(243, 58, 58, 0.708);
+    border-radius: 50%; /* Makes the div round */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+  }
+
+
 }
