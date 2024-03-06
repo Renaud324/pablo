@@ -17,4 +17,6 @@ class User < ApplicationRecord
        user.refresh_token = auth.credentials.refresh_token # refresh_token
     end
   end
+
+
 end

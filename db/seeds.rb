@@ -18,6 +18,15 @@ user1 = User.create!(
   last_name: 'Doe'
 )
 
+puts "seeding the admin user"
+user2 = User.create!(
+  email: 'admin@pablo.com',
+  password: 'admin123',
+  first_name: 'esteban',
+  last_name: 'the admin',
+  admin: true
+)
+
 company1 = Company.create!(
   name: 'Monday.com',
   company_link: 'https://www.monday.com'

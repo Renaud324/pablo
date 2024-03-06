@@ -17,6 +17,9 @@ gem "omniauth-rails_csrf_protection"
 # googleauth will help refresh the token for job.
 gem 'googleauth'
 
+# gemail google api 
+gem 'google-apis-gmail_v1', '~> 0.1'
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
@@ -46,7 +49,8 @@ gem "jbuilder"
 gem "redis", ">= 4.0.1"
 
 # sidekiq is used to run the Email processing job within app/jobs/email_processing.rb
-gem 'sidekiq'
+gem "sidekiq", "< 7"
+gem "sidekiq-failures", "~> 1.0"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
