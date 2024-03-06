@@ -3,10 +3,6 @@
     <%= link_to "#", class: "navbar-brand" do %>
       <%= image_tag "https://res.cloudinary.com/dkr1l2a2k/image/upload/v1709564584/Pablo_logo_1_af52g6.png" %>
     <% end %>
-   <% if current_user.present? %>
-    <p><%= current_user.access_token %></p>
-    <p><%= current_user.refresh_token %></p>
-   <% end %> 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
