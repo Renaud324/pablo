@@ -25,6 +25,7 @@
 <%# ------------- // TASKS CARDS // ------- %>
     <div class="ms-5 me-5">
       <div class="d-flex mb-3 card-task" style="align-items: center;">
+      <% if current_user.present? %>
       <div class="icon-task p-3">
         <i class="fa-solid fa-envelope"></i>
       </div>
@@ -36,6 +37,9 @@
               <p><%= task.description %></p>
             </div>
           <% end %>
+            <%else%>
+            <p></p>
+        <% end %>
         </div>
         <input class="ms-auto p-2 custom-checkbox" type="checkbox" id="scales" name="scales" />
       </div>
