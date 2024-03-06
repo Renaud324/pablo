@@ -1,11 +1,14 @@
 <div class="container ">
 
 <%# ------------- // BUTTON // ------- %>
-  <div class="p-5 d-flex flex-row-reverse">
-  <a href="chemin_vers_votre_page" class="btn btn-task">
-    <i class="fa-solid fa-circle-plus"></i> Add a task
-  </a>
-  </div>
+
+<div class="p-5 d-flex flex-row-reverse">
+  <button type="button" class="btn btn-task" data-bs-toggle="modal" data-bs-target="#newTaskModal">
+  <i class="fa-solid fa-circle-plus"></i> Add a task
+</button>
+</div>
+    <%= render 'shared/new_tasks', task: @task %>
+
 
 
 <%# ------------- // TASKS MESSAGE // ------- %>
@@ -23,25 +26,25 @@
 
 
 <%# ------------- // TASKS CARDS // ------- %>
-    <div class="ms-5 me-5">
-      <div class="d-flex mb-3 card-task" style="align-items: center;">
-      <% if current_user.present? %>
-      <div class="icon-task p-3">
-        <i class="fa-solid fa-envelope"></i>
-      </div>
-        <div class="p-3">
-        <div class="task-cards">
-          <% @tasks.each do |task| %>
-            <div class="task-card">
-              <h5><%= task.name %></h5>
-              <p><%= task.description %></p>
-            </div>
-          <% end %>
-            <%else%>
-            <p></p>
-        <% end %>
+<div class="ms-5 me-5">
+  <div class="d-flex flex-column mb-3 card-task">
+    <% if current_user.present? %>
+      <% @tasks.each do |task| %>
+        <div class="p-3 d-flex align-items-center">
+          <div class="icon-task me-3">
+            <i class="fa-solid fa-envelope"></i>
+          </div>
+          <div class="task-card" style="margin-bottom:0">
+            <h5><%= task.name %></h5>
+            <p><%= task.description %></p>
+          </div>
+          <div class="ms-auto p-2 custom-checkbox d-flex justify-content-center align-items-center">
+            <input type="checkbox" id="task_<%= task.id %>" name="task_<%= task.id %>" style="transform: scale(1.5);"/>
+          </div>
         </div>
-        <input class="ms-auto p-2 custom-checkbox" type="checkbox" id="scales" name="scales" />
-      </div>
-    </div>
+      <% end %>
+    <% else %>
+      <p>No tasks available.</p>
+    <% end %>
+  </div>
 </div>
