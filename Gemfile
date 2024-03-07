@@ -11,6 +11,7 @@ gem "simple_calendar"
 
 gem "uri"
 gem "json"
+gem "nokogiri"
 
 # Omniauth and Google OAuth2
 gem "omniauth"
