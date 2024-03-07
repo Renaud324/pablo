@@ -11,7 +11,9 @@
         <div class="modal-body">
           <%= simple_form_for(interaction) do |f| %>
             <%= f.input :headline %>
-            <%= f.input :event_date %>
+            <%= f.input :event_date,
+                      as: :string,
+                      input_html: { data: { controller: "datepicker" } } %>
             <%= f.input :event_time %>
             <%= f.input :location %>
             <%= f.input :interaction_type, collection: Interaction.interaction_types.keys.map { |type| [type.titleize, type] }, label: "Interaction Type", include_blank: false, prompt: "Select Interaction Type" %>
