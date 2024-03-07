@@ -9,9 +9,8 @@
       </div>
       <% interactions.each do |interaction| %>
         <div class="flexbox">
-          <%= interaction.headline %>
            <!-- TOCHANGE TODO -->
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal<%= interaction.id %>">Launch demo modal</button>
+          <button type="button" class="btn btn-primary button-modal" data-bs-toggle="modal" data-bs-target="#modal<%= interaction.id %>"><%= interaction.headline %></button>
 
           <!-- Modal -->
           <div class="modal fade" id="modal<%= interaction.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
