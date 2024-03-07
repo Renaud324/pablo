@@ -17,8 +17,15 @@
   <div class="menu-bar">
     <div class="menu-links">
       <li class="search-box">
-        <i data-action="click->sidebar#toggleMenu" class="alignement fa-solid fa-magnifying-glass gradient-text" style="margin-right: 10px;"></i>
-        <input type="search" placeholder="Enter a keyword..." class="search-input-no">
+        <%= form_with url: root_path, method: :get, class: "d-flex", data: { controller: "search-bar", action: "submit->search-bar#clearQuery" } do %>
+          <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Type a keyword",
+              data: {"search-bar-target": "query"}
+          %>
+          <%= submit_tag "Search", name: nil, class: "btn btn-primary" %>
+        <% end %>
       </li>
       <ul class="menu-links">
         <li class="nav-link">
