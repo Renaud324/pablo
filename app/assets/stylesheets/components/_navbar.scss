@@ -33,6 +33,13 @@
 
 .sidebar.close {
   width: 88px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: $darkgrey;
+  transition: width 0.25s ease;
+  font-size: medium;
   .toggle {
     transform: rotate(0deg);
   }
@@ -41,6 +48,9 @@
   }
   .search-input-no {
     display: none;
+  }
+  img {
+    margin-left: 10px;
   }
 }
 /* Reusable CSS */
