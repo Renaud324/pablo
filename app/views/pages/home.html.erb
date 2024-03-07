@@ -1,2 +1,18 @@
-<%= render "shared/tasks" %>
-<%= render "job_applications/pipeline" %>
+<%= render "shared/sidebar" %>
+
+<div class="container-application">
+  <div class="row">
+    <div class="col-md-3" style="background-color: #303030;">
+    <%# // -------- MESSAGE ACCUEIL ------------ // %>
+      <h2 class="mt-5 text-center">Upcoming events</h2>
+    </div>
+    <div class="col-md-9">
+    <%# // -------- TASKS ------------ // %>
+      <%= render "shared/tasks" %>
+    </div>
+  </div>
+    <%# // -------- PIPELINE ------------ // %>
+    <div>
+      <%= render "job_applications/pipeline" %>
+    </div>
+</div>
