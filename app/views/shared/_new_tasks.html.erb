@@ -3,8 +3,9 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="newTaskModalLabel">New Task</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close" onclick="closeModal()" aria-label="Close">
           <span aria-hidden="true">&times;</span>
+        </button>
         </button>
       </div>
       <div class="modal-body">
@@ -20,3 +21,19 @@
     </div>
   </div>
 </div>
+
+
+<script>
+      function closeModal() {
+        var modal = document.getElementById('newTaskModal');
+        if (modal) {
+            modal.classList.remove('show');
+            modal.setAttribute('aria-hidden', 'true');
+            modal.style.display = 'none';
+            var modalBackdrop = document.getElementsByClassName('modal-backdrop')[0];
+            if (modalBackdrop) {
+                modalBackdrop.remove();
+            }
+        }
+    }
+</script>
