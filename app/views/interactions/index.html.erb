@@ -1,18 +1,32 @@
 <div class="main-content">
+
 <div class="container-calendar">
-  <h1>Interactions</h1>
 
+
+
+  <h1>Events</h1>
+
+  <!-- Button to add a new interaction -->
+  <div class="pb-5 d-flex flex-row-reverse">
+    <button type="button" class="btn btn-task" data-bs-toggle="modal" data-bs-target="#newInteractionModal">
+      <i class="fa-solid fa-circle-plus"></i> Add an interaction
+    </button>
+  </div>
+
+  <!-- Modal to add a new interaction -->
+  <%= render 'interactions/new_interaction', interaction: @interaction %>
+
+
+  <!-- Create calendar -->
   <%= month_calendar(attribute: :event_date, events: @interactions) do |date, interactions| %>
-
     <div>
       <div class="<%= 'red-circle' if date == Date.today %>">
         <%= date.day %>
       </div>
       <% interactions.each do |interaction| %>
         <div class="flexbox">
-          <!-- Modal button -->
+          <!-- Modal button for each event -->
           <button type="button" class="btn btn-primary button-modal" data-bs-toggle="modal" data-bs-target="#modal<%= interaction.id %>"><%= interaction.headline %></button>
-
           <!-- Modal -->
           <div class="modal fade" id="modal<%= interaction.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -40,47 +54,7 @@
       <% end %>
     </div>
   <% end %>
-
 </div>
-<%# <i class="fa-solid fa-chevron-left"></i> %>
-
-
- <div class="pb-5 d-flex flex-row-reverse">
-    <button type="button" class="btn btn-task" data-bs-toggle="modal" data-bs-target="#newInteractionModal">
-      <i class="fa-solid fa-circle-plus"></i> Add an interaction
-    </button>
-  </div>
-
-
-<div class="modal fade" id="newInteractionModal">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="newInteractionModalLabel">New Interaction</h5>
-        <button type="button" class="close" onclick="closeModal()" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        </button>
-      </div>
-      <div class="modal-body">
-        <%= simple_form_for(@interaction) do |f| %>
-          <%= f.input :headline %>
-          <%= f.input :event_date %>
-          <%= f.input :event_time %>
-          <%= f.input :location %>
-          <%= f.input :interaction_type %>
-
-          <%= f.association :job_application,
-                            label: "Select Job Application",
-                            label_method: ->(e){ "#{e.job_title} - #{e.company.name}" } %>
-          <%= f.button :submit, class: 'btn-task' %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
-
-
 
 
 <script>
@@ -98,11 +72,7 @@
     }
 </script>
 
-
-
 <%# Assuming Rails automatically requires necessary libraries %>
-
-
 <div class='upcoming'>
   <h1>Upcoming events</h1>
   <div class="flexbox">
@@ -135,16 +105,6 @@
     <% end %>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
 
 
 
