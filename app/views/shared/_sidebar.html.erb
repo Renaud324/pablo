@@ -1,4 +1,4 @@
-<nav class="sidebar close" data-controller="sidebar">
+<nav class="sidebar" data-controller="sidebar">
   <header>
     <div class="image-text">
       <span class="image">
@@ -9,31 +9,32 @@
         <span class="name">Pablo</span>
       </div>
     </div>
-
-    <i class="fa-solid fa-angles-right toggle" data-action="click->sidebar#toggleMenu"></i>
+    <span class="toggle-wrapper">
+      <i class="fa-solid fa-angles-right toggle" data-action="click->sidebar#toggleMenu"></i>
+    </span>
   </header>
 
   <div class="menu-bar">
-    <div class="menu">
+    <div class="menu-links">
       <li class="search-box">
-        <i class="fa-solid fa-magnifying-glass" style="margin-right: 10px;"></i>
-        <input type="search" placeholder="Enter a keyword...">
+        <i data-action="click->sidebar#toggleMenu" class="alignement fa-solid fa-magnifying-glass gradient-text" style="margin-right: 10px;"></i>
+        <input type="search" placeholder="Enter a keyword..." class="search-input-no">
       </li>
       <ul class="menu-links">
         <li class="nav-link">
-          <a href="#">
+          <a href="/">
             <i class="fa-solid fa-house gradient-text" style="margin-right: 10px;"></i>
             <span class="text nav-text">Dashboard</span>
           </a>
         </li>
         <li class="nav-link">
-          <a href="#">
+          <a href="/interaction">
             <i class="fa-solid fa-calendar-days gradient-text" style="margin-right: 10px;"></i>
             <span class="text nav-text">Calendar</span>
           </a>
         </li>
         <li class="nav-link">
-          <a href="#">
+          <a href="/job_applications">
             <i class="fa-solid fa-briefcase gradient-text" style="margin-right: 10px;"></i>
             <span class="text nav-text">Job Applications</span>
           </a>
@@ -44,7 +45,7 @@
     <div class="bottom-content">
       <li class="">
         <a href="#">
-          <i class="fa-solid fa-right-from-bracket gradient-text" style="margin-right: 10px;"></i>
+          <i class="alignement fa-solid fa-right-from-bracket gradient-text" style="margin-right: 10px;"></i>
           <span class="text nav-text">Logout</span>
         </a>
       </li>

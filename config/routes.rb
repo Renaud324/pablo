@@ -18,10 +18,10 @@ Rails.application.routes.draw do
   resources :companies
   resources :tasks, only: %i[index create]
   resources :job_applications
+  resources :interactions, only: %i[index create]
 
   get 'openai', to: 'openai#index'
   resources :job_applications do
-    resources :interactions, only: [:index]
     resources :tasks, only: %i[index]
   end
 end
