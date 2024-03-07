@@ -8,7 +8,8 @@
       <div class="p-2 flex-shrink-0">
           <div>
             <p class="category-process">
-              <%= @job_application.status %>
+            <i class="fa-solid fa-building"></i>
+              Company name
             </p>
           </div>
           <div class="d-flex">
@@ -69,113 +70,111 @@
     </div>
   </div>
 
-<%# // ------------------ COLONNE 1 ---------------- // %>
-<div class="row">
-<div class="container-application col-md-9">
-<%# // ------------------ TABS ---------------- // %>
-  <div>
-    <ul class="list-inline tabs-underlined">
-      <li>
-        <i class="fa-solid fa-file-invoice"></i>
-        <a href="#" class="tab-underlined active">Job description</a>
-      </li>
-      <li>
-        <i class="fa-regular fa-comment-dots"></i>
-        <a href="#" class="tab-underlined">My past interactions</a>
-      </li>
-      <div class="d-flex justify-content-center">
-        <li>
-          <i class="fa-solid fa-pencil"></i>
-          <a href="#" class="tab-underlined">My notes</a>
-        </li>
+
+
+
+<%# // ----------------- COLONNES 💖 ------------- // %>
+
+    <div class="container-application">
+      <div class="row">
+        <div class="col-md-9">
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item tabs-underlined" role="presentation">
+              <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">
+                  <div>
+                  <i class="fa-solid fa-file-invoice"></i>
+                </div>
+                <div>
+                  <p class="tab-underlined">Job description</p>
+                </div>
+                </button>
+            </li>
+            <li class="nav-item tabs-underlined" role="presentation">
+              <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">
+              <div>
+                <i class="fa-regular fa-comment-dots"></i>
+              </div>
+              <div>
+                <p class="tab-underlined">My past interactions</p>
+              </div>
+              </button>
+            </li>
+            <li class="nav-item tabs-underlined" role="presentation">
+              <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">
+              <div>
+                <i class="fa-solid fa-pencil"></i>
+              </div>
+              <div>
+                <p class="tab-underlined">My notes</p>
+              </div>
+              </button>
+            </li>
+          </ul>
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <%= render "job_description" %>
+            </div>
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+              <%= render "interactions" %>
+            </div>
+            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+              <%= render "notes" %>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-3">
+          <div class="d-flex">
+            <div>
+              <p class="category-tag">
+              <i class="fa-solid fa-magnifying-glass-location"></i>
+                # <%= @job_application.application_source %>
+              </p>
+              <a class="category-tag">
+              <i class="fa-solid fa-paperclip"></i>
+              <%= @job_application.offer_link %>
+              </a>
+            </div>
+          </div>
+
+          <div class="mt-5">
+            <h4>Contact</h4>
+            <div class="d-flex mb-3" style="align-items: center;">
+            <div class="p-3">
+              <img src="https://cdn-icons-png.flaticon.com/128/1177/1177568.png" alt="Avatar contact" class="contact-card-img">
+            </div>
+              <div class="p-3">
+                <p class="padding-card card-task-title d-flex">First Name - Name</p>
+                <p class="padding-card">Job Title</p>
+                <i class="fa-solid fa-phone contact-card-i"></i>
+                <i class="fa-solid fa-envelope contact-card-i"></i>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </ul>
-  </div>
+    </div>
+
+
+
 <%# // ------------------ JOB DESCRIPTION ---------------- // %>
-  <div class="m-5" style="height: 300px;">
-    <p><%= @job_application.job_description %></p>
-  </div>
+
 <%# // ------------------ INTERACTIONS ---------------- // %>
-  <div class="m-5" style="height: 300px;">
-    <div>
-      <button name="button" type="submit" class="btn">
-        <i class="fa-solid fa-circle-plus btn-text"></i> Add an interaction
-      </button>
-      <div class="d-flex mb-3 card-task" style="align-items: center;">
-      <div class="icon-task p-3">
-        <i class="fa-solid fa-envelope"></i>
-      </div>
-        <div class="p-3">
-          <p class="padding-card card-task-title d-flex">Date - Contacts</p>
-          <p class="padding-card">Content</p>
-        </div>
-        </div>
-    </div>
-  </div>
+
 <%# // ------------------ NOTES ---------------- // %>
-  <div class="m-5" style="height: 300px;">
-    <div>
-      <button name="button" type="submit" class="btn">
-        <i class="fa-solid fa-circle-plus btn-text"></i> Add a note
-      </button>
-      <div class="d-flex mb-3 card-task" style="align-items: center;">
-      <div class="icon-task p-3">
-        <i class="fa-regular fa-note-sticky"></i>
-      </div>
-        <div class="p-3">
-          <p class="padding-card card-task-title d-flex">Title - Date</p>
-          <p class="padding-card">Content</p>
-        </div>
-        </div>
-    </div>
-  </div>
 
-  <%# // ------------------ COLONNE 2 ---------------- // %>
-  <div class="col-md-3">
 
-  <%# // ------------------ SOURCES ---------------- // %>
-  <div class="p-5 d-flex flex-row-reverse">
-      <div>
-        <p class="category-tag">
-        <i class="fa-solid fa-magnifying-glass-location"></i>
-          # <%= @job_application.application_source %>
-        </p>
-        <a class="category-tag">
-        <i class="fa-solid fa-paperclip"></i>
-        <%= @job_application.offer_link %>
-        </a>
-      </div>
-  </div>
-<%# // ------------------ Contacts ---------------- // %>
-  <div class="ms-5 me-5">
-    <div class="d-flex mb-3" style="align-items: center;">
-    <div class="p-3">
-      <img src="https://cdn-icons-png.flaticon.com/128/1177/1177568.png" alt="Avatar contact" class="contact-card-img">
-    </div>
-      <div class="p-3">
-        <p class="padding-card card-task-title d-flex">First Name - Name</p>
-        <p class="padding-card">Job Title</p>
-        <i class="fa-solid fa-phone contact-card-i"></i>
-        <i class="fa-solid fa-envelope contact-card-i"></i>
-      </div>
-    </div>
-  </div>
+
+<%# <div class="container"> %>
+<%# <p><strong>Application Start Date:</strong> 01/01/2023</p> %>
+<%# <p><strong>Offer Link:</strong> <%= @job_application.offer_link %>
+<%# <p><strong>Status:</strong> <%= @job_application.status %>
+<%# <p><strong>Job Location:</strong> <%= @job_application.job_location %>
+<%# <p><strong>Notes:</strong> <%= @job_application.notes %>
+<%# <p><strong>Application Source:</strong> <%= @job_application.application_source %>
+<%# <%= link_to 'Edit', edit_job_application_path(@job_application) %>
+<%# <%= link_to 'Back', job_applications_path %>
+<%#
 </div>
-</div>
-
-
-
-
-
-
-<p><strong>Application Start Date:</strong> 01/01/2023</p>
-<p><strong>Offer Link:</strong> <%= @job_application.offer_link %></p>
-<p><strong>Status:</strong> <%= @job_application.status %></p>
-<p><strong>Job Location:</strong> <%= @job_application.job_location %></p>
-<p><strong>Notes:</strong> <%= @job_application.notes %></p>
-<p><strong>Application Source:</strong> <%= @job_application.application_source %></p>
-
-<%= link_to 'Edit', edit_job_application_path(@job_application) %> |
-<%= link_to 'Back', job_applications_path %>
-
-</div>
+</div> %>
