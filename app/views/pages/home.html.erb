@@ -5,6 +5,7 @@
     <div class="col-md-3" style="background-color: #303030;">
     <%# // -------- MESSAGE ACCUEIL ------------ // %>
       <h2 class="mt-5 text-center">Upcoming events</h2>
+      <%= link_to 'Sign out', destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-primary" %>
     </div>
     <div class="col-md-9">
     <%# // -------- TASKS ------------ // %>
