@@ -16,19 +16,19 @@ class GmailJob < ApplicationJob
 
     puts "Response Code: #{response.code}"
       if response.success?
-        # 
         p "-----------------------------------------------------"
         p "BODY ->>>>>>>>>>>"
         messages = response["messages"]
         puts messages
         p "-----------------------------------------------------"
-
+      
         call_message = HTTParty.get(url_message_gmail + messages[3]["id"], headers: headers_message_gmail)
         puts "Response Body:"
-        email_data = call_message.parsed_response # Supposons que cela contient l'objet JSON de votre exemple
+        email_data = call_message.parsed_response
         html_part = email_data["payload"]["parts"].find { |part| part["mimeType"] == "text/html" }
         base64_data = html_part["body"]["data"] if html_part
-        puts base64_data
+        decoded_data = Base64.urlsafe_decode64(base64_data) if base64_data
+        puts decoded_data
       else
         puts "Error: #{response.message}"
     end
