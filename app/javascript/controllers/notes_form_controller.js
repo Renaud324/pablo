@@ -2,10 +2,17 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="notes-form"
 export default class extends Controller {
+  static targets = ["togglableElement"]
+
   connect() {
     console.log("suis dans notes JS controller");
   }
 
+
+  fire() {
+    this.togglableElementTarget.classList.toggle("d-none");
+  }
+  
   submit(event) {
     event.preventDefault(); // Prevent default form submission
     const form = event.target;
