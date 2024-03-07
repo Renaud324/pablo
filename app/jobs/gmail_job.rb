@@ -28,9 +28,37 @@ class GmailJob < ApplicationJob
         html_part = email_data["payload"]["parts"].find { |part| part["mimeType"] == "text/html" }
         base64_data = html_part["body"]["data"] if html_part
         decoded_data = Base64.urlsafe_decode64(base64_data) if base64_data
-        puts decoded_data
+        extract_data_from_email(decoded_data)
       else
         puts "Error: #{response.message}"
     end
   end
+
+
+  private 
+
+  def extract_data_from_email(email_data)
+    doc = Nokogiri::HTML(email_data)
+  
+    job_title_regex = /(\w+ \w+ developer) position at (\w+)/
+    location_regex = /Location: (\w+)/
+  
+    email_text = doc.text
+  
+    job_title_match = email_text.match(job_title_regex)
+    location_match = email_text.match(location_regex)
+  
+    job_title = job_title_match ? job_title_match[1] : "Unknown"
+    company_name = job_title_match ? job_title_match[2] : "Unknown"
+    job_location = location_match ? location_match[1] : "Unknown"
+  
+    email_content = {
+      job_title: job_title,
+      company_name: company_name,
+      job_location: job_location,
+      status: 'Just applied',
+    }
+  
+    puts email_content
+  end  
 end
