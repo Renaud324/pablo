@@ -1,4 +1,4 @@
-<nav class="sidebar close" data-controller="sidebar">
+<nav class="sidebar" data-controller="sidebar">
   <header>
     <div class="image-text">
       <span class="image">
@@ -9,15 +9,16 @@
         <span class="name">Pablo</span>
       </div>
     </div>
-
-    <i class="fa-solid fa-angles-right toggle" data-action="click->sidebar#toggleMenu"></i>
+    <span class="toggle-wrapper">
+      <i class="fa-solid fa-angles-right toggle" data-action="click->sidebar#toggleMenu"></i>
+    </span>
   </header>
 
   <div class="menu-bar">
-    <div class="menu">
+    <div class="menu-links">
       <li class="search-box">
-        <i class="fa-solid fa-magnifying-glass" style="margin-right: 10px;"></i>
-        <input type="search" placeholder="Enter a keyword...">
+        <i data-action="click->sidebar#toggleMenu" class="alignement fa-solid fa-magnifying-glass gradient-text" style="margin-right: 10px;"></i>
+        <input type="search" placeholder="Enter a keyword..." class="search-input-no">
       </li>
       <ul class="menu-links">
         <li class="nav-link">
