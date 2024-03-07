@@ -22,6 +22,15 @@
   transition: width 0.25s ease;
 }
 
+.main-content {
+  transition: margin-left 0.25s ease; /* Transition pour l'animation */
+  margin-left: 250px; /* Marge à gauche par défaut pour accommoder la sidebar */
+}
+
+.main-content.collapsed {
+  margin-left: 100px; /* Ajustement de la marge à gauche pour la sidebar réduite */
+}
+
 .sidebar.close {
   width: 88px;
   .toggle {

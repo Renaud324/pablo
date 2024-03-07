@@ -9,5 +9,11 @@ export default class extends Controller {
 
   toggleMenu() {
     this.element.classList.toggle("close");
+    this.adjustMainContent(); 
+  }
+
+  adjustMainContent() {
+    const mainContent = document.querySelector('.main-content');
+    mainContent.classList.toggle("collapsed");
   }
 }
