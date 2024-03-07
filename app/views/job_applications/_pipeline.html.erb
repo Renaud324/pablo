@@ -1,6 +1,6 @@
 
 <div class="container">
-  <div class="tabs-underlined" style="width:1000px">
+  <div class="tabs-underlined">
     <div class="column">
       <h4 class="tab-underlined active text-center">Just Applied</h4>
       <div class="column-content">
@@ -33,6 +33,16 @@
       <% end %>
     </div>
     </div>
+
+    <div class="column">
+      <h4 class="tab-underlined active text-center">Offer</h4>
+      <% @advanced_process_applications.each do |job_application| %>
+       <div class="column-content">
+        <%= link_to job_application_path(job_application), class: "text-decoration-none" do %>
+          <%= render 'job_card', job_application: job_application %>
+        <% end %>
+      <% end %>
+    </div>
+    </div>
   </div>
 </div>
-
