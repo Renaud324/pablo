@@ -44,11 +44,10 @@
 
     <div class="bottom-content">
       <li class="">
-        <a href="#">
+         <%= link_to destroy_user_session_path,  data: {turbo_method: :delete} do %>
           <i class="alignement fa-solid fa-right-from-bracket gradient-text" style="margin-right: 10px;"></i>
-          <span class="text nav-text">Logout</span>
-        </a>
-      </li>
+          <span class="text nav-text">Sign out</span>
+        <% end %>
       </li>
     </div>
   </div>
