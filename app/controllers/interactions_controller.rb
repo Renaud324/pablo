@@ -1,6 +1,7 @@
 class InteractionsController < ApplicationController
   def index
     @interactions = current_user.interactions
+    puts @interactions
     @interaction = Interaction.new
 
   end

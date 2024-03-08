@@ -1,15 +1,14 @@
-<div class="main-content">
+<div class="container-application main-content">
+  <div style="margin-left: 50px; margin-right: 50px;">
+  <%# // -------------------- EVENTS ----------------- // %>
+  <h2>My Calendar</h2>
 
-<div class="container-calendar">
-
-
-
-  <h1>Events</h1>
+  <div style="background-color: #262525 !important; border-radius: 16px;">
 
   <!-- Button to add a new interaction -->
-  <div class="pb-5 d-flex flex-row-reverse">
-    <button type="button" class="btn btn-task" data-bs-toggle="modal" data-bs-target="#newInteractionModal">
-      <i class="fa-solid fa-circle-plus"></i> Add an interaction
+  <div class="d-flex flex-row-reverse">
+    <button type="button" class="btn btn-task mb-2" data-bs-toggle="modal" data-bs-target="#newInteractionModal">
+      <i class="fa-regular fa-calendar-plus"></i> Add an event
     </button>
   </div>
 
@@ -26,12 +25,14 @@
       <% interactions.each do |interaction| %>
         <div class="flexbox">
           <!-- Modal button for each event -->
-          <button type="button" class="btn btn-primary button-modal" data-bs-toggle="modal" data-bs-target="#modal<%= interaction.id %>"><%= interaction.headline %></button>
+          <div style="background-color: #262525 !important;">
+            <button type="button" class="button-modal" data-bs-toggle="modal" data-bs-target="#modal<%= interaction.id %>"><%= interaction.headline %></button>
+          </div>
           <!-- Modal -->
           <div class="modal fade" id="modal<%= interaction.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-header">
+              <div class="modal-content modal-bg">
+                <div class="modal-header modal-border">
                   <h1 class="modal-title fs-5" id="exampleModalLabel"><%= interaction.headline %></h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -39,7 +40,7 @@
                   <div class="container">
                     <div class="row">
                       <div class="col-4">
-                        <i class="fa-solid fa-house"></i><p style="display: inline";>    Event type<p>
+                        <i class="fa-solid fa-thumbtack"></i><p style="display: inline";>    Event type<p>
                       </div>
                       <div class="col-8">
                         <p><%= interaction.interaction_type %></p>
@@ -84,8 +85,8 @@
 
 
                 </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <div class="modal-footer modal-border-top">
+                  <button type="button" class="btn btn-flat" data-bs-dismiss="modal">Close</button>
                   <%# <button type="button" class="btn btn-primary">Save changes</button> %>
                 </div>
               </div>
@@ -97,7 +98,7 @@
     </div>
   <% end %>
 </div>
-
+</div>
 
 <script>
       function closeModal() {
