@@ -1,4 +1,4 @@
-<div class="container" style="background-color: #262525; border-radius: 16px;">
+<div class="container" style="background-color: #262525; border-radius: 16px;" data-search-bar-target="tasks">
 
   <%= render 'shared/new_tasks', task: @task %>
 
@@ -18,7 +18,7 @@
   <div class="ms-5 me-5">
     <div class="d-flex flex-column mb-3 card-task">
       <% if current_user.present? %>
-        <% @tasks.each do |task| %>
+        <% tasks.each do |task| %>
           <div class="d-flex align-items-center">
             <div class="icon-task me-3">
               <i class="fa-solid fa-envelope"></i>

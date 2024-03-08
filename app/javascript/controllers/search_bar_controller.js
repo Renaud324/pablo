@@ -1,28 +1,20 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="search-bar"
 export default class extends Controller {
-  static targets = ["form", "input", "list"]
+  static targets = ["form", "input", "list", "tasks"]
 
   connect() {
-    console.log(
-      "connected to the search-bar controller"
-    );
   }
 
   search(event) {
-    // Prevent fetching when the input is empty
-    if (this.inputTarget.value.trim() === "") {
-      this.listTarget.innerHTML = ""; // Clear previous results or set to default state
-      return;
-    }
 
     const url = `${this.formTarget.action}?query=${encodeURIComponent(this.inputTarget.value)}`;
-    fetch(url, {headers: {"Accept": "text/plain"}})
-      .then(response => response.text())
+    fetch(url, { headers: { "Accept": "application/json" } })
+      .then(response => response.json())
       .then((data) => {
-        this.listTarget.outerHTML = data;
+        console.log(data.list_html)
+        this.tasksTarget.outerHTML = data.tasks_html;
+        this.listTarget.outerHTML = data.list_html;
       });
   }
-
 }

@@ -6,11 +6,13 @@
     </div>
     <div class="col-md-7">
     <%# // -------- TASKS ------------ // %>
-      <%= render "shared/tasks" %>
+      <%= render "shared/tasks", tasks: @tasks %>
     </div>
   </div>
     <%# // -------- PIPELINE ------------ // %>
-    <div>
-      <%= render "job_applications/pipeline" %>
-    </div>
+  <div>
+    <%= render "job_applications/pipeline", { just_applied_applications: @just_applied_applications, first_interview_applications: @first_interview_applications, advanced_process_applications: @advanced_process_applications, offer_process_applications: @offer_process_applications } %>
+  </div>
 </div>
+
+

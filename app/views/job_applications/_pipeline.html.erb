@@ -1,10 +1,10 @@
 
-<div class="container">
+<div class="container" data-search-bar-target="list">
   <div class="tabs-underlined">
     <div class="column">
       <h4 class="tab-underlined active text-center" style="font-size: 18px">Just Applied</h4>
-      <div class="column-content" data-search-bar-target="list">
-      <% @just_applied_applications.each do |job_application| %>
+      <div class="column-content">
+      <% just_applied_applications.each do |job_application| %>
         <%= link_to job_application_path(job_application), class: "text-decoration-none" do %>
           <%= render 'job_card', job_application: job_application %>
         <% end %>
@@ -12,10 +12,10 @@
     </div>
   </div>
 
-    <div class="column" data-search-bar-target="list">
+    <div class="column">
       <h4 class="tab-underlined active text-center" style="font-size: 18px">First Interview</h4>
         <div class="column-content">
-        <% @first_interview_applications.each do |job_application| %>
+        <% first_interview_applications.each do |job_application| %>
           <%= link_to job_application_path(job_application), class: "text-decoration-none" do %>
             <%= render 'job_card', job_application: job_application %>
           <% end %>
@@ -23,9 +23,9 @@
       </div>
     </div>
 
-    <div class="column" data-search-bar-target="list">
+    <div class="column">
       <h4 class="tab-underlined active text-center" style="font-size: 18px">Advanced</h4>
-      <% @advanced_process_applications.each do |job_application| %>
+      <% advanced_process_applications.each do |job_application| %>
        <div class="column-content">
         <%= link_to job_application_path(job_application), class: "text-decoration-none" do %>
           <%= render 'job_card', job_application: job_application %>
@@ -34,9 +34,9 @@
     </div>
     </div>
 
-    <div class="column" data-search-bar-target="list">
+    <div class="column">
       <h4 class="tab-underlined active text-center" style="font-size: 18px">Offer</h4>
-      <% @advanced_process_applications.each do |job_application| %>
+      <% offer_process_applications.each do |job_application| %>
        <div class="column-content">
         <%= link_to job_application_path(job_application), class: "text-decoration-none" do %>
           <%= render 'job_card', job_application: job_application %>
