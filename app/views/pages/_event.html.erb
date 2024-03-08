@@ -1,15 +1,15 @@
 <div class='upcoming'>
   <div class="flexbox">
     <% @interactions.each do |interaction| %>
-      <div class="container">
+      <div class="event-container"> <!-- Changez la classe container en event-container -->
         <div class="row">
           <div class="col-2">
             <div class="img-div">
-              <% if interaction.interaction_type == "phone" %>
+              <% if interaction.interaction_type == "Phonecall" %>
                 <i class="fa-solid fa-phone"></i>
-              <% elsif interaction.interaction_type == "videocall" %>
+              <% elsif interaction.interaction_type == "Videocall" %>
                 <i class="fa-solid fa-video"></i>
-              <% elsif interaction.interaction_type == "f2f" %>
+              <% elsif interaction.interaction_type == "Face-to-face" %>
                 <i class="fa-solid fa-map-marker-alt"></i>
               <% else %>
                 <i class="fa-solid fa-map-marker-alt"></i>
@@ -28,9 +28,4 @@
       </div>
     <% end %>
   </div>
-</div>
-
-
-
-</div>
 </div>
