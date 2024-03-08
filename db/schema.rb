@@ -87,6 +87,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_07_140122) do
     t.bigint "job_application_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email_id"
     t.index ["job_application_id"], name: "index_interactions_on_job_application_id"
     t.index ["user_id"], name: "index_interactions_on_user_id"
   end
@@ -138,6 +139,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_07_140122) do
     t.string "id_token"
     t.string "access_token"
     t.string "refresh_token"
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

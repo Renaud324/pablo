@@ -1,18 +1,18 @@
-
 <div class="container">
 <div style="margin-top: 12px;">
   <div class="tabs-underlined">
     <div class="column container-colored">
       <h4 class="tab-underlined active text-center" style="font-size: 18px">Just Applied</h4>
       <div class="column-content">
-      <% @just_applied_applications.each do |job_application| %>
-        <%= link_to job_application_path(job_application), class: "text-decoration-none" do %>
-          <%= render 'job_card', job_application: job_application %>
+        <% @just_applied_applications.each do |job_application| %>
+          <%= link_to job_application_path(job_application), class: "text-decoration-none" do %>
+            <%= render 'job_card', job_application: job_application %>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
+      <%= button_to 'Refresh Job Applications', refresh_job_applications_path, method: :post, class: "btn btn-primary" %>
     </div>
-  </div>
-
+    
     <div class="column container-colored">
       <h4 class="tab-underlined active text-center" style="font-size: 18px">First Interview</h4>
         <div class="column-content">
