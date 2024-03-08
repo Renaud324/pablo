@@ -6,6 +6,7 @@ class JobApplicationsController < ApplicationController
     @just_applied_applications = JobApplication.where(status: 'Just Applied')
     @first_interview_applications = JobApplication.where(status: 'First Interview')
     @advanced_process_applications = JobApplication.where(status: 'Advanced Process')
+    @offer_applications = JobApplication.where(status: 'Offer')
     @tasks = Task.where(job_application_id: params[:id])
   end
 

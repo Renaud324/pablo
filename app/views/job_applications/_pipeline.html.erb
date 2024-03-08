@@ -37,7 +37,7 @@
 
     <div class="column container-colored">
       <h4 class="tab-underlined active text-center" style="font-size: 18px">Offer</h4>
-      <% @advanced_process_applications.each do |job_application| %>
+      <% @offer_applications.each do |job_application| %>
        <div class="column-content">
         <%= link_to job_application_path(job_application), class: "text-decoration-none" do %>
           <%= render 'job_card', job_application: job_application %>
