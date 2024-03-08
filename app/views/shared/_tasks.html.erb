@@ -1,10 +1,10 @@
-<div class="container" style="background-color: #262525; border-radius: 16px;">
+<div class="container container-colored">
 
   <%= render 'shared/new_tasks', task: @task %>
 
 <%# ------------- // TASKS MESSAGE // ------- %>
   <div class="ms-5 me-5 d-flex justify-content-between">
-    <p style="font-size: 18px; font-weight: bold; padding: 10px;">Well done! You're almost done</p>
+    <h2 style="padding: 10px;">My to-do list</h2>
     <button type="button" class="btn btn-task" data-bs-toggle="modal" data-bs-target="#newTaskModal">
       <i class="fa-solid fa-circle-plus"></i> Add a task
     </button>
@@ -20,20 +20,20 @@
       <% if current_user.present? %>
         <% @tasks.each do |task| %>
           <div class="d-flex align-items-center">
-            <div class="icon-task me-3">
-              <i class="fa-solid fa-envelope"></i>
+            <div class="me-3 custom-checkbox">
+              <input type="checkbox" id="task_<%= task.id %>" name="task_<%= task.id %>" style="transform: scale(1.5);"/>
             </div>
+            <%# <div class="icon-task me-3">
+              <i class="fa-solid fa-envelope"></i>
+            </div> %>
             <div class="task-card" style="margin-bottom:0">
               <p><strong><%= task.name %></strong></p>
               <p style="margin-top: -15px; font-size: 14px;"><%= task.description %></p>
             </div>
-            <div class="ms-auto p-2 custom-checkbox d-flex justify-content-center align-items-center">
-              <input type="checkbox" id="task_<%= task.id %>" name="task_<%= task.id %>" style="transform: scale(1.5);"/>
-            </div>
           </div>
         <% end %>
       <% else %>
-        <p>No tasks available.</p>
+        <p>No task available.</p>
       <% end %>
     </div>
   </div>
