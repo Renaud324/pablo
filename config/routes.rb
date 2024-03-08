@@ -1,3 +1,5 @@
+require "sidekiq/web"
+
 Rails.application.routes.draw do
   root 'pages#home'
   get "search", to: "pages#search"
@@ -21,8 +23,16 @@ Rails.application.routes.draw do
   resources :job_applications
   resources :interactions, only: %i[index create]
 
+
+  mount Sidekiq::Web => '/sidekiq'
+
   get 'openai', to: 'openai#index'
   resources :job_applications do
+    resources :interactions, only: [:index]
+    resources :tasks, only: [:index]
+    collection do
+    post 'refresh'
+    end
     resources :tasks, only: %i[index]
   end
 end

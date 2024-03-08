@@ -6,8 +6,14 @@ class JobApplicationsController < ApplicationController
     @just_applied_applications = JobApplication.where(status: 'Just Applied')
     @first_interview_applications = JobApplication.where(status: 'First Interview')
     @advanced_process_applications = JobApplication.where(status: 'Advanced Process')
+    @offer_applications = JobApplication.where(status: 'Offer')
     @tasks = Task.where(job_application_id: params[:id])
   end
+
+   def refresh
+      GmailJob.perform_later(current_user)
+      redirect_to job_applications_path, notice: 'Refresh in progress. Please wait a moment for changes to reflect.'
+    end
 
   def show
   end
@@ -24,6 +30,7 @@ class JobApplicationsController < ApplicationController
     else
       render :new
     end
+
   end
 
   def edit

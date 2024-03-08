@@ -18,4 +18,9 @@ class User < ApplicationRecord
        user.refresh_token = auth.credentials.refresh_token
     end
   end
+
+  def update_access_token(auth)
+    self.access_token = auth.credentials.token
+    self.save
+  end
 end
