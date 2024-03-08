@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   resources :companies
   resources :tasks, only: %i[index create]
   resources :job_applications
-  resources :interactions, only: %i[index create]
+  resources :interactions, only: %i[index create destroy]
 
 
   mount Sidekiq::Web => '/sidekiq'
@@ -34,5 +34,6 @@ Rails.application.routes.draw do
     post 'refresh'
     end
     resources :tasks, only: %i[index]
+    resources :interactions
   end
 end

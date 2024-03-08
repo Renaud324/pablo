@@ -117,7 +117,7 @@
             <%= render "job_description" %>
             </div>
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-              <%= render "interactions" %>
+              <%= render "interactions", job_application: @job_application, interaction: @interaction %>
             </div>
             <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
               <%= render "notes", job_application: @job_application %>

@@ -4,13 +4,12 @@
         <div class="modal-header">
           <h5 class="modal-title" id="newInteractionModalLabel">New Interaction</h5>
           <button type="button" class="close" onclick="closeModal()" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-          </button>
+          <span aria-hidden="true">&times;</span>
+        </button>
         </div>
         <div class="modal-body">
           <%= simple_form_for(interaction) do |f| %>
-            <%= f.input :headline %>
+            <%= f.input :headline, label: "What's it about?" %>
             <%= f.input :event_date,
                       as: :string,
                       input_html: { data: { controller: "datepicker" } } %>
