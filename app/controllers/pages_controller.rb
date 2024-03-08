@@ -6,7 +6,7 @@ class PagesController < ApplicationController
     @just_applied_applications = @job_applications.where(status: 'Just Applied')
     @first_interview_applications = @job_applications.where(status: 'First Interview')
     @advanced_process_applications = @job_applications.where(status: 'Advanced Process')
-    @offer_process_applications = @job_applications.where(status: 'offer')
+    @offer_applications = @job_applications.where(status: 'offer')
     @task = Task.new
     @interactions = Interaction.where(user_id: current_user.id)
     
