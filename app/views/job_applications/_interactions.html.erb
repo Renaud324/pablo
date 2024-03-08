@@ -1,16 +1,69 @@
-  <div class="m-5" style="height: 300px;">
-    <div>
-      <button name="button" type="submit" class="btn">
-        <i class="fa-solid fa-circle-plus btn-text"></i> Add an interaction
-      </button>
-      <div class="d-flex mb-3 card-task" style="align-items: center;">
-      <div class="icon-task p-3">
-        <i class="fa-solid fa-envelope"></i>
+
+
+<div class="modal fade" id="newInteractionModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="newInteractionModalLabel">New Interaction</h5>
+        <button type="button" class="close" onclick="closeModal()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-        <div class="p-3">
-          <p class="padding-card card-task-title d-flex">Date - Contacts</p>
-          <p class="padding-card">Content</p>
-        </div>
+      <div class="modal-body" id="modal" data-controller="interaction" data-interaction-application-id-value="<%= job_application.id %>">
+        <%= render "interactions/form", job_application: job_application, interaction: interaction %>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <div class="m-5" style="height: 300px;">
+    <div>
+      <div class="pb-5 d-flex flex-row-reverse">
+        <button type="button" class="btn btn-task" data-bs-toggle="modal" data-bs-target="#newInteractionModal">
+          <i class="fa-solid fa-circle-plus"></i> Add an interaction
+        </button>
+      </div>
+      <div class="mb-3 card-task" style="align-items: center;">
+        <% if current_user.present? %>
+          <% @interactions.each do |interaction| %>
+            <div class="d-flex border mb-3">
+              <div class="icon-task p-3">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div class="p-3 flex-grow-1">
+                <p class="padding-card card-task-title d-flex"><%= interaction.headline %></p>
+                <p class="padding-card"><%= interaction.event_date %></p>
+              </div>
+              <%= link_to "Destroy", interaction_path(interaction), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+            </div>
+          <% end %>
+        <% else %>
+          <p>No interaction yet, keep pushing</p>
+        <% end %>
         </div>
     </div>
   </div>
+
+
+
+<script>
+  function closeModal() {
+    var modal = document.getElementById('newInteractionModal');
+    if (modal) {
+        modal.classList.remove('show');
+        modal.setAttribute('aria-hidden', 'true');
+        modal.style.display = 'none';
+        var modalBackdrop = document.getElementsByClassName('modal-backdrop')[0];
+        if (modalBackdrop) {
+            modalBackdrop.remove();
+        }
+    }
+}
+</script>
+
+
+
+      <%# <button name="button" type="submit" class="btn">
+        <i class="fa-solid fa-circle-plus btn-text"></i> Add an interaction
+      </button>
+       %>

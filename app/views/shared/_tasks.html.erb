@@ -1,5 +1,5 @@
-<div class="container container-colored">
 
+<div class="container container-colored" data-search-bar-target="tasks">
   <%= render 'shared/new_tasks', task: @task %>
 
 <%# ------------- // TASKS MESSAGE // ------- %>
@@ -11,14 +11,14 @@
   </div>
 <%# ------------- // PROGRESS BAR // ------- %>
   <div class="progress">
-    <div class="progress-bar" style="width: 70%; font-weight: bold; font-size: 12px text-align: center; padding-left: 394px; color: #745EF5;">70%</div>
+    <div class="progress-bar" style="width: 70%; font-weight: bold; font-size: 12px; padding-left: 50%; color: #745EF5;">70%</div>
   </div>
 
 <%# ------------- // TASKS CARDS // ------- %>
   <div class="ms-5 me-5">
     <div class="d-flex flex-column mb-3 card-task">
       <% if current_user.present? %>
-        <% @tasks.each do |task| %>
+        <% tasks.each do |task| %>
           <div class="d-flex align-items-center">
           <% p "TASK HERE", task %>
             <div class="me-3 custom-checkbox">

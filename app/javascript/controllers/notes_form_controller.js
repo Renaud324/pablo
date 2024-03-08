@@ -8,11 +8,10 @@ export default class extends Controller {
     console.log("suis dans notes JS controller");
   }
 
-
   fire() {
     this.togglableElementTarget.classList.toggle("d-none");
   }
-  
+
   submit(event) {
     event.preventDefault(); // Prevent default form submission
     const form = event.target;
