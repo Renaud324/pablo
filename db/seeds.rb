@@ -119,7 +119,7 @@ job_application5 = JobApplication.create!(
   application_start_date: Date.today - 5,
   job_title: 'Junior Dev',
   offer_link: 'https://jobs.example.com/pm',
-  status: 'Just Applied',
+  status: 'Offer',
   job_location: 'Madrid',
   notes: 'Awaiting response.',
   job_description: 'Lead product development teams.',
