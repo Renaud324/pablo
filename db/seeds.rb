@@ -73,6 +73,7 @@ job_application1 = JobApplication.create!(
   company: company1
 )
 
+
 job_application2 = JobApplication.create!(
   application_start_date: Date.today,
   job_title: 'Software Engineer',
@@ -133,13 +134,13 @@ job_application6 = JobApplication.create!(
   application_start_date: Date.today - 5,
   job_title: 'Fullstack Dev',
   offer_link: 'https://jobs.example.com/pm',
-  status: 'First Interview',
+  status: 'offer',
   job_location: 'London',
   notes: 'Awaiting response.',
   job_description: 'Lead product development teams.',
   salary: 60000,
   application_source: 'Linkedin',
-  user: user2,
+  user: user1,
   company: company1
 )
 

@@ -2,6 +2,7 @@ require "sidekiq/web"
 
 Rails.application.routes.draw do
   root 'pages#home'
+  get "search", to: "pages#search"
 
   devise_for :users, controllers: {
     registrations: 'users/registrations',

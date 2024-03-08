@@ -1,5 +1,5 @@
-<div class="container container-colored">
 
+<div class="container container-colored" data-search-bar-target="tasks">
   <%= render 'shared/new_tasks', task: @task %>
 
 <%# ------------- // TASKS MESSAGE // ------- %>
@@ -18,7 +18,7 @@
   <div class="ms-5 me-5">
     <div class="d-flex flex-column mb-3 card-task">
       <% if current_user.present? %>
-        <% @tasks.each do |task| %>
+        <% tasks.each do |task| %>
           <div class="d-flex align-items-center">
           <% p "TASK HERE", task %>
             <div class="me-3 custom-checkbox">
