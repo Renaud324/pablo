@@ -140,7 +140,7 @@ job_application6 = JobApplication.create!(
   job_description: 'Lead product development teams.',
   salary: 60000,
   application_source: 'Linkedin',
-  user: user2,
+  user: user1,
   company: company1
 )
 

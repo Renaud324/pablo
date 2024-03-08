@@ -28,7 +28,6 @@ class PagesController < ApplicationController
     @advanced_process_applications = @job_applications.where(status: 'Advanced Process')
     @offer_process_applications = @job_applications.where(status: 'offer')
 
-
     @tasks = Task.where(job_application_id: @job_applications.ids)
     @task = Task.new
   end
