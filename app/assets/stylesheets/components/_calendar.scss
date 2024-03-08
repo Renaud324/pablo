@@ -1,7 +1,7 @@
 .upcoming {
   display: flex;
   flex-direction: column;
-  padding-top: 33px;
+  padding-top: 25px;
 
   h1 {
     margin-bottom: 32px;
@@ -10,12 +10,11 @@
 
   i {
     position: relative;
-    width: 100%; /* Adjust as needed */
-    height: 100%; /* Ensure this is uncommented and set appropriately */
-    display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    overflow: hidden;
+    display: inline-block; /* Ajouter cette ligne pour que l'élément <i> occupe seulement l'espace nécessaire */
+    background-image: linear-gradient(to right, #9796f0, #fbc7d4); /* Dégradé de couleur */
+    -webkit-background-clip: text; /* Utilisation du dégradé comme clip pour le texte (pour les navigateurs WebKit) */
+    background-clip: text; /* Utilisation du dégradé comme clip pour le texte */
+    color: transparent; /* Rendre le texte transparent */
   }
 
   .img-div {
@@ -42,7 +41,7 @@
     line-height: 1.4;
     opacity: .7;
     margin-bottom: 0;
-    margin-top: 8px;
+    margin-top: 4px;
   }
 }
 
