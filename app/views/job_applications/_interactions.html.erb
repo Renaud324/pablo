@@ -1,28 +1,41 @@
-  <div class="pb-5 d-flex flex-row-reverse">
-    <button type="button" class="btn btn-task" data-bs-toggle="modal" data-bs-target="#newInteractionModal">
-      <i class="fa-solid fa-circle-plus"></i> Add an interaction
-    </button>
-  </div>
+<div class="pb-5 d-flex flex-row-reverse">
+  <button type="button" class="btn btn-task" data-bs-toggle="modal" data-bs-target="#newInteractionModal">
+    <i class="fa-solid fa-circle-plus"></i> Add an interaction
+  </button>
+</div>
 
-  <div class="modal fade" id="newInteractionModal">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="newInteractionModalLabel">New Interaction</h5>
-          <button type="button" class="close" onclick="closeModal()" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body" id="modal" data-controller="interaction" data-interaction-application-id-value="<%= job_application.id %>">
-          <%= render "interactions/form", job_application: job_application, interaction: interaction %>
-        </div>
+<div class="modal fade" id="newInteractionModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="newInteractionModalLabel">New Interaction</h5>
+        <button type="button" class="close" onclick="closeModal()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="modal" data-controller="interaction" data-interaction-application-id-value="<%= job_application.id %>">
+        <%= render "interactions/form", job_application: job_application, interaction: interaction %>
       </div>
     </div>
   </div>
+</div>
 
 
 
-
+<script>
+  function closeModal() {
+    var modal = document.getElementById('newInteractionModal');
+    if (modal) {
+        modal.classList.remove('show');
+        modal.setAttribute('aria-hidden', 'true');
+        modal.style.display = 'none';
+        var modalBackdrop = document.getElementsByClassName('modal-backdrop')[0];
+        if (modalBackdrop) {
+            modalBackdrop.remove();
+        }
+    }
+}
+</script>
 
 
 

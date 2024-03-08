@@ -1,5 +1,5 @@
 <%= simple_form_for [job_application, interaction], html: { data: { action: "submit->interaction#create", interaction_target: "form" } } do |f| %>
-  <%= f.input :headline %>
+  <%= f.input :headline, label: "What's it about?" %>
   <%= f.input :event_date,
             as: :string,
             input_html: { data: { controller: "datepicker" } } %>
@@ -9,5 +9,5 @@
   <%= f.association :job_application, selected: job_application,
                     label: "Select Job Application",
                     label_method: ->(e){ "#{e.job_title} - #{e.company.name}" } %>
-  <%= f.button :submit, class: 'btn-task' %>
+  <%= f.button :submit, class: 'btn-flat justify-content-center' %>
 <% end %>
