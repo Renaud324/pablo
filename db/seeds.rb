@@ -18,21 +18,11 @@ user1 = User.create!(
   last_name: 'Doe'
 )
 
-<<<<<<< HEAD
-puts "seeding the admin user"
-user2 = User.create!(
-  email: 'admin@pablo.com',
-  password: 'admin123',
-  first_name: 'esteban',
-  last_name: 'the admin',
-  admin: true
-=======
 user2 = User.create!(
   email: 'olele2@example.com',
   password: 'password',
   first_name: 'Patrick',
   last_name: 'Martin'
->>>>>>> master
 )
 
 company1 = Company.create!(
