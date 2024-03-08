@@ -1,8 +1,14 @@
 
 <div class="container-application main-content">
   <div class="ms-5">
-    <h2>My job applications</h2>
+    <div class="d-flex justify-content-between">
+      <h2>My job applications</h2>
+      <button type="button" class="btn btn-task" data-bs-toggle="modal" data-bs-target="#newTaskModal" style="margin-right: 105px;">
+        <i class="fa-solid fa-arrows-rotate"></i> Refresh
+      </button>
+    </div>
     <div class="mt-5">
+
       <%= render "job_applications/pipeline" %>
     </div>
 

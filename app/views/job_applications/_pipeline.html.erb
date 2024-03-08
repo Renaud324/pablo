@@ -1,6 +1,7 @@
 <div class="container">
+<div style="margin-top: 12px;">
   <div class="tabs-underlined">
-    <div class="column">
+    <div class="column container-colored">
       <h4 class="tab-underlined active text-center" style="font-size: 18px">Just Applied</h4>
       <div class="column-content">
         <% @just_applied_applications.each do |job_application| %>
@@ -11,7 +12,8 @@
       </div>
       <%= button_to 'Refresh Job Applications', refresh_job_applications_path, method: :post, class: "btn btn-primary" %>
     </div>
-    <div class="column">
+    
+    <div class="column container-colored">
       <h4 class="tab-underlined active text-center" style="font-size: 18px">First Interview</h4>
         <div class="column-content">
         <% @first_interview_applications.each do |job_application| %>
@@ -21,7 +23,8 @@
         <% end %>
       </div>
     </div>
-    <div class="column">
+
+    <div class="column container-colored">
       <h4 class="tab-underlined active text-center" style="font-size: 18px">Advanced</h4>
       <% @advanced_process_applications.each do |job_application| %>
        <div class="column-content">
@@ -32,7 +35,7 @@
     </div>
     </div>
 
-    <div class="column">
+    <div class="column container-colored">
       <h4 class="tab-underlined active text-center" style="font-size: 18px">Offer</h4>
       <% @advanced_process_applications.each do |job_application| %>
        <div class="column-content">
@@ -43,4 +46,5 @@
     </div>
     </div>
   </div>
+</div>
 </div>
