@@ -1,4 +1,6 @@
-<div class="container-background ">
+<div class="main-content">
+
+<div class="container-background">
   <div class="container-application">
     <div class="d-flex">
       <div class="p-2 w-100">
@@ -118,7 +120,7 @@
               <%= render "interactions" %>
             </div>
             <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-              <%= render "notes" %>
+              <%= render "notes", job_application: @job_application %>
             </div>
           </div>
         </div>
@@ -156,7 +158,7 @@
       </div>
     </div>
 
-
+</div>
 
 <%# // ------------------ JOB DESCRIPTION ---------------- // %>
 

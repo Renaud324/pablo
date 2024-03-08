@@ -18,6 +18,7 @@ user1 = User.create!(
   last_name: 'Doe'
 )
 
+<<<<<<< HEAD
 puts "seeding the admin user"
 user2 = User.create!(
   email: 'admin@pablo.com',
@@ -25,6 +26,13 @@ user2 = User.create!(
   first_name: 'esteban',
   last_name: 'the admin',
   admin: true
+=======
+user2 = User.create!(
+  email: 'olele2@example.com',
+  password: 'password',
+  first_name: 'Patrick',
+  last_name: 'Martin'
+>>>>>>> master
 )
 
 company1 = Company.create!(
@@ -141,7 +149,7 @@ job_application6 = JobApplication.create!(
   job_description: 'Lead product development teams.',
   salary: 60000,
   application_source: 'Linkedin',
-  user: user1,
+  user: user2,
   company: company1
 )
 
@@ -217,7 +225,7 @@ interaction3 = Interaction.create(
   job_application: job_application2
 )
 
-interaction3 = Interaction.create(
+interaction4 = Interaction.create(
   headline: 'On-site technical interview',
   event_date: Date.today + 15,
   event_time: '14:00',
@@ -227,7 +235,7 @@ interaction3 = Interaction.create(
   job_application: job_application2
 )
 
-interaction4 = Interaction.create(
+interaction5 = Interaction.create(
   headline: 'Call with HR',
   event_date: Date.today + 15,
   event_time: '14:00',
@@ -235,6 +243,16 @@ interaction4 = Interaction.create(
   interaction_type: 1,
   user: user1,
   job_application: job_application2
+)
+
+interaction6 = Interaction.create(
+  headline: 'Call with HR',
+  event_date: Date.today + 15,
+  event_time: '14:00',
+  location: '',
+  interaction_type: 1,
+  user: user2,
+  job_application: job_application6
 )
 
 # ########################-INTERACTIONS/CONACTS-###########################

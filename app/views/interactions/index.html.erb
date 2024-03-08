@@ -1,17 +1,32 @@
+<div class="main-content">
+
 <div class="container-calendar">
-  <h1>Interactions</h1>
 
+
+
+  <h1>Events</h1>
+
+  <!-- Button to add a new interaction -->
+  <div class="pb-5 d-flex flex-row-reverse">
+    <button type="button" class="btn btn-task" data-bs-toggle="modal" data-bs-target="#newInteractionModal">
+      <i class="fa-solid fa-circle-plus"></i> Add an interaction
+    </button>
+  </div>
+
+  <!-- Modal to add a new interaction -->
+  <%= render 'interactions/new_interaction', interaction: @interaction %>
+
+
+  <!-- Create calendar -->
   <%= month_calendar(attribute: :event_date, events: @interactions) do |date, interactions| %>
-
     <div>
       <div class="<%= 'red-circle' if date == Date.today %>">
         <%= date.day %>
       </div>
       <% interactions.each do |interaction| %>
         <div class="flexbox">
-           <!-- TOCHANGE TODO -->
+          <!-- Modal button for each event -->
           <button type="button" class="btn btn-primary button-modal" data-bs-toggle="modal" data-bs-target="#modal<%= interaction.id %>"><%= interaction.headline %></button>
-
           <!-- Modal -->
           <div class="modal fade" id="modal<%= interaction.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -21,31 +36,85 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <p><%= interaction.interaction_type %></p>
-                  <p><%= interaction.event_date %></p>
-                  <p><%= interaction.event_time %></p>
-                  <p><%= interaction.location %></p>
-                  <p><%= interaction.headline %></p>
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-4">
+                        <i class="fa-solid fa-house"></i><p style="display: inline";>    Event type<p>
+                      </div>
+                      <div class="col-8">
+                        <p><%= interaction.interaction_type %></p>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-4">
+                        <i class="fa-regular fa-calendar"></i><p style="display: inline";>    Event date<p>
+                      </div>
+                      <div class="col-8">
+                        <p><%= Date.parse(interaction.event_date.to_s).strftime("%B %d, %Y")  %><p>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-4">
+                        <i class="fa-regular fa-clock"></i><p style="display: inline";>    Event time<p>
+                      </div>
+                      <div class="col-8">
+                        <p><%= DateTime.parse(interaction.event_time.to_s).strftime("%l:%M %p").strip %><p>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-4">
+                        <i class="fa-solid fa-map-marker-alt"></i><p style="display: inline";>    Location<p>
+                      </div>
+                      <div class="col-8">
+                        <p><%= interaction.location %><p>
+                      </div>
+                    </div>
+
+
+
+
+
+
+                  </div>
+
+
+
+
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
+                  <%# <button type="button" class="btn btn-primary">Save changes</button> %>
                 </div>
               </div>
             </div>
           </div>
-
+        <!-- Modal end -->
         </div>
       <% end %>
     </div>
   <% end %>
+</div>
 
-<%# <i class="fa-solid fa-chevron-left"></i> %>
 
+<script>
+      function closeModal() {
+        var modal = document.getElementById('newInteractionModal');
+        if (modal) {
+            modal.classList.remove('show');
+            modal.setAttribute('aria-hidden', 'true');
+            modal.style.display = 'none';
+            var modalBackdrop = document.getElementsByClassName('modal-backdrop')[0];
+            if (modalBackdrop) {
+                modalBackdrop.remove();
+            }
+        }
+    }
+</script>
 
 <%# Assuming Rails automatically requires necessary libraries %>
-
-
 <div class='upcoming'>
   <h1>Upcoming events</h1>
   <div class="flexbox">
@@ -80,38 +149,6 @@
 </div>
 
 
-<h1>Modal</h1>
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Launch demo modal</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
 </div>

@@ -1,6 +1,6 @@
-  <div class="m-5" style="height: 300px;">
+  <div class="m-5" style="height: 300px;" data-controller="notes-form">
     <div>
-      <button name="button" type="submit" class="btn">
+      <%# <button name="button" type="submit" class="btn">
         <i class="fa-solid fa-circle-plus btn-text"></i> Add a note
       </button>
       <div class="d-flex mb-3 card-task" style="align-items: center;">
@@ -11,6 +11,22 @@
           <p class="padding-card card-task-title d-flex">Title - Date</p>
           <p class="padding-card">Content</p>
         </div>
+        </div> %>
+
+
+      <%= simple_format job_application.notes %>
+
+      <div>
+      <div>
+        <div class="mt-5 text-center">
+          <button data-action="click->notes-form#fire" class="btn-flat">Edit notes</button>
+          <div data-notes-form-target="togglableElement" class="d-none" style="width:100%">
+            <%= render "edit_notes", job_application: @job_application %>
+          </div>
         </div>
+      </div>
+    </div>
+
+
     </div>
   </div>

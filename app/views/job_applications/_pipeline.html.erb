@@ -1,7 +1,7 @@
 <div class="container">
-  <div class="tabs-underlined" style="width:1000px">
+  <div class="tabs-underlined">
     <div class="column">
-      <h4 class="tab-underlined active text-center">Just Applied</h4>
+      <h4 class="tab-underlined active text-center" style="font-size: 18px">Just Applied</h4>
       <div class="column-content">
         <% @just_applied_applications.each do |job_application| %>
           <%= link_to job_application_path(job_application), class: "text-decoration-none" do %>
@@ -12,8 +12,8 @@
       <%= button_to 'Refresh Job Applications', refresh_job_applications_path, method: :post, class: "btn btn-primary" %>
     </div>
     <div class="column">
-      <h4 class="tab-underlined active text-center">First Interview</h4>
-      <div class="column-content">
+      <h4 class="tab-underlined active text-center" style="font-size: 18px">First Interview</h4>
+        <div class="column-content">
         <% @first_interview_applications.each do |job_application| %>
           <%= link_to job_application_path(job_application), class: "text-decoration-none" do %>
             <%= render 'job_card', job_application: job_application %>
@@ -22,14 +22,25 @@
       </div>
     </div>
     <div class="column">
-      <h4 class="tab-underlined active text-center">Advanced Process</h4>
-      <div class="column-content">
-        <% @advanced_process_applications.each do |job_application| %>
-          <%= link_to job_application_path(job_application), class: "text-decoration-none" do %>
-            <%= render 'job_card', job_application: job_application %>
-          <% end %>
+      <h4 class="tab-underlined active text-center" style="font-size: 18px">Advanced</h4>
+      <% @advanced_process_applications.each do |job_application| %>
+       <div class="column-content">
+        <%= link_to job_application_path(job_application), class: "text-decoration-none" do %>
+          <%= render 'job_card', job_application: job_application %>
         <% end %>
-      </div>
+      <% end %>
+    </div>
+    </div>
+
+    <div class="column">
+      <h4 class="tab-underlined active text-center" style="font-size: 18px">Offer</h4>
+      <% @advanced_process_applications.each do |job_application| %>
+       <div class="column-content">
+        <%= link_to job_application_path(job_application), class: "text-decoration-none" do %>
+          <%= render 'job_card', job_application: job_application %>
+        <% end %>
+      <% end %>
+    </div>
     </div>
   </div>
 </div>

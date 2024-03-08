@@ -3,7 +3,6 @@ class GmailJob < ApplicationJob
   queue_as :default
 
   def perform(current_user)
-    p current_user
     url = 'https://gmail.googleapis.com/gmail/v1/users/me/messages'
     headers = { "Authorization" => "Bearer #{current_user.access_token}" }
 
@@ -21,7 +20,7 @@ class GmailJob < ApplicationJob
 
   private
 
-  def process_message(message, headers)
+  def process_message(message, headers, current_user)
     url_message_gmail = "https://gmail.googleapis.com/gmail/v1/users/me/messages/#{message["id"]}"
     call_message = HTTParty.get(url_message_gmail, headers: headers)
     if call_message.success?
@@ -61,7 +60,7 @@ class GmailJob < ApplicationJob
       offer_link: offer_link,
       job_location: job_location,
       salary: salary,
-      status: 'Just applied',
+      status: 'Just Applied',
     }
     
     puts email_content
@@ -80,6 +79,9 @@ class GmailJob < ApplicationJob
   end
 
   def create_job_application(job_details, current_user)
+    puts "JOB DETAILS IN CREATE_JOB_APPLICATION FUNCTION ->>>>"
+    puts job_details
+    company = find_or_create_company(job_details[:company_name])
     job_application = JobApplication.new(
       application_start_date: Time.current,
       job_title: job_details[:job_title],
@@ -88,7 +90,8 @@ class GmailJob < ApplicationJob
       job_location: job_details[:job_location],
       salary: job_details[:salary],
       application_source: 'Gmail', 
-      user_id: current_user.id
+      user_id: current_user.id,
+      company_id: company.id
     )
     if job_application.save
       job_application
@@ -97,16 +100,31 @@ class GmailJob < ApplicationJob
       nil
     end
   end
+
+  def find_or_create_company(company_name)
+    company = Company.find_by(name: company_name)
+    if company
+      company
+    else
+      company = Company.create(name: company_name)
+      if company.save
+        company
+      else
+        puts "Erreur lors de la création de l'entreprise"
+        nil
+      end
+    end
+  end
   
   def update_job_application(job_application_id, job_details)
-    job_application = JobApplication.find_by(id: job_application_id)
-    if job_application
-      job_application.update(
-        # update ici
-      )
-    else
-      puts "Application de travail non trouvée"
-    end
+    # job_application = JobApplication.find_by(id: job_application_id)
+    # if job_application
+    #   job_application.update(
+    #     # update ici
+    #   )
+    # else
+    #   puts "Application de travail non trouvée"
+    # end
   end
   
   def create_interaction(email_id, job_application_id, current_user)

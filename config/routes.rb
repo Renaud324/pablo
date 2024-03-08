@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: {
     registrations: 'users/registrations',
-    session: 'users/sessions',
+    sessions: 'users/sessions',
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
 
@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resources :companies
   resources :tasks, only: %i[index create]
   resources :job_applications
+  resources :interactions, only: %i[index create]
 
 
   mount Sidekiq::Web => '/sidekiq'
@@ -31,5 +32,6 @@ Rails.application.routes.draw do
     collection do
     post 'refresh'
     end
+    resources :tasks, only: %i[index]
   end
 end
