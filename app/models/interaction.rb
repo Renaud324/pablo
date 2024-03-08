@@ -5,4 +5,5 @@ class Interaction < ApplicationRecord
   has_many :interaction_contacts
   has_many :contacts, through: :interaction_contacts
 
+  validates :event_date, presence: true
 end

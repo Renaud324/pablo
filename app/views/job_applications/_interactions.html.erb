@@ -1,6 +1,32 @@
-  <div class="m-5" style="height: 300px;">
-    <div>
-      <button name="button" type="submit" class="btn">
+  <div class="pb-5 d-flex flex-row-reverse">
+    <button type="button" class="btn btn-task" data-bs-toggle="modal" data-bs-target="#newInteractionModal">
+      <i class="fa-solid fa-circle-plus"></i> Add an interaction
+    </button>
+  </div>
+
+  <div class="modal fade" id="newInteractionModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="newInteractionModalLabel">New Interaction</h5>
+          <button type="button" class="close" onclick="closeModal()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="modal" data-controller="interaction" data-interaction-application-id-value="<%= job_application.id %>">
+          <%= render "interactions/form", job_application: job_application, interaction: interaction %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+      <%# <button name="button" type="submit" class="btn">
         <i class="fa-solid fa-circle-plus btn-text"></i> Add an interaction
       </button>
       <div class="d-flex mb-3 card-task" style="align-items: center;">
@@ -11,6 +37,4 @@
           <p class="padding-card card-task-title d-flex">Date - Contacts</p>
           <p class="padding-card">Content</p>
         </div>
-        </div>
-    </div>
-  </div>
+        </div> %>

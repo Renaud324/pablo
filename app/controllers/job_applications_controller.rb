@@ -10,6 +10,7 @@ class JobApplicationsController < ApplicationController
   end
 
   def show
+    @interaction = Interaction.new
   end
 
   def new
