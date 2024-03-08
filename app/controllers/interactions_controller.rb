@@ -22,6 +22,13 @@ class InteractionsController < ApplicationController
     end
   end
 
+  def destroy
+    @interaction = Interaction.find(params[:id])
+    @interaction.destroy
+    # render json: { status: :ok }
+    redirect_to
+  end
+
   private
 
   def interaction_params

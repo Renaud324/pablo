@@ -11,6 +11,7 @@ class JobApplicationsController < ApplicationController
 
   def show
     @interaction = Interaction.new
+    @interactions = Interaction.where(job_application_id: params[:id])
   end
 
   def new
