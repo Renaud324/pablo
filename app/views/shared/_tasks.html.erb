@@ -15,7 +15,7 @@
   </div>
 
 <%# ------------- // TASKS CARDS // ------- %>
-  <div class="ms-5 me-5">
+  <div class="ms-5 me-5" style="max-height: 180px; overflow-y: scroll;">
     <div class="d-flex flex-column mb-3 card-task">
       <% if current_user.present? %>
         <% @tasks.each do |task| %>
