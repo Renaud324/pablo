@@ -1,10 +1,8 @@
 <div class="job-card">
   <h5 style="font-size: 16px"><%= job_application.job_title %></h5>
-  <div class="job-details">
     <p><i class="fa-solid fa-building" style="margin-right: 10px;"></i><%= job_application.company.name %></p>
     <p><i class="fa-solid fa-location-dot" style="margin-right: 10px"></i><%= job_application.job_location %></p>
     <button type="button" class="btn btn-task" data-bs-toggle="modal" data-bs-target="#newTaskModal">
         <i class="fa-solid fa-circle-arrow-right"></i> See details
     </button>
-  </div>
 </div>
