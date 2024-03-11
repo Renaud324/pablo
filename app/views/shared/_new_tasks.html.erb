@@ -1,7 +1,10 @@
 <div class="modal fade" id="newTaskModal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
+      <div>
+      </div>
       <div class="modal-header">
+        <img src="https://res.cloudinary.com/dkr1l2a2k/image/upload/v1710096907/Pablo_the_foxi_c36qx3.png" style="height: 200px;" alt="">
         <h5 class="modal-title" id="newTaskModalLabel">New Task</h5>
         <button type="button" class="close" onclick="closeModal()" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -15,7 +18,7 @@
           <%= f.association :job_application,
                             label: "Select Job Application",
                             label_method: ->(e){ "#{e.job_title} - #{e.company.name}" } %>
-          <%= f.button :submit, class: 'btn-task' %>
+          <%= f.button :submit, class: 'btn-flat' %>
         <% end %>
       </div>
     </div>
