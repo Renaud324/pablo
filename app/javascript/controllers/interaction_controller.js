@@ -2,12 +2,13 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="interaction"
 export default class extends Controller {
-  static targets = ['form']
+  static targets = ['form', 'calendar', 'applications', 'modal']
   static values = { id: Number }
 
   connect() {
     console.log('hello')
     console.log(this.idValue)
+    console.log(this.formTarget)
   }
 
   create(evt) {
@@ -21,11 +22,15 @@ export default class extends Controller {
     })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data)
-      console.log(data.html)
-      console.log(this.formTarget)
       if (data.status == 'ok') {
-        // close modal behavior
+        console.log(data.form)
+        if (data.page == "calendar") {
+          this.formTarget.outerHTML = data.form
+          this.calendarTarget.innerHTML = data.html
+        } else {
+          this.formTarget.outerHTML = data.form
+          this.applicationsTarget.innerHTML = data.html
+        }
         this.closeModal()
       } else {
         this.formTarget.innerHTML = data.html
@@ -34,12 +39,12 @@ export default class extends Controller {
   }
 
   closeModal() {
-    if (this.element) {
+    if (this.modalTarget) {
         document.querySelector('body').classList.remove('modal-open');
         document.querySelector('body').style.overflow = "auto";
-        this.element.classList.remove('show');
-        this.element.setAttribute('aria-hidden', 'true');
-        this.element.style.display = 'none';
+        this.modalTarget.classList.remove('show');
+        this.modalTarget.setAttribute('aria-hidden', 'true');
+        this.modalTarget.style.display = 'none';
         var modalBackdrop = document.getElementsByClassName('modal-backdrop')[0];
         if (modalBackdrop) {
             modalBackdrop.remove();

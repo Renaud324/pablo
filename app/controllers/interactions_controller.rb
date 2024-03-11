@@ -10,11 +10,20 @@ class InteractionsController < ApplicationController
       @interaction.job_application = JobApplication.find(params[:interaction][:job_application_id].to_i)
     end
     @interaction.user = current_user
-    # p request.referer
     if @interaction.save
-      render json: {
-        html: render_to_string(partial: "interactions/form", locals: { job_application: @interaction.job_application, interaction: @interaction }, formats: [:html])
-      }
+      @interactions = current_user.interactions
+      if URI(request.referer).path == "/interactions"
+        render json: {
+          html: render_to_string(partial: 'interactions/month_calendar', locals: { interactions: @interactions }, formats: [:html]),
+          page: :calendar,
+          status: :ok,
+          form: render_to_string(partial: "interactions/form", locals: { job_application: @interaction.job_application, interaction: Interaction.new }, formats: [:html]) }
+      else
+        @interaction = Interaction.new
+        render json: {
+          html: render_to_string(partial: 'job_applications/interactions', formats: [:html]),
+          status: :ok }
+      end
     else
       render json: {
         html: render_to_string(partial: "interactions/form", locals: { job_application: @interaction.job_application, interaction: @interaction }, formats: [:html])
