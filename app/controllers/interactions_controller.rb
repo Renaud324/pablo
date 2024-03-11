@@ -1,21 +1,15 @@
 class InteractionsController < ApplicationController
   def index
     @interactions = current_user.interactions
-    puts @interactions
     @interaction = Interaction.new
-
   end
 
   def create
-    # temp_params = interaction_params
-    # temp_params[:interaction_type] = temp_params[:interaction_type].to_i
-    # @interaction = Interaction.new(temp_params)
-
     @interaction = Interaction.new(interaction_params)
     @interaction.user = current_user
 
     if @interaction.save
-      render json: { status: :ok }
+      redirect_to interactions_path, notice: 'Event was successfully created.'
     else
       render json: {
         html: render_to_string(partial: "interactions/form", locals: { job_application: @interaction.job_application, interaction: @interaction }, formats: [:html])
