@@ -3,13 +3,13 @@ class PagesController < ApplicationController
     return unless current_user
     @job_applications = JobApplication.where(user_id: current_user.id)
     @tasks = Task.where(job_application_id: @job_applications.ids)
-    @just_applied_applications = @job_applications.where(status: 'Just Applied')
-    @first_interview_applications = @job_applications.where(status: 'First Interview')
-    @advanced_process_applications = @job_applications.where(status: 'Advanced Process')
-    @offer_applications = @job_applications.where(status: 'offer')
+    @just_applied_applications = JobApplication.where(status: :just_applied)
+    @first_interview_applications = JobApplication.where(status: :first_interview)
+    @advanced_process_applications = JobApplication.where(status: :advanced)
+    @offer_applications = JobApplication.where(status: :offer)
     @task = Task.new
     @interactions = Interaction.where(user_id: current_user.id)
-    
+
   end
 
   def search
@@ -26,10 +26,10 @@ class PagesController < ApplicationController
     end
 
 
-    @just_applied_applications = @job_applications.where(status: 'Just Applied')
-    @first_interview_applications = @job_applications.where(status: 'First Interview')
-    @advanced_process_applications = @job_applications.where(status: 'Advanced Process')
-    @offer_process_applications = @job_applications.where(status: 'offer')
+    @just_applied_applications = JobApplication.where(status: :just_applied)
+    @first_interview_applications = JobApplication.where(status: :first_interview)
+    @advanced_process_applications = JobApplication.where(status: :advanced)
+    @offer_applications = JobApplication.where(status: :offer)
     @tasks = Task.where(job_application_id: @job_applications.ids)
     @task = Task.new
     @interactions = Interaction.where(user_id: current_user.id)

@@ -3,10 +3,10 @@ class JobApplicationsController < ApplicationController
 
   def index
     @job_applications = JobApplication.all
-    @just_applied_applications = JobApplication.where(status: 'Just Applied')
-    @first_interview_applications = JobApplication.where(status: 'First Interview')
-    @advanced_process_applications = JobApplication.where(status: 'Advanced Process')
-    @offer_applications = JobApplication.where(status: 'Offer')
+    @just_applied_applications = JobApplication.where(status: :just_applied)
+    @first_interview_applications = JobApplication.where(status: :first_interview)
+    @advanced_process_applications = JobApplication.where(status: :advanced)
+    @offer_applications = JobApplication.where(status: :offer)
     @tasks = Task.where(job_application_id: params[:id])
   end
 
@@ -50,6 +50,7 @@ class JobApplicationsController < ApplicationController
   end
 
   def update_status
+    puts "Params: #{job_application_params.inspect}"
     if @job_application.update(job_application_params)
       redirect_to root_path, notice: 'Status was successfully updated.'
     else
