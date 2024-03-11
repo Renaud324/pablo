@@ -5,12 +5,6 @@
 
   <div style="background-color: #262525 !important; border-radius: 16px;">
 
-  <!-- Button to add a new event -->
-  <div class="d-flex flex-row-reverse">
-    <button type="button" class="btn btn-task mb-2" data-bs-toggle="modal" data-bs-target="#newInteractionModal">
-      <i class="fa-regular fa-calendar-plus"></i> Add an event
-    </button>
-  </div>
 
   <!-- Modal to add a new event -->
   <%= render 'interactions/new_interaction', interaction: @interaction %>
@@ -71,21 +65,10 @@
                         <p><%= interaction.location %><p>
                       </div>
                     </div>
-
-
-
-
-
-
                   </div>
-
-
-
-
                 </div>
                 <div class="modal-footer modal-border-top">
                   <button type="button" class="btn btn-flat" data-bs-dismiss="modal">Close</button>
-                  <%# <button type="button" class="btn btn-primary">Save changes</button> %>
                 </div>
               </div>
             </div>
