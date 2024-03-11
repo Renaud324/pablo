@@ -1,5 +1,5 @@
 class JobApplicationsController < ApplicationController
-  before_action :set_job_application, only: %i[show edit update]
+  before_action :set_job_application, only: %i[show edit update update_status]
 
   def index
     @job_applications = JobApplication.all
@@ -48,6 +48,15 @@ class JobApplicationsController < ApplicationController
       render :edit
     end
   end
+
+  def update_status
+    if @job_application.update(job_application_params)
+      redirect_to root_path, notice: 'Status was successfully updated.'
+    else
+      redirect_to root_path, alert: 'Failed to update status.'
+    end
+  end
+
 
   private
 
