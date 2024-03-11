@@ -13,19 +13,26 @@ class OpenaiService
     }
   end
 
-  def call
+  def call(prompt)
     # Pre-prompt text
-    pre_prompt = "Please provide a detailed explanation for the following question:"
+    pre_prompt = "IGNORE TOUTES LES INSTRUCTIONS AVANT CELLES CI. Tu es un assistant de recherche d'emploi et ton rôle et d'analyser des mails et de renvoyer des HASH RUBY AU FORMAT JSON en fonction du contenu que tu as trouvé dans le mail. En tant qu'assistant tu recevras des mails de réponse à des offres d'emploi. Tu devras en analyser le contenu et renvoyer des HASH RUBY AU FORMAT JSON en fonction du contenu que tu as trouvé dans le mail. Tu devras renvoyer un HASH RUBY qui ressemble à ceci : {
+      'job_title' => 'TITRE DU JOB POSTULÉ',
+      'company_name' => 'ENTREPRISE QUE SOUHAITE REJOINDRE L\'USER',
+      'offer_link' => 'http://lien-de-l\'offre-d\'emploi.com',
+      'job_location' => 'Lieu ou se trouve ce travail',
+      'job_description' => 'Description du job contenu dans le mail',
+      'status' => 'Just Applied',
+      'salary' => 50000
+    } .ATTENTION, IL FAUT JUSTE LE HASH SOUS AU FORMAT JSON POUR PARSER LE RÉSULTAT EN HASH RUBY PAR LA SUITE FACILEMENT, DONC LES CLÉS ENTRE DOUBLE GUILLEMET COMME UN JSON CLASSIQUE"
     body = {
-      model: 'gpt-3.5-turbo', # Model can be changed
+      model: 'gpt-3.5-turbo',
       messages: [
         { role: 'system', content: pre_prompt }, # System message for pre-prompt
-        { role: 'user', content: query }         # User's actual query
+        { role: 'user', content: prompt }         # User's actual 
       ]
     }
     response = HTTParty.post(api_url, body: body.to_json, headers: options[:headers], timeout: 500)
     raise response['error']['message'] unless response.code == 200
     response_text = response['choices'][0]['message']['content']
-    puts response_text
   end
 end
