@@ -25,8 +25,24 @@
   color: $white; /* Couleur du texte */
   height: fit-content;
   width: fit-content;
-  border-width: 1px;
-  padding: 10px;
+  padding: 8px;
+  border-image: linear-gradient(to right, #9796f0, #fbc7d4) 1;
+  border-radius: 16px;
+}
+
+.btn-add-task {
+  text-align: center;
+  color: $white; /* Couleur du texte */
+  height: fit-content;
+  width: fit-content;
+  padding: 4px;
+  background-image: linear-gradient(to right, #9796f0, #fbc7d4);
+  border-radius: 16px;
+}
+
+.btn-add-task:hover {
+  background-image: linear-gradient(to left, #9796f0, #fbc7d4);
+  font-weight: bolder;
 }
 
 .btn-text {

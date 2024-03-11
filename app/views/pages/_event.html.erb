@@ -1,8 +1,8 @@
-<div class='upcoming' style="max-height: 170px; overflow-y: scroll;">
+<div class='upcoming' style="max-height: 190px; overflow-y: scroll;">
   <div class="flexbox">
     <% @upcoming_interactions.each do |interaction| %>
       <div class="event-container"> <!-- Changez la classe container en event-container -->
-        <div class="row mb-3 ms-2">
+        <div class="row mb-1 ms-2 me-2 p-2 card-task-ui">
           <div class="col-2">
             <div class="img-div">
               <% if interaction.interaction_type == "Phonecall" %>
