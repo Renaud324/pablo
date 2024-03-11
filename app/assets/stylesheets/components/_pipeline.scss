@@ -7,28 +7,24 @@
 
 .column-content {
   display: flex;
-  flex-direction: column;
-  align-items: left;
 }
 
 .job-card {
   padding-left: 11px;
-  padding-top: 3px;
+  padding-top: 8px;
   padding-bottom: 0.5px;
   margin-bottom: 10px;
   color: $white; /* Couleur du texte */
   // border-image: linear-gradient(to right, #9796f0, #fbc7d4) 1;
   height: fit-content;
-  // border-style: solid;
-  // border-width: 1px;
-  // border-radius: 10px;
   margin-top: 15px;
-  border-left: 1px solid;
-  border-image: linear-gradient(to top, #9796f0, #fbc7d4) 1;
+  border: 1px solid;
+  // border-image: linear-gradient(to top, #9796f0, #fbc7d4) 1;
+  background-image: linear-gradient(to top, #9796f0, #fbc7d4);
+  border-radius: 8px;
   margin-left: 9px;
   cursor: pointer;
   font-size: 16px;
-  border-radius: 16px;
   margin-top: 12px;
   width: 100% !important;
 }
