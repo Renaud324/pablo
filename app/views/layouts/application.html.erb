@@ -12,7 +12,9 @@
   </head>
 
   <body data-controller="search-bar">
-    <%= render "shared/sidebar" %>
+    <% unless request.path.include?('/users/sign_in') || request.path.include?('/users/sign_up') %>
+      <%= render "shared/sidebar" %>
+    <% end %>    
     <%= render "shared/flashes" %>
     <%= yield %>
   </body>
