@@ -119,7 +119,10 @@
     color: $gray;
     background-color: transparent
   }
-  .next-month { }
+  .next-month {
+    color: $gray;
+    background-color: transparent
+  }
   .current-month {}
 
   .has-events {
