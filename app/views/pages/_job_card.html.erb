@@ -1,12 +1,13 @@
+
 <div class="job-card">
   <div class="d-flex justify-content-between me-2">
   <%= link_to job_application_path(job_application), class: "text-decoration-none" do %>
-    <h5 style="font-size: 16px"><%= job_application.job_title %></h5>
+    <h5 style="font-size: 16px; color: #555555;" ><%= job_application.job_title %></h5>
   <% end %>
 
-  <button type="button" class="btn btn-task" data-bs-toggle="modal" data-bs-target="#statusUpdateModal">
-    <i class="fa-solid fa-pen-to-square" style="color: #555555; font-size: 14px;"></i>
-  </button>
+    <button type="button" class="btn btn-task" data-bs-toggle="modal" data-bs-target="#updateStatusModal<%= job_application.id %>">
+      <i class="fa-solid fa-pen-to-square" style="color: #555555; font-size: 14px;"></i>
+    </button>
 
   </div>
   <div class="d-flex">

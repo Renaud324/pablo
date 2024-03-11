@@ -5,6 +5,7 @@
       <div class="column-content">
         <% @just_applied_applications.each do |job_application| %>
           <%= render 'job_card', job_application: job_application %>
+          <%= render 'shared/update_Job_application_status', job_application: job_application %>
         <% end %>
       </div>
     </div>
@@ -14,6 +15,7 @@
       <div class="column-content">
         <% @first_interview_applications.each do |job_application| %>
           <%= render 'job_card', job_application: job_application %>
+          <%= render 'shared/update_Job_application_status', job_application: job_application %>
         <% end %>
       </div>
     </div>
@@ -23,6 +25,7 @@
       <div class="column-content">
         <% @advanced_process_applications.each do |job_application| %>
           <%= render 'job_card', job_application: job_application %>
+          <%= render 'shared/update_Job_application_status', job_application: job_application %>
         <% end %>
       </div>
     </div>
@@ -32,6 +35,7 @@
       <div class="column-content">
         <% @offer_applications.each do |job_application| %>
           <%= render 'job_card', job_application: job_application %>
+          <%= render 'shared/update_Job_application_status', job_application: job_application %>
         <% end %>
       </div>
     </div>

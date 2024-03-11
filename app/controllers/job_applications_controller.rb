@@ -50,7 +50,6 @@ class JobApplicationsController < ApplicationController
   end
 
   def update_status
-    puts "Params: #{job_application_params.inspect}"
     if @job_application.update(job_application_params)
       redirect_to root_path, notice: 'Status was successfully updated.'
     else
