@@ -2,9 +2,9 @@
  <div class="container" data-search-bar-target="list">
     <div class="d-flex">
       <i class="fa-solid fa-trophy me-2"></i>
-      <h4 class="tab-underlined active" style="font-size: 16px">Offer</h4>
+      <h4 class="tab-underlined active" style="font-size: 16px">OFFER</h4>
     </div>
-    <div class="column-content d-flex">
+    <div class="column-content d-flex horizontal-scrolling">
       <% @offer_applications.each do |job_application| %>
         <%= render 'job_card', job_application: job_application %>
         <%= render 'shared/update_Job_application_status', job_application: job_application %>
@@ -13,10 +13,10 @@
 
     <div class="d-flex">
       <i class="fa-solid fa-gears me-2"></i>
-      <h4 class="tab-underlined active" style="font-size: 16px">Advanced</h4>
+      <h4 class="tab-underlined active" style="font-size: 16px">ADVANCED</h4>
     </div>
 
-    <div class="column-content d-flex">
+    <div class="column-content d-flex horizontal-scrolling">
       <% @advanced_process_applications.each do |job_application| %>
         <%= render 'job_card', job_application: job_application %>
         <%= render 'shared/update_Job_application_status', job_application: job_application %>
@@ -25,9 +25,9 @@
 
     <div class="d-flex">
       <i class="fa-solid fa-gears me-2"></i>
-      <h4 class="tab-underlined active" style="font-size: 16px">First Interview</h4>
+      <h4 class="tab-underlined active" style="font-size: 16px">FIRST INTERVIEW</h4>
     </div>
-    <div class="column-content d-flex">
+    <div class="column-content d-flex horizontal-scrolling">
       <% @first_interview_applications.each do |job_application| %>
         <%= render 'job_card', job_application: job_application %>
         <%= render 'shared/update_Job_application_status', job_application: job_application %>
@@ -36,9 +36,9 @@
 
     <div class="d-flex">
       <i class="fa-regular fa-paper-plane me-2"></i>
-      <h4 class="tab-underlined active" style="font-size: 16px">Just Applied</h4>
+      <h4 class="tab-underlined active" style="font-size: 16px">JUST APPLIED</h4>
     </div>
-    <div class="column-content d-flex">
+    <div class="column-content d-flex horizontal-scrolling">
       <% @just_applied_applications.each do |job_application| %>
         <%= render 'job_card', job_application: job_application %>
         <%= render 'shared/update_Job_application_status', job_application: job_application %>

@@ -11,6 +11,17 @@
   ;
 }
 
+.sideright {
+  position: fixed;
+  top: 0;
+  right: 25px;
+  height: 100%;
+  width: 350px;
+  padding: 10px 14px;
+  background: #262525;
+  transition: width 0.25s ease;
+  border-radius: 12px;
+}
 /* Sidebar */
 .sidebar {
   position: fixed;
@@ -166,12 +177,13 @@ header .image-text .header-text {
 }
 
 .sidebar li a:hover {
-  background: $black;
-  color: $white;
+  transform: scale(1.1); /* Agrandit l'élément */
+  color: $white; /* Change la couleur du texte en blanc */
 }
 
 .sidebar li a:hover .icon {
   color: $white;
+  transform: scale(1.1);
 }
 
 .sidebar .menu-bar {
