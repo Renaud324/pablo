@@ -29,6 +29,12 @@
   width: 100% !important;
 }
 
+.job-card:hover {
+  transform: translateY(-5px) rotate(2deg); /* Translation vers le haut et rotation légère */
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre au survol */
+  background-image: linear-gradient(to top, #fbc7d4, #9796f0); /* Changement de couleur de fond */
+}
+
 .job-details {
   display: none;
 }
