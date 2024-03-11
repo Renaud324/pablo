@@ -1,8 +1,8 @@
-<div class='upcoming'>
+<div class='upcoming' style="max-height: 170px; overflow-y: scroll;">
   <div class="flexbox">
-    <% @interactions.each do |interaction| %>
+    <% @upcoming_interactions.each do |interaction| %>
       <div class="event-container"> <!-- Changez la classe container en event-container -->
-        <div class="row">
+        <div class="row mb-3 ms-2">
           <div class="col-2">
             <div class="img-div">
               <% if interaction.interaction_type == "Phonecall" %>
@@ -16,11 +16,11 @@
               <% end %>
             </div>
           </div>
-          <div class="col-7">
+          <div class="col-6">
             <h3><%= interaction.headline %></h3>
             <p><%= interaction.event_date.strftime('%b %d, %A') %></p>
           </div>
-          <div class="col-3">
+          <div class="col-4">
             <h3><%= interaction.event_time.strftime('%I:%M %p') %></h3>
             <p><%= interaction.location %></p>
           </div>
@@ -29,4 +29,3 @@
     <% end %>
   </div>
 </div>
-

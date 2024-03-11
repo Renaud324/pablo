@@ -1,11 +1,10 @@
 
-<div class="container container-colored" data-search-bar-target="tasks">
+<div class="container" data-search-bar-target="tasks">
   <%= render 'shared/new_tasks', task: @task %>
 
 <%# ------------- // TASKS MESSAGE // ------- %>
   <div class="ms-5 me-5 d-flex justify-content-between">
-    <h3 style="padding: 10px;">My to-do list</h3>
-    <button type="button" class="btn btn-task mt-2" data-bs-toggle="modal" data-bs-target="#newTaskModal">
+    <button type="button" class="btn btn-task" data-bs-toggle="modal" data-bs-target="#newTaskModal">
       <i class="fa-solid fa-circle-plus"></i> <strong>Add a task</strong>
     </button>
   </div>
@@ -15,7 +14,7 @@
   </div>
 
 <%# ------------- // TASKS CARDS // ------- %>
-  <div class="ms-5 me-5">
+  <div class="ms-5 me-5" style="max-height: 180px; overflow-y: scroll;">
     <div class="d-flex flex-column mb-3 card-task">
       <% if current_user.present? %>
         <% @tasks.each do |task| %>
@@ -27,9 +26,9 @@
             <%# <div class="icon-task me-3">
               <i class="fa-solid fa-envelope"></i>
             </div> %>
-            <div class="task-card" style="margin-bottom:0">
-              <p><strong><%= task.name %></strong> - <span style="font-size: 14px; color: #9796f0;"><%= task.job_application.job_title %> @<%= task.job_application.company.name %></span></p>
-              <p style="margin-top: -15px; font-size: 14px;"><%= task.description %></p>
+            <div class="card-task" style="margin-bottom:0">
+              <p><%= task.name %> - <span style="color: #9796f0;"><%= task.job_application.job_title %> @<%= task.job_application.company.name %></span></p>
+              <p style="margin-top: -15px; font-size: 12px; color: #7E7E7E;"><%= task.description %></p>
             </div>
           </div>
         <% end %>

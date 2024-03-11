@@ -1,47 +1,39 @@
 <div class="container" data-search-bar-target="list">
-  <div style="margin-top: 12px;">
-    <div class="tabs-underlined">
-
-      <!-- Just Applied Section -->
-      <div class="column container-colored">
-        <h4 class="tab-underlined active text-center" style="font-size: 18px">Just Applied</h4>
-        <div class="column-content">
-          <% @just_applied_applications.each do |job_application| %>
-            <%= render 'job_card', job_application: job_application %>
-          <% end %>
-        </div>
+  <div>
+    <div>
+      <h4 class="tab-underlined active" style="font-size: 16px">Just Applied</h4>
+      <div class="column-content">
+        <% @just_applied_applications.each do |job_application| %>
+          <%= render 'job_card', job_application: job_application %>
+        <% end %>
       </div>
+    </div>
 
-      <!-- First Interview Section -->
-      <div class="column container-colored">
-        <h4 class="tab-underlined active text-center" style="font-size: 18px">First Interview</h4>
-        <div class="column-content">
-          <% @first_interview_applications.each do |job_application| %>
-            <%= render 'job_card', job_application: job_application %>
-          <% end %>
-        </div>
+    <div>
+      <h4 class="tab-underlined active" style="font-size: 16px">First Interview</h4>
+      <div class="column-content">
+        <% @first_interview_applications.each do |job_application| %>
+          <%= render 'job_card', job_application: job_application %>
+        <% end %>
       </div>
+    </div>
 
-      <!-- Advanced Section -->
-      <div class="column container-colored">
-        <h4 class="tab-underlined active text-center" style="font-size: 18px">Advanced</h4>
-        <div class="column-content">
-          <% @advanced_process_applications.each do |job_application| %>
-            <%= render 'job_card', job_application: job_application %>
-          <% end %>
-        </div>
+    <div>
+      <h4 class="tab-underlined active" style="font-size: 16px">Advanced</h4>
+      <div class="column-content">
+        <% @advanced_process_applications.each do |job_application| %>
+          <%= render 'job_card', job_application: job_application %>
+        <% end %>
       </div>
+    </div>
 
-      <!-- Offer Section -->
-      <div class="column container-colored">
-        <h4 class="tab-underlined active text-center" style="font-size: 18px">Offer</h4>
-        <div class="column-content">
-          <% @offer_applications.each do |job_application| %>
-            <%= render 'job_card', job_application: job_application %>
-          <% end %>
-        </div>
+    <div>
+      <h4 class="tab-underlined active" style="font-size: 16px">Offer</h4>
+      <div class="column-content">
+        <% @offer_applications.each do |job_application| %>
+          <%= render 'job_card', job_application: job_application %>
+        <% end %>
       </div>
-
     </div>
   </div>
 </div>

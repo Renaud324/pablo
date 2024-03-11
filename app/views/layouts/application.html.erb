@@ -5,14 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <link rel="shortcut icon" href="https://res.cloudinary.com/dkr1l2a2k/image/upload/v1709821014/EEEAFB_3_jpbhrw.png"/>
+    <link rel="shortcut icon" href="https://res.cloudinary.com/dkr1l2a2k/image/upload/v1710097304/EEEAFB_4_aupzcb.png"/>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <%= javascript_importmap_tags %>
   </head>
 
   <body data-controller="search-bar">
-    <%= render "shared/sidebar" %>
+    <% unless request.path.include?('/users/sign_in') || request.path.include?('/users/sign_up') %>
+      <%= render "shared/sidebar" %>
+    <% end %>    
     <%= render "shared/flashes" %>
     <%= yield %>
   </body>

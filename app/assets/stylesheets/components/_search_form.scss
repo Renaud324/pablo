@@ -12,9 +12,9 @@
   border-radius: 16px;
 }
 
-.search-form-control .form-control {
+.form-control {
   height: 3.5rem;
-  background-color: $darkgrey;
+  background-color: $darkgrey !important;
   border-radius: 16px;
   border-width: 1px;
   border-color: transparent;
@@ -26,4 +26,75 @@
   border-width: 1px !important;
   border-image-width: 1;
   box-shadow: none;
+}
+
+.search-list {
+  margin-top: 24px;
+  width: 70%;
+  background-color: #262525;
+  border-radius: 6px;
+  box-shadow: 0px 0px 20px 20px rgba(0, 0, 0, 0.1);
+}
+
+.search-card {
+  padding: 20px;
+  border-bottom: 0.5px solid #F1F1F1;
+  align-items: center;
+}
+
+.search-card-details {
+  font-size: 14px;
+  color: #7E7E7E;
+  margin-top: -15px;
+}
+
+
+.search-tag-task {
+  background-image: linear-gradient(to right, #9C97EE, #F8F7DE) !important;
+  color: $black;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  padding: 4px;
+  border-radius: 16px;
+}
+
+.search-tag-job {
+  background-image: linear-gradient(to right, #ffc3a0, #F8F7DE) !important;
+  color: $black;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  padding: 4px;
+  border-radius: 16px;
+}
+
+.search-tag-company {
+  background-image: linear-gradient(to right, #F8A1A9, #F8F7DE) !important;
+  color: $black;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  padding: 4px;
+  border-radius: 16px;
+}
+
+.search-tag-contact {
+  background-image: linear-gradient(to right, #14B8FC, #F8F7DE) !important;
+  color: $black;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  padding: 4px;
+  border-radius: 16px;
+}
+
+.search-tag-event {
+  background-image: linear-gradient(to right, #70B2D1, #3DE7BB) !important;
+  color: $black;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  padding: 4px;
+  border-radius: 16px;
 }

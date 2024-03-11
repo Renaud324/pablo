@@ -5,14 +5,8 @@
 
   <div style="background-color: #262525 !important; border-radius: 16px;">
 
-  <!-- Button to add a new interaction -->
-  <div class="d-flex flex-row-reverse">
-    <button type="button" class="btn btn-task mb-2" data-bs-toggle="modal" data-bs-target="#newInteractionModal">
-      <i class="fa-regular fa-calendar-plus"></i> Add an event
-    </button>
-  </div>
 
-  <!-- Modal to add a new interaction -->
+  <!-- Modal to add a new event -->
   <%= render 'interactions/new_interaction', interaction: @interaction %>
 
 
@@ -25,9 +19,7 @@
       <% interactions.each do |interaction| %>
         <div class="flexbox">
           <!-- Modal button for each event -->
-          <div style="background-color: #262525 !important;">
-            <button type="button" class="button-modal" data-bs-toggle="modal" data-bs-target="#modal<%= interaction.id %>"><%= interaction.headline %></button>
-          </div>
+          <button type="button" class="button-modal" data-bs-toggle="modal" data-bs-target="#modal<%= interaction.id %>"><%= interaction.headline %></button>
           <!-- Modal -->
           <div class="modal fade" id="modal<%= interaction.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -73,21 +65,10 @@
                         <p><%= interaction.location %><p>
                       </div>
                     </div>
-
-
-
-
-
-
                   </div>
-
-
-
-
                 </div>
                 <div class="modal-footer modal-border-top">
                   <button type="button" class="btn btn-flat" data-bs-dismiss="modal">Close</button>
-                  <%# <button type="button" class="btn btn-primary">Save changes</button> %>
                 </div>
               </div>
             </div>

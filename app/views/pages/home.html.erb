@@ -1,20 +1,77 @@
-<div class="container-application main-content">
+<%# <div class="container-application main-content">
   <div class="row justify-content-center ms-5 me-5">
     <div class="col-md-5 container-colored">
     <%# // -------- EVENTS ------------ // %>
-      <div>
-        <h3 class="mt-6 ms-2" style="padding: 10px;">My upcoming events</h3>
-        <%= render "pages/event" %>
+        <%# <div class="d-flex align-items-center text-align-center">
+          <h3 class="mt-6 ms-2" style="padding: 10px; margin-right: 13px;">Upcoming events</h3>
+          <img src="https://res.cloudinary.com/dkr1l2a2k/image/upload/v1710102865/EEEAFB_13_jy4njo.png" alt="" style="height: 160px; margin-top: -66px;">
+        </div>
+      <div> %>
+          <%# <%= render "pages/event" %>
+      <%# </div>
+    </div>
+    <div class="col-md-7"> %>
+    <%# // -------- TASKS ------------ // %>
+      <%# <%= render "shared/tasks" %>
+    <%# </div>
+  </div> %>
+    <%# // -------- PIPELINE ------------ // %>
+    <%# <div class="col-md-12 mt-3">
+
+        <h3 class="mt-6 ms-5" style="padding: 10px;">My job applications</h3> %>
+      <%# <%= render "job_applications/pipeline" %>
+    <%# </div>
+</div> %>
+
+
+
+<%# /// NEW TEST /// %>
+
+<div class="container-application main-content">
+  <div class="row justify-content-center ms-5 me-5">
+
+
+<%# // -------- PIPELINE ------------ // %>
+    <div class="col-md-8 mt-3 container-colored row justify-content-around">
+      <div class="col-md-3 square-column text-center">
+        <i class="fa-regular fa-paper-plane"></i>
+        <p><strong>Just Applied</strong></p>
+        <p class="gradient-text" style="font-weight: bold; font-size: 20px;">#total_application</p>
+        <p style="font-size: 14px; margin-top: -5px;">applications</p>
+      </div>
+      <div class="col-md-3 square-column text-center">
+        <i class="fa-regular fa-comments"></i>
+        <p><strong>1st interview</strong></p>
+        <p class="gradient-text" style="font-weight: bold; font-size: 20px;">#total_application</p>
+        <p style="font-size: 14px; margin-top: -5px;">applications</p>
+      </div>
+      <div class="col-md-3 square-column text-center">
+        <i class="fa-solid fa-gears"></i>
+        <p><strong>Advanced</strong></p>
+        <p class="gradient-text" style="font-weight: bold; font-size: 20px;">#total_application</p>
+        <p style="font-size: 14px; margin-top: -5px;">applications</p>
+      </div>
+      <div class="col-md-3 square-column text-center">
+        <i class="fa-solid fa-trophy"></i>
+        <p><strong>Offer</strong></p>
+        <p class="gradient-text" style="font-weight: bold; font-size: 20px;">#total_application</p>
+        <p style="font-size: 14px; margin-top: -5px;">applications</p>
+      </div>
+      <div class="mt-5">
+        <h4 class="mt-6" style="padding: 10px;">My applications</h4>
+        <%= render "job_applications/pipeline" %>
       </div>
     </div>
-    <div class="col-md-7">
-    <%# // -------- TASKS ------------ // %>
-      <%= render "shared/tasks" %>
+
+    <div class="col-md-4 container-colored">
+      <div>
+        <h4 class="mt-6" style="padding: 10px;">Upcoming events</h4>
+        <%= render "pages/event" %>
+      </div>
+      <div >
+        <h4 class="mt-6" style="padding: 10px;">My to-do list</h4>
+        <%= render "shared/tasks" %>
+      </div>
     </div>
   </div>
-    <%# // -------- PIPELINE ------------ // %>
-    <div class="col-md-12 mt-3">
-      <h3 class="mt-6 ms-5" style="padding: 10px;">My job applications</h3>
-      <%= render "job_applications/pipeline" %>
-    </div>
 </div>

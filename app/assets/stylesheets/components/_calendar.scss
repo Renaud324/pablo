@@ -1,7 +1,6 @@
 .upcoming {
   display: flex;
   flex-direction: column;
-  padding-top: 25px;
 
   h1 {
     margin-bottom: 32px;
@@ -27,8 +26,7 @@
   }
 
   h3 {
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 14px;
     margin: 0;
     white-space: nowrap; /* Prevents the text from wrapping to a new line */
     overflow: hidden; /* Hides the overflow text */
@@ -121,7 +119,10 @@
     color: $gray;
     background-color: transparent
   }
-  .next-month { }
+  .next-month {
+    color: $gray;
+    background-color: transparent
+  }
   .current-month {}
 
   .has-events {
@@ -180,4 +181,17 @@
   color: transparent;
   border: $white;
   font-size: 16px;
+}
+
+
+#newInteractionModal {
+  .btn-task {
+    transition: background 0.5s ease; /* does not work */
+    border: $white solid 1px;
+    font-weight: bold; /* This makes the text bold */
+  }
+  .btn-task:hover {
+    background-image: linear-gradient(to right, #9796f0, #fbc7d4);
+    color: $white;
+  }
 }
