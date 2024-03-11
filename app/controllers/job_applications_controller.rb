@@ -1,12 +1,12 @@
 class JobApplicationsController < ApplicationController
-  before_action :set_job_application, only: %i[show edit update]
+  before_action :set_job_application, only: %i[show edit update update_status]
 
   def index
     @job_applications = JobApplication.all
-    @just_applied_applications = JobApplication.where(status: 'Just Applied')
-    @first_interview_applications = JobApplication.where(status: 'First Interview')
-    @advanced_process_applications = JobApplication.where(status: 'Advanced Process')
-    @offer_applications = JobApplication.where(status: 'Offer')
+    @just_applied_applications = JobApplication.where(status: :just_applied)
+    @first_interview_applications = JobApplication.where(status: :first_interview)
+    @advanced_process_applications = JobApplication.where(status: :advanced)
+    @offer_applications = JobApplication.where(status: :offer)
     @tasks = Task.where(job_application_id: params[:id])
   end
 
@@ -48,6 +48,15 @@ class JobApplicationsController < ApplicationController
       render :edit
     end
   end
+
+  def update_status
+    if @job_application.update(job_application_params)
+      redirect_to root_path, notice: 'Status was successfully updated.'
+    else
+      redirect_to root_path, alert: 'Failed to update status.'
+    end
+  end
+
 
   private
 
