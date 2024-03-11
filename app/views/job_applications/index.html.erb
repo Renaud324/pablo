@@ -4,14 +4,11 @@
     <div class="d-flex justify-content-between">
       <h2>My job applications</h2>
       <%= link_to refresh_job_applications_path, data: { turbo_method: :post }, class: "btn btn-task", style: "margin-right: 105px;" do %>
-  <i class="fa-solid fa-arrows-rotate"></i> Refresh
-<% end %>
-
+        <i class="fa-solid fa-arrows-rotate"></i> Refresh
+      <% end %>
     </div>
     <div class="mt-5">
-
       <%= render "job_applications/pipeline" %>
     </div>
-
   </div>
 </div>
