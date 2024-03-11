@@ -1,5 +1,17 @@
 <div class="job-card">
-  <h5 style="font-size: 16px"><%= job_application.job_title %></h5>
-  <p><i class="fa-solid fa-building" style="margin-right: 10px" ></i><%= job_application.company.name %></p>
+  <h5 style="font-size: 16px">
+    <%= link_to job_application_path(job_application), class: "text-decoration-none" do %>
+      <%= job_application.job_title %>
+    <% end %>
+  </h5>
+  <p><i class="fa-solid fa-building" style="margin-right: 10px"></i><%= job_application.company.name %></p>
   <p><i class="fa-solid fa-location-dot" style="margin-right: 10px"></i><%= job_application.job_location %></p>
+
+  <%= form_with(model: job_application, url: update_status_job_application_path(job_application) , local: true) do |form| %>
+    <div class="form-group">
+      <%= form.label :status, 'Update Status', class: 'form-label' %>
+      <%= form.select :status, JobApplication.statuses.map { |key, value| [key.humanize, key] }, {}, { class: 'form-control custom-select' } %>
+    </div>
+    <%= form.submit "Update Status", class: "btn btn-primary" %>
+  <% end %>
 </div>
