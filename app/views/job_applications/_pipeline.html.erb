@@ -1,48 +1,47 @@
-
 <div class="container" data-search-bar-target="list">
-<div style="margin-top: 12px;">
-  <div class="tabs-underlined">
-    <div class="column container-colored">
-      <h4 class="tab-underlined active text-center" style="font-size: 18px">Just Applied</h4>
-      <div class="column-content">
-      <% @just_applied_applications.each do |job_application| %>
-        <%= render 'job_card', job_application: job_application %>
-        <% end %>
-      </div>
-    </div>
+  <div style="margin-top: 12px;">
+    <div class="tabs-underlined">
 
-    <div class="column container-colored">
-      <h4 class="tab-underlined active text-center" style="font-size: 18px">First Interview</h4>
+      <!-- Just Applied Section -->
+      <div class="column container-colored">
+        <h4 class="tab-underlined active text-center" style="font-size: 18px">Just Applied</h4>
         <div class="column-content">
-        <% @first_interview_applications.each do |job_application| %>
-          <%= link_to job_application_path(job_application), class: "text-decoration-none" do %>
+          <% @just_applied_applications.each do |job_application| %>
             <%= render 'job_card', job_application: job_application %>
           <% end %>
-        <% end %>
+        </div>
       </div>
-    </div>
 
-    <div class="column container-colored">
-      <h4 class="tab-underlined active text-center" style="font-size: 18px">Advanced</h4>
-      <% @advanced_process_applications.each do |job_application| %>
-       <div class="column-content">
-        <%= link_to job_application_path(job_application), class: "text-decoration-none" do %>
-          <%= render 'job_card', job_application: job_application %>
-        <% end %>
-      <% end %>
-    </div>
-    </div>
+      <!-- First Interview Section -->
+      <div class="column container-colored">
+        <h4 class="tab-underlined active text-center" style="font-size: 18px">First Interview</h4>
+        <div class="column-content">
+          <% @first_interview_applications.each do |job_application| %>
+            <%= render 'job_card', job_application: job_application %>
+          <% end %>
+        </div>
+      </div>
 
-    <div class="column container-colored">
-      <h4 class="tab-underlined active text-center" style="font-size: 18px">Offer</h4>
-      <% @offer_applications.each do |job_application| %>
-       <div class="column-content">
-        <%= link_to job_application_path(job_application), class: "text-decoration-none" do %>
-          <%= render 'job_card', job_application: job_application %>
-        <% end %>
-      <% end %>
-    </div>
+      <!-- Advanced Section -->
+      <div class="column container-colored">
+        <h4 class="tab-underlined active text-center" style="font-size: 18px">Advanced</h4>
+        <div class="column-content">
+          <% @advanced_process_applications.each do |job_application| %>
+            <%= render 'job_card', job_application: job_application %>
+          <% end %>
+        </div>
+      </div>
+
+      <!-- Offer Section -->
+      <div class="column container-colored">
+        <h4 class="tab-underlined active text-center" style="font-size: 18px">Offer</h4>
+        <div class="column-content">
+          <% @offer_applications.each do |job_application| %>
+            <%= render 'job_card', job_application: job_application %>
+          <% end %>
+        </div>
+      </div>
+
     </div>
   </div>
-</div>
 </div>

@@ -12,6 +12,6 @@
       <%= form.label :status, 'Update Status', class: 'form-label' %>
       <%= form.select :status, JobApplication.statuses.map { |key, value| [key.humanize, key] }, {}, { class: 'form-control custom-select' } %>
     </div>
-    <%= form.submit "Update Status", class: "btn btn-primary" %>
+    <%= form.submit "Update Status", class: "btn btn-flat" %>
   <% end %>
 </div>
