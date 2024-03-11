@@ -1,7 +1,6 @@
 .upcoming {
   display: flex;
   flex-direction: column;
-  padding-top: 25px;
 
   h1 {
     margin-bottom: 32px;
@@ -27,8 +26,7 @@
   }
 
   h3 {
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 14px;
     margin: 0;
     white-space: nowrap; /* Prevents the text from wrapping to a new line */
     overflow: hidden; /* Hides the overflow text */

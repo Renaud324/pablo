@@ -32,3 +32,11 @@
   margin-top: 12px;
   width: 100% !important;
 }
+
+.job-details {
+  display: none;
+}
+
+.job-details:hover {
+  display: contents;
+}

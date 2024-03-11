@@ -39,8 +39,8 @@ company2 = Company.create(
   )
 
 company3 = Company.create(
-  name: 'Health Solutions',
-  company_link: 'https://healthsolutions.com'
+  name: 'Google',
+  company_link: 'https://google.com'
   )
 
 # ########################-CONTACTS-###########################
@@ -109,7 +109,11 @@ job_application4 = JobApplication.create!(
   status: 'Just Applied',
   job_location: 'Paris',
   notes: 'Awaiting response.',
-  job_description: 'Lead product development teams.',
+  job_description: 'Google software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We are looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google’s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.
+
+  With your technical expertise you will manage project priorities, deadlines, and deliverables. You will design, develop, test, deploy, maintain, and enhance software solutions.
+
+  Google Cloud accelerates organizations ability to digitally transform their business with the best infrastructure, platform, industry solutions and expertise. We deliver enterprise-grade solutions that leverage Google’s cutting-edge technology – all on the cleanest cloud in the industry. Customers in more than 200 countries and territories turn to Google Cloud as their trusted partner to enable growth and solve their most critical business problems.',
   salary: 100000,
   application_source: 'Indeed',
   user: user1,
