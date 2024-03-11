@@ -19,13 +19,15 @@
       <% if current_user.present? %>
         <% @tasks.each do |task| %>
           <div class="d-flex align-items-center custom-checkbox card-task-ui" style="position: relative;">
-            <div class="me-3 custom-checkbox">
-              <input class="custom-checkbox" type="checkbox" id="task_<%= task.id %>" name="task_<%= task.id %>" style="transform: scale(1.5);"/>
-              <label for="task_<%= task.id %>""></label>
-            </div>
-            <div class="card-task">
-              <p style="font-size: 16px;"><span style="color: #9796f0;"><%= task.name %></span> - <%= task.job_application.job_title %> @<%= task.job_application.company.name %></p>
-              <p style="margin-top: -15px; font-size: 12px; color: #7E7E7E;"><%= task.description %></p>
+
+            <input class="custom-checkbox" type="checkbox" id="task_<%= task.id %>" name="task_<%= task.id %>" style="transform: scale(1.5);"/>
+            <div class="d-flex align-items-center">
+              <label for="task_<%= task.id %>">
+              </label>
+              <div class="card-task">
+                <p style="font-size: 16px;"><span style="color: #9796f0;"><%= task.name %></span> - <%= task.job_application.job_title %> @<%= task.job_application.company.name %></p>
+                <p style="margin-top: -15px; font-size: 12px; color: #7E7E7E;"><%= task.description %></p>
+              </div>
             </div>
           </div>
         <% end %>

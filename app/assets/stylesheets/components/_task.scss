@@ -9,6 +9,7 @@
 
 .card-task {
   font-size: 14px;
+  margin-left: 1rem;
 }
 
 .card-task-ui:hover {
@@ -30,6 +31,9 @@
   // margin-top: -30px;
 }
 
+.custom-checkbox {
+  padding: 0.5rem;
+}
 /* Ne pas cacher la case à cocher par défaut */
 .custom-checkbox input[type=checkbox] {
   opacity: 0; /* Rendre la case à cocher transparente */
@@ -37,7 +41,7 @@
 }
 
 /* Créer une apparence de case à cocher ronde */
-.custom-checkbox input[type=checkbox] + label {
+.custom-checkbox input[type=checkbox] + div > label {
   display: inline-block;
   position: relative;
   width: 14px;
@@ -46,18 +50,19 @@
   background-color: #fff; /* Couleur de fond de la case à cocher */
   border: 1px solid #9796f0; /* Bordure de la case à cocher */
   cursor: pointer; /* Curseur de la souris */
+  flex: 0 0 14px;
 }
 
 /* Modifier l'apparence de la case à cocher lorsqu'elle est cochée */
-.custom-checkbox input[type=checkbox]:checked + label {
+.custom-checkbox input[type=checkbox]:checked + div > label {
   background-color: #ff4da6; /* Couleur de fond lorsque la case est cochée */
   border: 2px solid $white;
 }
 
-/* Barrer le texte lorsque la case est cochée */
-.custom-checkbox input[type=checkbox]:checked + label + .card-task {
-  text-decoration: line-through; /* Barre le texte */
-  opacity: 0.5; /* Opacité réduite pour indiquer que la tâche est cochée */
+.custom-checkbox input[type=checkbox]:checked + div > .card-task {
+  text-decoration: line-through;
+  opacity: 0.5;
+
 }
 
 .line-between-divs {
