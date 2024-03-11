@@ -12,15 +12,18 @@ export default class extends Controller {
 
   create(evt) {
     evt.preventDefault();
-    console.log(document.getElementById('modal').dataset.interactionIdValue)
+    // console.log(document.getElementById('modal').dataset.interactionIdValue)
 
-    fetch(`/job_applications/${document.getElementById('modal').dataset.interactionIdValue}/interactions`, {
+    fetch(`/interactions`, {
       method: "POST", // Could be dynamic with Stimulus values
       headers: { "Accept": "application/json" },
       body: new FormData(this.formTarget)
     })
     .then((response) => response.json())
     .then((data) => {
+      console.log(data)
+      console.log(data.html)
+      console.log(this.formTarget)
       if (data.status == 'ok') {
         // close modal behavior
         this.closeModal()

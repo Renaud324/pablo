@@ -1,5 +1,3 @@
-
-
 <div class="modal fade" id="newInteractionModal" data-controller="interaction">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -9,12 +7,15 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body" id="modal"  data-interaction-id-value="<%= job_application.id %>">
-        <%= render "interactions/form", job_application: job_application, interaction: interaction %>
+      <div class="modal-body" id="modal">
+      <%= render 'interactions/form', interaction: @interaction %>
+
       </div>
     </div>
   </div>
 </div>
+
+
 
  <div class="m-5" style="">
   <div class="row">
@@ -49,16 +50,3 @@
     </div>
   </div>
 </div>
-
-
-
-<script>
-
-</script>
-
-
-
-      <%# <button name="button" type="submit" class="btn">
-        <i class="fa-solid fa-circle-plus btn-text"></i> Add an interaction
-      </button>
-       %>

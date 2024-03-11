@@ -1,4 +1,4 @@
-  <div class="modal fade" id="newInteractionModal">
+  <%# <div class="modal fade" id="newInteractionModal">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -7,21 +7,21 @@
           <span aria-hidden="true">&times;</span>
         </button>
         </div>
-        <div class="modal-body">
-          <%= simple_form_for(interaction) do |f| %>
-            <%= f.input :headline, label: "What's it about?" %>
-            <%= f.input :event_date,
+        <div class="modal-body"> %>
+          <%#= simple_form_for(interaction) do |f| %>
+            <%#= f.input :headline, label: "What's it about?" %>
+            <%#= f.input :event_date,
                       as: :string,
                       input_html: { data: { controller: "datepicker" } } %>
-            <%= f.input :event_time %>
-            <%= f.input :location %>
-            <%= f.input :interaction_type, collection: Interaction.interaction_types.keys.map { |type| [type.titleize, type] }, label: "Event Type", include_blank: false, prompt: "Select Event Type" %>
-            <%= f.association :job_application,
+            <%#= f.input :event_time %>
+            <%#= f.input :location %>
+            <%#= f.input :interaction_type, collection: Interaction.interaction_types.keys.map { |type| [type.titleize, type] }, label: "Event Type", include_blank: false, prompt: "Select Event Type" %>
+            <%#= f.association :job_application,
                               label: "Select Job Application",
                               label_method: ->(e){ "#{e.job_title} - #{e.company.name}" } %>
-            <%= f.button :submit, 'Create New Event', class: 'btn-task' %>
-          <% end %>
-        </div>
+            <%#= f.button :submit, 'Create New Event', class: 'btn-task' %>
+          <%# end %>
+        <%# </div>
       </div>
     </div>
-  </div>
+  </div> %>

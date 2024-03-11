@@ -1,15 +1,33 @@
 <div class="container-application main-content">
   <div style="margin-left: 50px; margin-right: 50px;">
-  <%# // -------------------- EVENTS ----------------- // %>
-  <h2>My Calendar</h2>
+      <%# // -------------------- EVENTS ----------------- // %>
+      <h2>My Calendar</h2>
 
-  <div style="background-color: #262525 !important; border-radius: 16px;">
+      <div style="background-color: #262525 !important; border-radius: 16px;">
+
+      <!-- Modal to add a new event -->
+      <div class="modal fade" id="newInteractionModal" data-controller="interaction">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="newInteractionModalLabel">New Interaction</h5>
+              <button type="button" class="close" data-action="click->interaction#closeModal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" id="modal">
+            <%= render 'interactions/form', interaction: @interaction %>
+
+            </div>
+          </div>
+        </div>
+      </div>
 
 
-  <!-- Modal to add a new event -->
-  <%= render 'interactions/form', interaction: @interaction %>
-
-
+      <button type="button" class="btn btn-flat" data-bs-toggle="modal" data-bs-target="#newInteractionModal">
+        <i class="fa-solid fa-circle-plus"></i> Add an interaction
+      </button>
+  </div>
   <!-- Create calendar -->
   <%= month_calendar(attribute: :event_date, events: @interactions) do |date, interactions| %>
     <div>
@@ -78,23 +96,4 @@
       <% end %>
     </div>
   <% end %>
-</div>
-</div>
-
-<script>
-      function closeModal() {
-        var modal = document.getElementById('newInteractionModal');
-        if (modal) {
-            modal.classList.remove('show');
-            modal.setAttribute('aria-hidden', 'true');
-            modal.style.display = 'none';
-            var modalBackdrop = document.getElementsByClassName('modal-backdrop')[0];
-            if (modalBackdrop) {
-                modalBackdrop.remove();
-            }
-        }
-    }
-</script>
-
-</div>
 </div>

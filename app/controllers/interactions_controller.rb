@@ -6,10 +6,15 @@ class InteractionsController < ApplicationController
 
   def create
     @interaction = Interaction.new(interaction_params)
+    if !params[:interaction][:job_application_id].empty?
+      @interaction.job_application = JobApplication.find(params[:interaction][:job_application_id].to_i)
+    end
     @interaction.user = current_user
-
+    # p request.referer
     if @interaction.save
-      redirect_to interactions_path, notice: 'Event was successfully created.'
+      render json: {
+        html: render_to_string(partial: "interactions/form", locals: { job_application: @interaction.job_application, interaction: @interaction }, formats: [:html])
+      }
     else
       render json: {
         html: render_to_string(partial: "interactions/form", locals: { job_application: @interaction.job_application, interaction: @interaction }, formats: [:html])
