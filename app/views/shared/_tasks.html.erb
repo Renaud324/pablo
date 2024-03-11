@@ -2,24 +2,12 @@
 <div class="container mb-2" data-search-bar-target="tasks">
   <%= render 'shared/new_tasks', task: @task %>
 
-<%# ------------- // TASKS MESSAGE // ------- %>
-  <%# <div class="d-flex justify-content-end">
-    <button type="button" class="btn btn-task" data-bs-toggle="modal" data-bs-target="#newTaskModal">
-      <i class="fa-solid fa-circle-plus"></i> <strong>Add a task</strong>
-    </button>
-  </div> %>
-<%# ------------- // PROGRESS BAR // ------- %>
-  <%# <div class="progress">
-    <div class="progress-bar" style="width: 70%; font-weight: bold; font-size: 12px; padding-left: 50%; color: #745EF5;">70%</div>
-  </div> %>
-
 <%# ------------- // TASKS CARDS // ------- %>
   <div style="max-height: 320px; overflow-y: scroll;" class="p-1">
     <div class="d-flex flex-column mb-3 card-task">
       <% if current_user.present? %>
         <% @tasks.each do |task| %>
           <div class="d-flex align-items-center custom-checkbox card-task-ui" style="position: relative;">
-
             <input class="custom-checkbox" type="checkbox" id="task_<%= task.id %>" name="task_<%= task.id %>" style="transform: scale(1.5);"/>
             <div class="d-flex align-items-center">
               <label for="task_<%= task.id %>">
