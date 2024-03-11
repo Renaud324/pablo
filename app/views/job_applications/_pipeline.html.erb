@@ -3,7 +3,10 @@
 <div>
   <div>
     <div>
-      <h4 class="tab-underlined active" style="font-size: 16px">Just Applied</h4>
+      <div class="d-flex">
+        <i class="fa-regular fa-paper-plane me-2"></i>
+        <h4 class="tab-underlined active" style="font-size: 16px">Just Applied</h4>
+      </div>
       <div class="column-content">
       <% @just_applied_applications.each do |job_application| %>
         <%= link_to job_application_path(job_application), class: "text-decoration-none me-2" do %>
@@ -14,7 +17,10 @@
     </div>
 
     <div>
-      <h4 class="tab-underlined active" style="font-size: 16px">First Interview</h4>
+      <div class="d-flex">
+        <i class="fa-regular fa-comments me-2"></i>
+        <h4 class="tab-underlined active" style="font-size: 16px">First Interview</h4>
+      </div>
         <div class="column-content">
         <% @first_interview_applications.each do |job_application| %>
           <%= link_to job_application_path(job_application), class: "text-decoration-none me-2" do %>
@@ -25,7 +31,10 @@
     </div>
 
     <div>
-      <h4 class="tab-underlined active" style="font-size: 16px">Advanced</h4>
+      <div class="d-flex">
+        <i class="fa-solid fa-gears me-2"></i>
+        <h4 class="tab-underlined active" style="font-size: 16px">Advanced</h4>
+      </div>
       <% @advanced_process_applications.each do |job_application| %>
        <div class="column-content">
         <%= link_to job_application_path(job_application), class: "text-decoration-none me-2" do %>
@@ -36,7 +45,10 @@
     </div>
 
     <div>
-      <h4 class="tab-underlined active" style="font-size: 16px">Offer</h4>
+      <div class="d-flex">
+        <i class="fa-solid fa-trophy me-2"></i>
+        <h4 class="tab-underlined active" style="font-size: 16px">Offer</h4>
+      </div>
       <% @offer_applications.each do |job_application| %>
        <div class="column-content">
         <%= link_to job_application_path(job_application), class: "text-decoration-none me-2" do %>

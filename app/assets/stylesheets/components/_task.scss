@@ -20,9 +20,34 @@
   // margin-top: -30px;
 }
 
-.custom-checkbox {
-  width: 25px;
-  height: 25px;
+/* Ne pas cacher la case à cocher par défaut */
+.custom-checkbox input[type=checkbox] {
+  opacity: 0; /* Rendre la case à cocher transparente */
+  position: absolute; /* La position absolue permet de la masquer sans perdre l'espace qu'elle occupe */
+}
+
+/* Créer une apparence de case à cocher ronde */
+.custom-checkbox input[type=checkbox] + label {
+  display: inline-block;
+  position: relative;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%; /* Rendre la case à cocher ronde */
+  background-color: #fff; /* Couleur de fond de la case à cocher */
+  border: 1px solid #9796f0; /* Bordure de la case à cocher */
+  cursor: pointer; /* Curseur de la souris */
+}
+
+/* Modifier l'apparence de la case à cocher lorsqu'elle est cochée */
+.custom-checkbox input[type=checkbox]:checked + label {
+  background-color: #ff4da6; /* Couleur de fond lorsque la case est cochée */
+  border: 2px solid $white;
+}
+
+/* Barrer le texte lorsque la case est cochée */
+.custom-checkbox input[type=checkbox]:checked + label + .card-task {
+  text-decoration: line-through; /* Barre le texte */
+  opacity: 0.5; /* Opacité réduite pour indiquer que la tâche est cochée */
 }
 
 .line-between-divs {
