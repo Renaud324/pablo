@@ -1,0 +1,74 @@
+<%= month_calendar(attribute: :event_date, events: interactions) do |date, interactions| %>
+  <div>
+    <div class="<%= 'red-circle' if date == Date.today %>">
+      <%= date.day %>
+    </div>
+    <% interactions.each do |interaction| %>
+      <div class="flexbox">
+        <!-- Modal button for each event -->
+        <button type="button" class="button-modal" data-bs-toggle="modal" data-bs-target="#modal<%= interaction.id %>"><%= interaction.headline %></button>
+        <!-- Modal -->
+        <div class="modal fade" id="modal<%= interaction.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal-bg">
+              <div class="modal-header modal-border">
+                <h1 class="modal-title fs-5" id="exampleModalLabel"><%= interaction.headline %></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-4">
+                      <i class="fa-solid fa-thumbtack"></i><p style="display: inline";>    Event type<p>
+                    </div>
+                    <div class="col-8">
+                      <p><%= interaction.interaction_type %></p>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-4">
+                      <i class="fa-regular fa-calendar"></i><p style="display: inline";>    Event date<p>
+                    </div>
+                    <div class="col-8">
+                      <p><%= Date.parse(interaction.event_date.to_s).strftime("%B %d, %Y")  %><p>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-4">
+                      <i class="fa-regular fa-clock"></i><p style="display: inline";>    Event time<p>
+                    </div>
+                    <div class="col-8">
+                      <p><%= DateTime.parse(interaction.event_time.to_s).strftime("%l:%M %p").strip %><p>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-4">
+                      <i class="fa-solid fa-map-marker-alt"></i><p style="display: inline";>    Location<p>
+                    </div>
+                    <div class="col-8">
+                      <p><%= interaction.location %><p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer modal-border-top d-flex justify-content-between">
+                <div>
+                    <%= link_to interaction_path(interaction), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "interaction-delete-link" do %>
+                      <i class="fa-solid fa-trash" style="margin-right: 10px; color: $purple"></i>
+                    <% end %>
+                    </div>
+                <div>
+                <button type="button" class="btn btn-flat" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <!-- Modal end -->
+      </div>
+    <% end %>
+  </div>
+<% end %>

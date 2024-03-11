@@ -1,43 +1,55 @@
-<div class="container" data-search-bar-target="list">
+<div class="ms-2">
+ <div class="container" data-search-bar-target="list">
   <div>
     <div>
-      <h4 class="tab-underlined active" style="font-size: 16px">Just Applied</h4>
-      <div class="column-content">
-        <% @just_applied_applications.each do |job_application| %>
-          <%= render 'job_card', job_application: job_application %>
-          <%= render 'shared/update_Job_application_status', job_application: job_application %>
-        <% end %>
-      </div>
-    </div>
+      <div>
+        <div>
+          <div class="d-flex">
+            <i class="fa-solid fa-trophy me-2"></i>
+            <h4 class="tab-underlined active" style="font-size: 16px">Offer</h4>
+            <div class="column-content">
+              <% @offer_applications.each do |job_application| %>
+                <%= render 'job_card', job_application: job_application %>
+                <%= render 'shared/update_Job_application_status', job_application: job_application %>
+              <% end %>
+            </div>
+          </div>
 
-    <div>
-      <h4 class="tab-underlined active" style="font-size: 16px">First Interview</h4>
-      <div class="column-content">
-        <% @first_interview_applications.each do |job_application| %>
-          <%= render 'job_card', job_application: job_application %>
-          <%= render 'shared/update_Job_application_status', job_application: job_application %>
-        <% end %>
-      </div>
-    </div>
-
-    <div>
-      <h4 class="tab-underlined active" style="font-size: 16px">Advanced</h4>
-      <div class="column-content">
-        <% @advanced_process_applications.each do |job_application| %>
-          <%= render 'job_card', job_application: job_application %>
-          <%= render 'shared/update_Job_application_status', job_application: job_application %>
-        <% end %>
-      </div>
-    </div>
-
-    <div>
-      <h4 class="tab-underlined active" style="font-size: 16px">Offer</h4>
-      <div class="column-content">
-        <% @offer_applications.each do |job_application| %>
-          <%= render 'job_card', job_application: job_application %>
-          <%= render 'shared/update_Job_application_status', job_application: job_application %>
-        <% end %>
+          <div class="d-flex">
+            <i class="fa-solid fa-gears me-2"></i>
+            <h4 class="tab-underlined active" style="font-size: 16px">Advanced</h4>
+            <div class="column-content">
+              <% @advanced_process_applications.each do |job_application| %>
+                <%= render 'job_card', job_application: job_application %>
+                <%= render 'shared/update_Job_application_status', job_application: job_application %>
+              <% end %>
+            </div>
+          </div>
+          
+          <div class="d-flex">
+            <i class="fa-solid fa-gears me-2"></i>
+            <h4 class="tab-underlined active" style="font-size: 16px">First Interview</h4>
+            <div class="column-content">
+              <% @first_interview_applications.each do |job_application| %>
+                <%= render 'job_card', job_application: job_application %>
+                <%= render 'shared/update_Job_application_status', job_application: job_application %>
+              <% end %>
+            </div>
+          </div>
+          
+          <div class="d-flex">
+            <i class="fa-regular fa-paper-plane me-2"></i>
+            <h4 class="tab-underlined active" style="font-size: 16px">Just Applied</h4>
+            <div class="column-content">
+              <% @just_applied_applications.each do |job_application| %>
+                <%= render 'job_card', job_application: job_application %>
+                <%= render 'shared/update_Job_application_status', job_application: job_application %>
+              <% end %>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
+  
