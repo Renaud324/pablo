@@ -11,6 +11,16 @@
   font-size: 14px;
 }
 
+.card-task-ui:hover {
+  background-image: linear-gradient(to right, #fbc7d4, $white);
+  border-radius: 8px;
+  color: #9796f0;
+}
+
+.card-task-ui:hover i {
+  color: #7E7E7E;
+}
+
 .card-task-title {
   font-weight: 600;
 }
