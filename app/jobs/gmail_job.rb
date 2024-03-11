@@ -69,21 +69,3 @@ class GmailJob < ApplicationJob
     end
   end
 end
-
- # def find_or_create_job_application(job_detail, current_user)
-  #   company = Company.find_or_create_by(name: job_detail["company_name"])
-  # 
-  #   job_application_attrs = job_detail.except("company_name").merge(company_id: company.id, user_id: current_user.id)
-  # 
-  #   job_application = JobApplication.where(user_id: current_user.id, company_id: company.id, job_title: job_application_attrs["job_title"]).first_or_initialize
-  # 
-  #   job_application.assign_attributes(job_application_attrs)
-  # 
-  #   job_application.save if job_application.new_record? || job_application.changed?
-  # 
-  #   job_application
-  # end
-  # 
-  # def update_job_application(job_application, job_details)
-  #   job_application.update(job_details.except("company_name"))
-  # end  
