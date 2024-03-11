@@ -9,7 +9,8 @@ class PagesController < ApplicationController
     @offer_applications = @job_applications.where(status: 'offer')
     @task = Task.new
     @interactions = Interaction.where(user_id: current_user.id)
-    
+    @upcoming_interactions = @interactions.where("event_date >= ?", Date.today)
+
   end
 
   def search

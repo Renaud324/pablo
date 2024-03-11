@@ -179,3 +179,16 @@
   border: $white;
   font-size: 16px;
 }
+
+
+#newInteractionModal {
+  .btn-task {
+    transition: background 0.5s ease; /* does not work */
+    border: $white solid 1px;
+    font-weight: bold; /* This makes the text bold */
+  }
+  .btn-task:hover {
+    background-image: linear-gradient(to right, #9796f0, #fbc7d4);
+    color: $white;
+  }
+}
