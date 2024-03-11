@@ -16,7 +16,7 @@
   </div>
 </div>
 
- <div class="m-5" style="height: 300px;">
+ <div class="m-5" style="height: 300px; width: 360px;">
     <div>
       <div class="pb-5 d-flex flex-row-reverse">
         <button type="button" class="btn btn-task" data-bs-toggle="modal" data-bs-target="#newInteractionModal">
@@ -26,15 +26,17 @@
       <div class="mb-3 card-task" style="align-items: center;">
         <% if current_user.present? %>
           <% @interactions.each do |interaction| %>
-            <div class="d-flex border mb-3">
-              <div class="icon-task p-3">
+            <div class="d-flex border mb-3 align-items-center">
+              <div class="icon-task">
                 <i class="fa-solid fa-envelope"></i>
               </div>
               <div class="p-3 flex-grow-1">
                 <p class="padding-card card-task-title d-flex"><%= interaction.headline %></p>
                 <p class="padding-card"><%= interaction.event_date %></p>
               </div>
-              <%= link_to "Destroy", interaction_path(interaction), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+              <%= link_to interaction_path(interaction), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, id: "interaction-link" do %>
+                <i class="fa-solid fa-trash" style="font-size: smaller;"></i>
+              <% end %>
             </div>
           <% end %>
         <% else %>
