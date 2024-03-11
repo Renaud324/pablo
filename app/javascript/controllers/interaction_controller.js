@@ -25,7 +25,7 @@ export default class extends Controller {
         // close modal behavior
         this.closeModal()
       } else {
-        this.element.innerHTML = data.html
+        this.formTarget.innerHTML = data.html
       }
     })
   }

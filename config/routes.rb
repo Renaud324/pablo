@@ -34,6 +34,6 @@ Rails.application.routes.draw do
     post 'refresh'
     end
     resources :tasks, only: %i[index]
-    resources :interactions
+    resources :interactions, except: [:create]
   end
 end

@@ -6,8 +6,14 @@
   <%= f.input :event_time %>
   <%= f.input :location %>
   <%= f.input :interaction_type, collection: Interaction.interaction_types.keys.map { |type| [type.titleize, type] }, label: "Interaction Type", include_blank: false, prompt: "Select Interaction Type" %>
-  <%= f.association :job_application, selected: job_application,
-                    label: "Select Job Application",
-                    label_method: ->(e){ "#{e.job_title} - #{e.company.name}" } %>
+  <% if action_name == "show" && controller_name == "job_applications" %>
+    <%= f.association :job_application, selected: job_application,
+                        label: "Select Job Application",
+                        label_method: ->(e){ "#{e.job_title} - #{e.company.name}" } %>
+  <% else %>
+    <%= f.association :job_application,
+                          label: "Select Job Application",
+                          label_method: ->(e){ "#{e.job_title} - #{e.company.name}" } %>
+  <% end %>
   <%= f.button :submit, class: 'btn-flat justify-content-center' %>
 <% end %>
