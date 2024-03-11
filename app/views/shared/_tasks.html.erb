@@ -1,5 +1,5 @@
 
-<div class="container mb-5" data-search-bar-target="tasks">
+<div class="container mb-2" data-search-bar-target="tasks">
   <%= render 'shared/new_tasks', task: @task %>
 
 <%# ------------- // TASKS MESSAGE // ------- %>
@@ -14,7 +14,7 @@
   </div> %>
 
 <%# ------------- // TASKS CARDS // ------- %>
-  <div style="max-height: 300px; overflow-y: scroll;" class="p-1">
+  <div style="max-height: 320px; overflow-y: scroll;" class="p-1">
     <div class="d-flex flex-column mb-3 card-task">
       <% if current_user.present? %>
         <% @tasks.each do |task| %>
