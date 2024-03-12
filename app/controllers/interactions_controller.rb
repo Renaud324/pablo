@@ -34,17 +34,27 @@ class InteractionsController < ApplicationController
   def destroy
     @interaction = Interaction.find(params[:id])
     @interaction.destroy
-    # render json: { status: :ok }
     redirect_to
   end
 
   def send_email
-    raise
+    @job_application = JobApplication.find(params["interaction"]["job_application_id"])
+    @interaction = Interaction.new(interaction_params)
+    @interaction.event_date = Time.zone.now.to_date
+    @interaction.event_time = Time.zone.now
+    @interaction.interaction_type = 0
+    @interaction.user_id = current_user.id
+    if @interaction.save
+      SendEmailJob.perform_later(@interaction, current_user)
+      redirect_to @job_application, notice: 'email was successfully sent.'
+    else
+      redirect_to @job_application, alert: 'Failed to send the email.'
+    end
   end
 
   private
 
   def interaction_params
-    params.require(:interaction).permit(:headline, :event_date, :event_time, :location, :interaction_type, :job_application_id)
+    params.require(:interaction).permit(:headline, :event_date, :event_time, :location, :interaction_type, :job_application_id, :email_content, contact_ids: [])
   end
 end
