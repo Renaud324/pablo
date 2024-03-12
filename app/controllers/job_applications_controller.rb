@@ -52,7 +52,7 @@ class JobApplicationsController < ApplicationController
       sql_subquery = <<~SQL
         interactions.headline ILIKE :query
       SQL
-      @interactions = @interactions.joins(:job_application).joins(:company).where(sql_subquery, query: "%#{params[:query]}%")
+      @interactions = @interactions.joins(:job_application).where(sql_subquery, query: "%#{params[:query]}%")
     end
 
   end

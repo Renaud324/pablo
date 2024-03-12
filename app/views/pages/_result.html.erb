@@ -80,9 +80,11 @@
       </div>
       <!-- Event Results Placeholder -->
     <div data-application-tab-target="eventtogglableElement">
+
       <% @interactions.each do |interaction| %>
         <div class="d-flex search-card justify-content-between">
           <div>
+
            <p> <%= interaction.headline %> - <%= Date.parse(interaction.event_date.to_s).strftime('%B %d, %Y')  %></p>
             <p class="search-card-details"><%= interaction.location %> </p>
             <p class="search-card-details"><%= interaction.job_application.company.name %> </p>
