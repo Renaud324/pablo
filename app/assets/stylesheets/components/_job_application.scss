@@ -1,8 +1,8 @@
 .container-application {
-  // margin-top: 33px;
-  // margin-bottom: 20px;
-  // transition: margin-left 0.3s; /* Ajouter une transition pour une animation fluide */
-  // margin-left: 250px;
+  margin-top: 33px;
+  margin-bottom: 20px;
+  transition: margin-left 0.3s; /* Ajouter une transition pour une animation fluide */
+  margin-left: 250px;
 }
 
 .container-application-column {
@@ -20,9 +20,7 @@
 }
 
 .container-background {
-  background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)),url(https://images.unsplash.com/photo-1617526738882-1ea945ce3e56?q=80&w=2990&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
-  background-size: cover;
-  background-position: center;
+  background-color: $darkgrey;
   padding: 50px 0;
 }
 
