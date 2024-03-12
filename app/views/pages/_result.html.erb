@@ -1,21 +1,22 @@
-<div class="container-application main-content">
+<div data-controller="application-tab" class="container-application main-content">
   <div class="ms-5">
     <h2>Results</h2>
 
     <!-- Tabs Section -->
     <div class="d-flex mt-4">
       <ul class="list-inline tabs-underlined">
-        <li><a href="#" class="tab-underlined active">All</a></li>
-        <li><a href="#" class="tab-underlined">Task</a></li>
-        <li><a href="#" class="tab-underlined">Job application</a></li>
-        <li><a href="#" class="tab-underlined">Company</a></li>
-        <li><a href="#" class="tab-underlined">Contact</a></li>
-        <li><a href="#" class="tab-underlined">Event</a></li>
+        <li><a data-action="click->application-tab#fireall" href="#" class="tab-underlined active">All</a></li>
+        <li><a data-action="click->application-tab#firetask" href="#" class="tab-underlined">Task</a></li>
+        <li><a data-action="click->application-tab#fireapplication" href="#" class="tab-underlined">Job application</a></li>
+        <li><a data-action="click->application-tab#firecompany" href="#" class="tab-underlined">Company</a></li>
+        <li><a data-action="click->application-tab#firecontact" href="#" class="tab-underlined">Contact</a></li>
+        <li><a data-action="click->application-tab#fireevent" href="#" class="tab-underlined">Event</a></li>
       </ul>
     </div>
 
     <div class="search-list">
       <!-- Task Results -->
+    <div data-application-tab-target="tasktogglableElement">
       <% @tasks.each do |task| %>
         <div class="d-flex search-card justify-content-between">
           <div>
@@ -27,8 +28,10 @@
           </div>
         </div>
       <% end %>
+    </div>
 
       <!-- Job Application Results -->
+    <div data-application-tab-target="applicationtogglableElement">
       <% @job_applications.each do |job_application| %>
         <div class="d-flex search-card justify-content-between">
           <div>
@@ -41,8 +44,12 @@
           </div>
         </div>
       <% end %>
+    </div>
+
 
       <!-- Company Results Placeholder -->
+
+      <div data-application-tab-target="companytogglableElement">
        <% @companies.each do |company| %>
         <div class="d-flex search-card justify-content-between">
           <div>
@@ -54,34 +61,41 @@
           </div>
         </div>
       <% end %>
-
+      </div>
 
 
       <!-- Contact Results Placeholder -->
+      <div data-application-tab-target="contacttogglableElement">
        <% @contacts.each do |contact| %>
         <div class="d-flex search-card justify-content-between">
           <div>
            <p> <%= contact.email %> - <%= contact.company.name %></p>
-            <p class="search-card-details"><% contact.phone_number %> </p>
+            <p class="search-card-details"><%= contact.phone_number %> </p>
           </div>
           <div>
             <p class="search-tag-contact">#CONTACT</p>
           </div>
         </div>
       <% end %>
+      </div>
       <!-- Event Results Placeholder -->
-
+    <div data-application-tab-target="eventtogglableElement">
       <% @interactions.each do |interaction| %>
         <div class="d-flex search-card justify-content-between">
           <div>
-           <p> <%= interaction.headline %> - <%= interaction.event_date %></p>
-            <p class="search-card-details"><% interaction.location %> </p>
+           <p> <%= interaction.headline %> - <%= Date.parse(interaction.event_date.to_s).strftime('%B %d, %Y')  %></p>
+            <p class="search-card-details"><%= interaction.location %> </p>
+            <p class="search-card-details"><%= interaction.job_application.company.name %> </p>
+            <p class="search-card-details"><%= interaction.job_application.job_title %> </p>
+
           </div>
           <div>
             <p class="search-tag-event">#EVENT</p>
           </div>
         </div>
       <% end %>
+    </div>
+
 
     </div> <!-- End of search-list -->
   </div>
