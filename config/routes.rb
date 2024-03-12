@@ -26,5 +26,4 @@ Rails.application.routes.draw do
   resources :companies
   resources :tasks, only: %i[index create]
   resources :interactions, only: %i[index create destroy]
-
 end
