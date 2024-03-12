@@ -43,6 +43,8 @@ class GmailJob < ApplicationJob
           job_application_id: job_application.id,
           event_date: Date.today, 
           headline: "New Job Application Interaction",
+          location: "Email Inbox",
+          event_time: Time.now,
           interaction_type: Interaction.interaction_types[:Email]
         )
       end
