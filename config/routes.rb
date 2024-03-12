@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   end
   resources :companies
   resources :tasks, only: %i[index create]
-  resources :interactions, only: %i[index create destroy]
-
+  resources :interactions, only: %i[index create destroy] do
+    post 'send_email', on: :collection
+  end
 end

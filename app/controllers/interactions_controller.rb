@@ -38,6 +38,10 @@ class InteractionsController < ApplicationController
     redirect_to
   end
 
+  def send_email
+    raise
+  end
+
   private
 
   def interaction_params
