@@ -1,0 +1,9 @@
+<%= simple_form_for interaction, url: send_email_interactions_path, method: :post, html: { data: { interaction_target: "form" } } do |f| %>
+
+  <%= f.input :contact_id, collection: Contact.all, label_method: :email, value_method: :id, label: "Send email to", selected: Contact.first, include_blank: true %>
+  <%= f.association :job_application, selected: JobApplication.find(params[:id]),
+                    label: "Select Job Application",
+                    label_method: ->(e){ "#{e.job_title} - #{e.company.name}" } %>
+  <%= f.input :email_content, as: :text, label: "Email content" %>
+  <%= f.button :submit, "Send Email", class: 'btn-flat justify-content-center' %>
+<% end %>
