@@ -105,3 +105,11 @@
 .close:hover { /* Change hover color as needed */
   color: $purple;
 }
+
+#newTaskModal {
+  backdrop-filter: contrast(0.5);
+}
+
+// .modal-backdrop {
+//   z-index: -10!important;
+// }

@@ -4,9 +4,7 @@
       <div class="modal-header">
        <img src="https://res.cloudinary.com/dkr1l2a2k/image/upload/v1710096907/Pablo_the_foxi_c36qx3.png" style="height: 200px;" alt="">
         <h5 class="modal-title" id="statusUpdateModalLabel">Update <%= job_application.job_title %>'s status</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <button type="button" style="color:white"class="btn-close align-self-start" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
       </div>
       <div class="modal-body">
         <h4 class="text-center mb-4" style="color: #9796F0;"><%= job_application.company.name %></h4> <!-- Company name centered and spaced -->
@@ -21,20 +19,3 @@
     </div>
   </div>
 </div>
-
-
-
-<script>
-      function closeModal() {
-        var modal = document.getElementById('statusUpdateModal');
-        if (modal) {
-            modal.classList.remove('show');
-            modal.setAttribute('aria-hidden', 'true');
-            modal.style.display = 'none';
-            var modalBackdrop = document.getElementsByClassName('modal-backdrop')[0];
-            if (modalBackdrop) {
-                modalBackdrop.remove();
-            }
-        }
-    }
-</script>

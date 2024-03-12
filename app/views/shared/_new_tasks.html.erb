@@ -1,15 +1,10 @@
-<div class="modal fade" id="newTaskModal">
-  <div class="modal-dialog" role="document">
+<div class="modal fade" id="newTaskModal" tabindex="-1" aria-labelledby="newTaskModalLabel" aria-hidden="true" data-bs-backdrop="false">
+  <div class="modal-dialog">
     <div class="modal-content">
-      <div>
-      </div>
       <div class="modal-header">
         <img src="https://res.cloudinary.com/dkr1l2a2k/image/upload/v1710096907/Pablo_the_foxi_c36qx3.png" style="height: 200px;" alt="">
-        <h5 class="modal-title" id="newTaskModalLabel">New Task</h5>
-        <button type="button" class="close" onclick="closeModal()" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        </button>
+          <h5 class="modal-title" id="newTaskModalLabel">Your time to shine</h5>
+          <button type="button" style="color:white"class="btn-close align-self-start" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
       </div>
       <div class="modal-body">
         <%= simple_form_for(task) do |f| %>
@@ -24,20 +19,3 @@
     </div>
   </div>
 </div>
-
-
-
-<script>
-      function closeModal() {
-        var modal = document.getElementById('newTaskModal');
-        if (modal) {
-            modal.classList.remove('show');
-            modal.setAttribute('aria-hidden', 'true');
-            modal.style.display = 'none';
-            var modalBackdrop = document.getElementsByClassName('modal-backdrop')[0];
-            if (modalBackdrop) {
-                modalBackdrop.remove();
-            }
-        }
-    }
-</script>
