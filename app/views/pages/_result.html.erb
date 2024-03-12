@@ -3,14 +3,14 @@
     <h2>Results</h2>
 
     <!-- Tabs Section -->
-    <div class="d-flex mt-4">
+    <div data-controller="activetab" class="d-flex mt-4">
       <ul class="list-inline tabs-underlined">
-        <li><a data-action="click->application-tab#fireall" href="#" class="tab-underlined active">All</a></li>
-        <li><a data-action="click->application-tab#firetask" href="#" class="tab-underlined">Task</a></li>
-        <li><a data-action="click->application-tab#fireapplication" href="#" class="tab-underlined">Job application</a></li>
-        <li><a data-action="click->application-tab#firecompany" href="#" class="tab-underlined">Company</a></li>
-        <li><a data-action="click->application-tab#firecontact" href="#" class="tab-underlined">Contact</a></li>
-        <li><a data-action="click->application-tab#fireevent" href="#" class="tab-underlined">Event</a></li>
+        <li><a data-activetab-target="alltabElement" data-action="click->activetab#fireall   click->application-tab#fireall" href="#" class="tab-underlined active">All</a></li>
+        <li><a data-activetab-target="tasktabElement" data-action="click->activetab#firetask   click->application-tab#firetask" href="#" class="tab-underlined">Task</a></li>
+        <li><a data-activetab-target="applicationtabElement" data-action="click->activetab#fireapplication   click->application-tab#fireapplication" href="#" class="tab-underlined">Job application</a></li>
+        <li><a data-activetab-target="companytabElement" data-action="click->activetab#firecompany   click->application-tab#firecompany" href="#" class="tab-underlined">Company</a></li>
+        <li><a data-activetab-target="contacttabElement" data-action="click->activetab#firecontact   click->application-tab#firecontact" href="#" class="tab-underlined">Contact</a></li>
+        <li><a data-activetab-target="eventtabElement" data-action="click->activetab#fireevent   click->application-tab#fireevent" href="#" class="tab-underlined">Event</a></li>
       </ul>
     </div>
 
