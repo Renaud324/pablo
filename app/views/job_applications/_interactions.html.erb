@@ -3,9 +3,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="newInteractionModalLabel">New Interaction</h5>
-        <button type="button" class="close" data-action="click->interaction#closeModal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <button type="button" style="color:white"class="btn-close align-self-start" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
       </div>
       <div class="modal-body" id="modal">
         <%= render 'interactions/form', interaction: @interaction %>

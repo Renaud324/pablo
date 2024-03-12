@@ -19,20 +19,3 @@
     </div>
   </div>
 </div>
-
-
-
-<script>
-      function closeModal() {
-        var modal = document.getElementById('statusUpdateModal');
-        if (modal) {
-            modal.classList.remove('show');
-            modal.setAttribute('aria-hidden', 'true');
-            modal.style.display = 'none';
-            var modalBackdrop = document.getElementsByClassName('modal-backdrop')[0];
-            if (modalBackdrop) {
-                modalBackdrop.remove();
-            }
-        }
-    }
-</script>
