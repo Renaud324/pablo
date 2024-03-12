@@ -60,6 +60,7 @@
           <button type="button" class="btn btn-add-task" data-bs-toggle="modal" data-bs-target="#newTaskModal">
             <i class="fa-solid fa-circle-plus me-2" style="font-size: 14px;"></i> <span style="font-size: 14px;">Add a task</span>
           </button>
+          <%= render 'shared/new_tasks', task: @task %>
         </div>
         <%= render "shared/tasks" %>
       </div>
