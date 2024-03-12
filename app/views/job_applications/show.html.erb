@@ -1,32 +1,19 @@
-<div class="container-application main-content">
+<div class="container-application" style="margin-top: 0 !important">
   <div class="container-background">
     <div>
       <div class="d-flex">
-        <div class="p-2 w-100">
-          <h1>Job Journey</h1>
-          <h3><%= @job_application.job_title %></h3>
+        <div class="p-2 w-100 mb-4">
+          <h1><%= @job_application.job_title %></h1>
+          <p style="font-size: 24px;"><i class="fa-solid fa-building me-3"></i>Google</p>
         </div>
-        <div class="p-2 flex-shrink-0">
-            <div>
-              <p class="category-process">
-              <i class="fa-solid fa-building"></i>
-                Google
-              </p>
-            </div>
-            <div class="d-flex">
-              <p class="m-3">
-              <i class="fa-solid fa-location-dot m-2"></i><%= @job_application.job_location %></p>
-              <p class="m-3">
-              <i class="fa-solid fa-sack-dollar m-2"></i><%= @job_application.salary %></p>
-            </div>
-          </div>
-        </div>
+      </div>
     </div>
   </div>
 
 
 <%# // -------------TIMELINE--------------- // %>
   <div class="d-flex flex-column container-timeline">
+    <img src="https://res.cloudinary.com/dkr1l2a2k/image/upload/v1710244429/Pablo_the_foxi_2_adnfeg.png" alt="Pablo Rockstar" style="width: 150px; position: absolute; left: -60px; bottom: -9px;">
     <div class="d-flex align-items-center justify-content-center timeline" style="padding-bottom: 45px;">
       <div style="width: 11%;"></div>
       <div class="icone-sent my-1">
@@ -76,88 +63,83 @@
 
 <%# // ----------------- COLONNES 💖 ------------- // %>
 
-    <div class="container-application">
-      <div class="row">
-        <div class="col-md-9">
-          <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item tabs-underlined" role="presentation">
-              <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">
+      <div class="p-5 mt-2">
+        <div class="row">
+          <div class="col-md-9">
+            <ul class="list-inline tabs-underlined " id="myTab" role="tablist" style>
+              <li role="presentation">
+                <div class="tab-underlined active d-flex" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">
+                  <i class="fa-solid fa-file-invoice me-2"></i>
+                  <p>Job description</p>
+                </div>
+              </li>
+              <li class="nav-item tabs-underlined" role="presentation">
+                <div class="tab-underlined d-flex" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">
+                  <i class="fa-regular fa-comment-dots me-2"></i>
+                  <p>My past interactions</p>
+                </div>
+              </li>
+              <li class="nav-item tabs-underlined" role="presentation">
+                <div class="tab-underlined d-flex" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">
+                  <i class="fa-solid fa-pencil me-2"></i>
+                  <p>My notes</p>
+                </div>
+              </li>
+            </ul>
+            <hr>
+            <div class="tab-content" id="myTabContent" data-controller="interaction">
+              <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+              <%= render "job_description" %>
+              </div>
+              <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab" data-interaction-target="applications">
+                <%= render "interactions", job_application: @job_application, interaction: @interaction %>
+              </div>
+              <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                <%= render "notes", job_application: @job_application %>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-md-3">
+            <div class="p-4" style="position: relative; background-color: #262525; border-radius: 16px;">
+                <div class="m-1" >
+                  <p style="font-size: 16px;">
+                    <i style="font-size: 14px;" class="fa-solid fa-location-dot m-2"></i>Location: <%= @job_application.job_location %></p>
+                  <p style="font-size: 16px;">
+                    <i style="font-size: 14px;" class="fa-solid fa-sack-dollar m-2"></i>Salary: <%= @job_application.salary %>€</p>
+                  <a style="font-size: 16px; color: white; text-decoration: none;" href="<%= @job_application.offer_link %>">
+                    <i style="font-size: 14px;" class="fa-solid fa-circle-arrow-right m-2"></i>
+                    Job source: <%= @job_application.application_source %>
+                  </a>
+                </div>
+            <p style="font-size: 20px; font-weight: bold; position: absolute; top: -14px; left: 64px;">Further details</p>
+            </div>
+
+            <div class="mt-5">
+              <h4 style="font-size: 16px; text-align: center">Contact</h4>
+              <div class="d-flex justify-content-center mb-3" style="align-items: center;">
+                <div class="p-3 justify-content-center d-flex align-items-center" style="flex-direction: column; background-image: linear-gradient(to right, #9796f0, #fbc7d4); border-radius: 16px;">
+                  <img src="https://cdn-icons-png.flaticon.com/128/5125/5125316.png" alt="Avatar contact" class="contact-card-img">
+                  <p style="color: #262525; font-weight: bold;" class="padding-card d-flex">Caroline Banco</p>
+                  <p style="color: #262525; font-size: 14px;" class="padding-card">HR manager</p>
                   <div>
-                  <i class="fa-solid fa-file-invoice"></i>
+                    <i style="color: #262525;" class="fa-solid fa-phone contact-card-i"></i>
+                    <i style="color: #262525;" class="fa-solid fa-envelope contact-card-i"></i>
+                  </div>
                 </div>
-                <div>
-                  <p class="tab-underlined">Job description</p>
-                </div>
-                </button>
-            </li>
-            <li class="nav-item tabs-underlined" role="presentation">
-              <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">
-              <div>
-                <i class="fa-regular fa-comment-dots"></i>
               </div>
-              <div>
-                <p class="tab-underlined">My past interactions</p>
-              </div>
-              </button>
-            </li>
-            <li class="nav-item tabs-underlined" role="presentation">
-              <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">
-              <div>
-                <i class="fa-solid fa-pencil"></i>
-              </div>
-              <div>
-                <p class="tab-underlined">My notes</p>
-              </div>
-              </button>
-            </li>
-          </ul>
-          <div class="tab-content" id="myTabContent" data-controller="interaction">
-            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-            <%= render "job_description" %>
             </div>
-            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab" data-interaction-target="applications">
-              <%= render "interactions", job_application: @job_application, interaction: @interaction %>
-            </div>
-            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-              <%= render "notes", job_application: @job_application %>
-            </div>
-          </div>
-        </div>
 
 
-        <div class="col-md-3">
-          <div class="d-flex">
-            <div>
-              <p class="category-tag">
-              <i class="fa-solid fa-magnifying-glass-location"></i>
-                # <%= @job_application.application_source %>
-              </p>
-              <a class="category-tag">
-              <i class="fa-solid fa-paperclip"></i>
-              <%= @job_application.offer_link %>
-              </a>
             </div>
-          </div>
+            </div>
 
-          <div class="mt-5">
-            <h4>Contact</h4>
-            <div class="d-flex mb-3" style="align-items: center;">
-            <div class="p-3">
-              <img src="https://cdn-icons-png.flaticon.com/128/1177/1177568.png" alt="Avatar contact" class="contact-card-img">
-            </div>
-              <div class="p-3">
-                <p class="padding-card card-task-title d-flex">Caroline Banco</p>
-                <p class="padding-card">HR manager</p>
-                <i class="fa-solid fa-phone contact-card-i"></i>
-                <i class="fa-solid fa-envelope contact-card-i"></i>
-              </div>
-            </div>
           </div>
         </div>
       </div>
     </div>
 
-</div>
 
 <%# // ------------------ JOB DESCRIPTION ---------------- // %>
 
