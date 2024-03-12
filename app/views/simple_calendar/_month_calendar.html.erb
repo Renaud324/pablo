@@ -6,6 +6,9 @@
     <%= link_to '<i class="fa-solid fa-chevron-right"></i>'.html_safe, calendar.url_for_next_view, remote: true, class: "fs-5 ms-5" %>
   </div>
   <!-- Button to add a new event -->
+   <button type="button" class="btn btn-flat" data-bs-toggle="modal" data-bs-target="#newInteractionModal">
+        <i class="fa-solid fa-circle-plus"></i> Add an event
+    </button>
 </div>
 
   <table class="table table-striped">

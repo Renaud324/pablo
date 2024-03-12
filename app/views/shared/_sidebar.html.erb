@@ -21,8 +21,14 @@
     <div style="margin-top: 60px;">
       <div class="d-flex align-items-center">
         <i class="fa-solid fa-magnifying-glass me-2 gradient-text center-zoom" style="font-size: 20px;" data-action="click->sidebar#toggleMenu"></i>
+
+
+
+
+
+
         <li class="search-box search-input-no">
-          <%= form_with url: search_path, method: :get, html: {data: {search_bar_target: "form"}} do |f| %>
+          <%= form_with url: job_applications_path, method: :get, html: {data: {search_bar_target: "form"}} do |f| %>
             <%= f.text_field :query,
                   class: "form-control",
                   placeholder: "Type a keyword",
@@ -54,7 +60,6 @@
         </li>
       </ul>
     </div>
-
     <div class="bottom-content">
       <li class="">
          <%= link_to destroy_user_session_path,  data: {turbo_method: :delete} do %>
