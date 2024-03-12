@@ -1,0 +1,88 @@
+<div class="container-application main-content">
+  <div class="ms-5">
+    <h2>Results</h2>
+
+    <!-- Tabs Section -->
+    <div class="d-flex mt-4">
+      <ul class="list-inline tabs-underlined">
+        <li><a href="#" class="tab-underlined active">All</a></li>
+        <li><a href="#" class="tab-underlined">Task</a></li>
+        <li><a href="#" class="tab-underlined">Job application</a></li>
+        <li><a href="#" class="tab-underlined">Company</a></li>
+        <li><a href="#" class="tab-underlined">Contact</a></li>
+        <li><a href="#" class="tab-underlined">Event</a></li>
+      </ul>
+    </div>
+
+    <div class="search-list">
+      <!-- Task Results -->
+      <% @tasks.each do |task| %>
+        <div class="d-flex search-card justify-content-between">
+          <div>
+            <p><%= task.name %></p>
+            <p class="search-card-details">Details</p>
+          </div>
+          <div>
+            <p class="search-tag-task">#TASK</p>
+          </div>
+        </div>
+      <% end %>
+
+      <!-- Job Application Results -->
+      <% @job_applications.each do |job_application| %>
+        <div class="d-flex search-card justify-content-between">
+          <div>
+            <p><%= job_application.job_title %> - <%= job_application.company.name %></p>
+            <p class="search-card-details"><%= job_application.job_description %></p>
+            <a href="<%= job_application_path(job_application) %>" class="btn btn-task" style="text-decoration: underline;">See details</a>
+          </div>
+          <div>
+            <p class="search-tag-job">#JOB APPLICATION</p>
+          </div>
+        </div>
+      <% end %>
+
+      <!-- Company Results Placeholder -->
+       <% @companies.each do |company| %>
+        <div class="d-flex search-card justify-content-between">
+          <div>
+            <p><%= company.name %> </p>
+            <p class="search-card-details">Details</p>
+          </div>
+          <div>
+            <p class="search-tag-company">#COMPANY</p>
+          </div>
+        </div>
+      <% end %>
+
+
+
+      <!-- Contact Results Placeholder -->
+       <% @contacts.each do |contact| %>
+        <div class="d-flex search-card justify-content-between">
+          <div>
+           <p> <%= contact.email %> - <%= contact.company.name %></p>
+            <p class="search-card-details"><% contact.phone_number %> </p>
+          </div>
+          <div>
+            <p class="search-tag-contact">#CONTACT</p>
+          </div>
+        </div>
+      <% end %>
+      <!-- Event Results Placeholder -->
+
+      <% @interactions.each do |interaction| %>
+        <div class="d-flex search-card justify-content-between">
+          <div>
+           <p> <%= interaction.headline %> - <%= interaction.event_date %></p>
+            <p class="search-card-details"><% interaction.location %> </p>
+          </div>
+          <div>
+            <p class="search-tag-event">#EVENT</p>
+          </div>
+        </div>
+      <% end %>
+
+    </div> <!-- End of search-list -->
+  </div>
+</div>
