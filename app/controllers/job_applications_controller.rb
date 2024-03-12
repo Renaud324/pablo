@@ -52,13 +52,13 @@ class JobApplicationsController < ApplicationController
       sql_subquery = <<~SQL
         interactions.headline ILIKE :query
       SQL
-      @interactions = @interactions.where(sql_subquery, query: "%#{params[:query]}%")
+      @interactions = @interactions.joins(:job_application).joins(:company).where(sql_subquery, query: "%#{params[:query]}%")
     end
 
   end
 
 
-  
+
 
   def refresh
     GmailJob.perform_later(current_user)
