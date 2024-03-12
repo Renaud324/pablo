@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     patch :update_status, on: :member
     collection do
       post 'refresh'
+      get 'search' # Defines route for the search action
     end
   end
   resources :companies
