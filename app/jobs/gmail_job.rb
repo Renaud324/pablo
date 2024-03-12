@@ -36,7 +36,6 @@ class GmailJob < ApplicationJob
     end
   end
   
-  
   def fetch_email_details(thread_id, current_user)
     response = HTTParty.get(
       "https://gmail.googleapis.com/gmail/v1/users/me/messages/#{thread_id}",
