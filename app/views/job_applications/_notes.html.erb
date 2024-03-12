@@ -1,5 +1,6 @@
-  <div class="m-5" style="height: 300px;" data-controller="notes-form">
-    <div>
+  <div class="m-2" style="height: 300px;" data-controller="notes-form">
+    <div class="m-2 bordered-note " style="position : relative;">
+      <p style="font-size: 12px; padding: 6px; background-color: #DDF5E3; width: fit-content; border-radius: 4px; color: #161515;">My note</p>
       <%# <button name="button" type="submit" class="btn">
         <i class="fa-solid fa-circle-plus btn-text"></i> Add a note
       </button>
@@ -16,10 +17,10 @@
 
       <%= simple_format job_application.notes %>
 
-      <div>
+    <div>
       <div>
         <div class="mt-5 text-center">
-          <button data-action="click->notes-form#fire" class="btn-flat">Edit notes</button>
+          <button data-action="click->notes-form#fire" class="edition-button" style="position: absolute; top: 9px; right: 10px;" ><strong><i class="fa-solid fa-pen-nib"></i></strong></button>
           <div data-notes-form-target="togglableElement" class="d-none" style="width:100%">
             <%= render "edit_notes", job_application: @job_application %>
           </div>

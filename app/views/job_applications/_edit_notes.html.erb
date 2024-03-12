@@ -1,4 +1,8 @@
 <%= simple_form_for job_application, html: { id: 'notes-form', data: { action: 'submit->notes-form#submit' } } do |form| %>
-  <%= form.input :notes, label: false, as: :text, input_html: { rows: 10, id: "notes-area", style: "margin-top: 1rem;" } %>
-  <%= form.button :submit, 'Save Notes', class: 'btn-flat', data: { disable_with: 'Saving...' } %>
+  <%= form.input :notes, label: false, as: :text, input_html: { rows: 10, id: "notes-area", style: "margin-top: 1rem; margin-left: 1rem;" } %>
+  <%= button_tag(type: 'submit', class: 'saving-button', data: { disable_with: 'Saving...' }) do %>
+    <i class="fa-solid fa-floppy-disk" style="font-size: 20px;"></i><span> Save</span>
+  <% end %>
+
+  <%#= form.button :submit, class: 'saving-button', data: { disable_with: 'Saving...' } %>
 <% end %>
