@@ -8,6 +8,9 @@ class JobApplicationsController < ApplicationController
     @advanced_process_applications = JobApplication.where(status: :advanced)
     @offer_applications = JobApplication.where(status: :offer)
     @tasks = Task.all
+    @companies = Company.all
+    @contacts = Contact.all
+    @interactions = Interaction.all
   end
 
   def search
