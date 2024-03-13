@@ -42,6 +42,7 @@ puts "seeding the companies"
     company: company1
   )
 
+
   contact2 = Contact.create(
     email: 'bob@techinnovations.com',
     phone_number: '123-456-7890',

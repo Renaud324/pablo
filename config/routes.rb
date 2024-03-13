@@ -9,10 +9,14 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
 
+
   get "up" => "rails/health#show", as: :rails_health_check
-  mount Sidekiq::Web => '/sidekiq'
   get 'openai', to: 'openai#index'
   get "search", to: "pages#search"
+
+  authenticate :user, ->(user) { user.admin? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
 
   resources :job_applications do
     resources :interactions, only: [:index]
@@ -25,5 +29,8 @@ Rails.application.routes.draw do
   end
   resources :companies
   resources :tasks, only: %i[index create]
-  resources :interactions, only: %i[index create destroy]
+  resources :interactions, only: %i[index create destroy] do
+    post 'send_email', on: :collection
+  end
+
 end

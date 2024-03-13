@@ -12,7 +12,7 @@ class TasksController < ApplicationController
   def create
     @task = @job_application.tasks.build(task_params)
     if @task.save
-      redirect_to home, notice: 'Task was successfully created.'
+      redirect_to root_path, notice: 'Task was successfully created.'
     else
       render :new
     end
@@ -24,7 +24,7 @@ class TasksController < ApplicationController
   private
 
   def set_job_application
-    @job_application = JobApplication.find(params[:job_application_id])
+    @job_application = JobApplication.find(params[:task][:job_application_id])
   end
 
   def task_params

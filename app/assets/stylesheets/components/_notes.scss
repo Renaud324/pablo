@@ -1,3 +1,14 @@
 #notes-area {
-  background-image: none !important;
+  background-image: #060505 !important;
+  font-size: 14px;
+  border-radius: 8px !important;
+  margin-left: 0 !important;
+}
+
+
+.bordered-note {
+  border: 1px solid #444;
+  border-radius: 8px;
+  padding: 10px;
+  min-height: 160px;
 }

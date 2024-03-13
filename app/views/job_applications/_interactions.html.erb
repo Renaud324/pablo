@@ -3,7 +3,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="newInteractionModalLabel">New Interaction</h5>
-        <button type="button" style="color:white"class="btn-close align-self-start" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+        <button type="button" style="color:white" class="btn-close align-self-start" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
       </div>
       <div class="modal-body" id="modal">
         <%= render 'interactions/form', interaction: @interaction %>
@@ -12,36 +12,51 @@
   </div>
 </div>
 
-<div class="m-5" style="">
-  <div class="row">
-     <div class="col">
-      <div class="mb-3 card-task" style="align-items: center; padding-bottom: 15px">
-        <% if current_user.present? %>
-          <% @interactions.each do |interaction| %>
-            <div class="d-flex border-start mb-3 align-items-center" style="background-color: #262525">
-              <div class="icon-task" style="margin-left: 10px;">
-                <i class="fa-solid fa-envelope"></i>
-              </div>
-              <div class="p-3 flex-grow-1">
-                <p class="padding-card card-task-title d-flex"><%= interaction.headline %></p>
-                <p class="padding-card"><%= interaction.event_date %></p>
-              </div>
-              <%= link_to interaction_path(interaction), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, id: "interaction-link" do %>
-                <i class="fa-solid fa-trash" style="font-size: smaller; margin-right: 10px;"></i>
-              <% end %>
-            </div>
-        <% end %>
-        <% else %>
-          <p>No interaction yet, keep pushing</p>
-        <% end %>
-      </div>
-    </div>
-    <div class="col d-flex justify-content-center">
-      <div class="pb-5">
-        <button type="button" class="btn btn-flat" data-bs-toggle="modal" data-bs-target="#newInteractionModal">
-          <i class="fa-solid fa-circle-plus"></i> Add an interaction
+<div class="modal fade" id="sendEmail" data-interaction-target="modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="sendEmaillLabel">New Interaction</h5>
+        <button type="button" class="close" data-action="click->interaction#closeModal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
         </button>
       </div>
+      <div class="modal-body" id="modal">
+        <%= render 'interactions/email', interaction: @interaction %>
+      </div>
     </div>
+  </div>
+</div>
+
+<div class="m-2 bordered-note" style="position: relative;">
+  <div class="mb-3 card-task" style="align-items: center; padding-bottom: 15px">
+    <p style="font-size: 12px; padding: 6px; background-color: #DDF5E3; width: fit-content; border-radius: 4px; color: #161515;">Interactions</p>
+    <% if current_user.present? %>
+      <% @interactions.each do |interaction| %>
+        <div class="d-flex mb-3 align-items-center">
+          <div class="icon-task" style="margin-left: 10px;">
+            <i class="fa-solid fa-envelope"></i>
+          </div>
+          <div class="p-3">
+            <p class="padding-card" style="background-color: #262525; color: $white; font-size: 12px; margin-right: 300px !important;"><%= l(interaction.event_date, format: "%d/%m/%Y")  %></p>
+            <p class="padding-card card-task-title d-flex"><%= interaction.headline %></p>
+            <%= link_to interaction_path(interaction), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, id: "interaction-link" do %>
+              <i class="fa-solid fa-trash" style="font-size: 14px; color: darkgray; margin-left: 3px;"></i>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <p>No interaction yet, keep pushing</p>
+    <% end %>
+
+    <%# --------------/// BUTTON ADD //---------- %>
+
+    <button type="button" class="edition-button" style="position: absolute; top: 9px; right: 10px;" data-bs-toggle="modal" data-bs-target="#newInteractionModal">
+      <i class="fa-solid fa-plus" style="font-size: 14px; color: white;"></i>
+    </button>
+    <button type="button" class="edition-button" style="position: absolute; top: 9px; right: 10px;" data-bs-toggle="modal" data-bs-target="#sendEmail">
+      <i class="fa-solid fa-paper-plane" style="font-size: 14px; color: white;"></i>
+    </button>
   </div>
 </div>

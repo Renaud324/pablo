@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   def home
     return unless current_user
     @job_applications = JobApplication.where(user_id: current_user.id)
-    @tasks = Task.where(job_application_id: @job_applications.ids)
+    @tasks = Task.where(job_application_id: @job_applications.ids).order(created_at: :desc)
     @just_applied_applications = JobApplication.where(status: :just_applied)
     @first_interview_applications = JobApplication.where(status: :first_interview)
     @advanced_process_applications = JobApplication.where(status: :advanced)
