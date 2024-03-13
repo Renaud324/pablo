@@ -10,28 +10,28 @@
         <div class="gradient-container pt-1">
           <i class="fa-regular fa-paper-plane"></i>
           <p><strong>Just Applied</strong></p>
-          <p class="gradient-text" style="font-weight: bold; font-size: 30px; margin-top: -12px;">12</p>
+          <p class="gradient-text" style="font-weight: bold; font-size: 30px; margin-top: -12px;"><%= @just_applied_applications.count %></p>
         </div>
       </div>
       <div class="col-md-3 square-column text-center">
         <div class="gradient-container pt-1">
           <i class="fa-regular fa-comments"></i>
           <p><strong>1st interview</strong></p>
-          <p class="gradient-text" style="font-weight: bold; font-size: 30px; margin-top: -12px;">7</p>
+          <p class="gradient-text" style="font-weight: bold; font-size: 30px; margin-top: -12px;"><%= @first_interview_applications.count %></p>
         </div>
       </div>
       <div class="col-md-3 square-column text-center">
         <div class="gradient-container pt-1">
           <i class="fa-solid fa-gears"></i>
           <p><strong>Advanced</strong></p>
-          <p class="gradient-text" style="font-weight: bold; font-size: 30px; margin-top: -12px;">3</p>
+          <p class="gradient-text" style="font-weight: bold; font-size: 30px; margin-top: -12px;"><%= @advanced_process_applications.count %></p>
         </div>
       </div>
       <div class="col-md-3 square-column text-center">
         <div class="gradient-container-offer pt-1">
           <i class="fa-solid fa-trophy" style="font-size: 20px;"></i>
           <p><strong>Offer</strong></p>
-          <p style="font-weight: bold; font-size: 30px; margin-top: -12px;">1</p>
+          <p style="font-weight: bold; font-size: 30px; margin-top: -12px;"><%= @offer_applications.count %></p>
         </div>
       </div>
 
@@ -66,4 +66,3 @@
     </div>
   </div>
 </div>
-

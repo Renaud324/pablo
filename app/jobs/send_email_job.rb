@@ -19,7 +19,6 @@ class SendEmailJob < ApplicationJob
     contact_email = interaction.contacts.first&.email
 
     puts "#2-this is your contact email : #{contact_email}"
-
     puts "#3-this is your access token : #{user.access_token}"
 
     message = Mail.new
@@ -29,7 +28,6 @@ class SendEmailJob < ApplicationJob
     message[:body] = email_content
 
     puts "#4-this is the message content : #{email_content}"
-
     puts "#5-this is your message : #{message}"
 
     message_rcf2822 = message.to_s
@@ -37,12 +35,16 @@ class SendEmailJob < ApplicationJob
     begin
       message_object = Google::Apis::GmailV1::Message.new(raw: message_rcf2822)
         puts "#6-this is your message_object : #{message_object}"
+
       result = service.send_user_message('me', message_object)
         puts "#7-this is your result : #{result.id}"
+
     rescue Google::Apis::Error => e
       puts "#8-this is your error message : #{e.message}"
+
     result = nil
     end
+
     result
   end
 
