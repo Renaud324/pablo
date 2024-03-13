@@ -135,8 +135,12 @@ GEM
     ffi (1.16.3)
     font-awesome-sass (6.5.1)
       sassc (~> 2.0)
+    gems (1.2.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    google-api-client (0.53.0)
+      google-apis-core (~> 0.1)
+      google-apis-generator (~> 0.1)
     google-apis-core (0.14.0)
       addressable (~> 2.5, >= 2.5.1)
       googleauth (~> 1.9)
@@ -145,6 +149,14 @@ GEM
       representable (~> 3.0)
       retriable (>= 2.0, < 4.a)
       rexml
+    google-apis-discovery_v1 (0.16.0)
+      google-apis-core (>= 0.14.0, < 2.a)
+    google-apis-generator (0.14.0)
+      activesupport (>= 5.0)
+      gems (~> 1.2)
+      google-apis-core (>= 0.14.0, < 2.a)
+      google-apis-discovery_v1 (~> 0.14)
+      thor (>= 0.20, < 2.a)
     google-apis-gmail_v1 (0.39.0)
       google-apis-core (>= 0.14.0, < 2.a)
     google-cloud-env (2.1.1)
@@ -397,12 +409,14 @@ DEPENDENCIES
   dotenv-rails
   error_highlight (>= 0.4.0)
   font-awesome-sass (~> 6.1)
+  google-api-client (~> 0.9)
   google-apis-gmail_v1 (~> 0.1)
   googleauth
   httparty
   importmap-rails
   jbuilder
   json
+  mail
   nokogiri
   omniauth
   omniauth-google-oauth2

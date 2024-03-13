@@ -40,7 +40,7 @@ contact1 = Contact.create(
   )
 
 contact2 = Contact.create(
-  email: 'contact2@company2.com',
+  email: 'ahmedboussaada1@gmail.com',
   phone_number: '098-765-4321',
   company: company3)
 

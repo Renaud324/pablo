@@ -12,6 +12,22 @@
   </div>
 </div>
 
+<div class="modal fade" id="sendEmail" data-interaction-target="modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="sendEmaillLabel">New Interaction</h5>
+        <button type="button" class="close" data-action="click->interaction#closeModal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="modal">
+        <%= render 'interactions/email', interaction: @interaction %>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="m-2 bordered-note" style="position: relative;">
   <div class="mb-3 card-task" style="align-items: center; padding-bottom: 15px">
     <p style="font-size: 12px; padding: 6px; background-color: #DDF5E3; width: fit-content; border-radius: 4px; color: #161515;">Interactions</p>
@@ -38,6 +54,9 @@
 
     <button type="button" class="edition-button" style="position: absolute; top: 9px; right: 10px;" data-bs-toggle="modal" data-bs-target="#newInteractionModal">
       <i class="fa-solid fa-plus" style="font-size: 14px; color: white;"></i>
+    </button>
+    <button type="button" class="edition-button" style="position: absolute; top: 9px; right: 10px;" data-bs-toggle="modal" data-bs-target="#sendEmail">
+      <i class="fa-solid fa-paper-plane" style="font-size: 14px; color: white;"></i>
     </button>
   </div>
 </div>
