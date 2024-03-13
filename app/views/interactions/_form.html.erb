@@ -3,7 +3,7 @@
   <%= f.input :event_date,
             as: :string,
             input_html: { data: { controller: "datepicker" } } %>
-  <%= f.input :event_time %>
+  <%= f.input :event_time, input_html: { style: "background-color: #303030;" } %>
   <%= f.input :location %>
   <%= f.input :interaction_type, collection: Interaction.interaction_types.keys.map { |type| [type.titleize, type] }, label: "Interaction Type", include_blank: false, prompt: "Select Interaction Type" %>
   <% if action_name == "show" && controller_name == "job_applications" %>
