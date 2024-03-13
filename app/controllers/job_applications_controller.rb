@@ -76,7 +76,6 @@ class JobApplicationsController < ApplicationController
 
     # Find all contacts associated with those InteractionContact records
     @contacts = Contact.where(id: interaction_contacts.pluck(:contact_id))
-
   end
 
   def new

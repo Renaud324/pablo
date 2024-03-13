@@ -4,7 +4,7 @@
       <div class="d-flex">
         <div class="p-2 w-100 mb-4">
           <h1><%= @job_application.job_title %></h1>
-          <p style="font-size: 24px;"><i class="fa-solid fa-building me-3"></i>Google</p>
+          <p style="font-size: 24px;"><i class="fa-solid fa-building me-3"></i> <%= @job_application.company.name %></p>
         </div>
       </div>
     </div>
@@ -118,7 +118,7 @@
 
             <div class="mt-5">
               <h4 style="font-size: 16px; text-align: center">Contacts</h4>
-              <div class="d-flex justify-content-center mb-3" style="align-items: center;">
+              <div class="mb-3" style="align-items: center;">
                 <% @contacts.each do |contact| %>
                   <%= render "contact_card", contact: contact %>
                 <% end %>

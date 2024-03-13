@@ -8,22 +8,19 @@ require 'base64'
 class SendEmailJob < ApplicationJob
   queue_as :default
 
-  def perform(interaction, user, email_content)
+  def perform(interaction, user, contact, email_content)
 
-    puts "#O-this is the interaction instance : #{interaction}"
 
     service = initialize_gmail_service(user)
 
+    puts "#O-this is the interaction instance : #{interaction}"
     puts "#1-this is your gmail instance : #{service}"
-
-    contact_email = interaction.contacts.first&.email
-
-    puts "#2-this is your contact email : #{contact_email}"
+    puts "#2-this is your contact email : #{contact}"
     puts "#3-this is your access token : #{user.access_token}"
 
     message = Mail.new
     message[:from] = user.email
-    message[:to] = contact_email
+    message[:to] = contact.email
     message[:subject] = interaction.headline
     message[:body] = email_content
 
