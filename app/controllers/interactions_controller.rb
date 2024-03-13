@@ -38,14 +38,23 @@ class InteractionsController < ApplicationController
   end
 
   def send_email
+
+
+
     @job_application = JobApplication.find(params["interaction"]["job_application_id"])
     @interaction = Interaction.new(interaction_params)
     @interaction.event_date = Time.zone.now.to_date
     @interaction.event_time = Time.zone.now
     @interaction.interaction_type = 0
     @interaction.user_id = current_user.id
+
+    contact_ids = params[:interaction][:contact_ids].reject(&:blank?)
+    contacts = Contact.find(contact_ids)
+
     if @interaction.save
-      SendEmailJob.perform_later(@interaction, current_user, @interaction.email_content)
+      contacts.each do |contact|
+        SendEmailJob.perform_later(@interaction, current_user, contact, @interaction.email_content)
+      end
       redirect_to @job_application, notice: 'email was successfully sent.'
     else
       redirect_to @job_application, alert: 'Failed to send the email.'
