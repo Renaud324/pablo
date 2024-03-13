@@ -1,0 +1,5 @@
+meta_product_name: "Pablo"
+meta_title: "Pablo - Your AI assistant for job hunting"
+meta_description: "Software connected to your emails, using AI to analyze them and create a dashboard with real time info & updates for each job you applied to, and suggested actions"
+meta_image: "pabsss.png" # should exist in `app/assets/images/`
+twitter_account: "@clemnce" # required for Twitter Cards

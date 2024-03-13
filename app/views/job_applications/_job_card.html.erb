@@ -1,7 +1,7 @@
-<div class="job-card">
-    <%= link_to job_application_path(job_application), class: "text-decoration-none" do %>
+<%= link_to job_application_path(job_application), class: "text-decoration-none job-card" do %>
+  <div class="job-card">
     <h5 style="font-size: 16px"><%= job_application.job_title %></h5>
-    <% end %>
     <p><i class="fa-solid fa-building" style="margin-right: 10px;"></i><%= job_application.company.name %></p>
     <p><i class="fa-solid fa-location-dot" style="margin-right: 10px"></i><%= job_application.job_location %></p>
-</div>
+  </div>
+<% end %>
