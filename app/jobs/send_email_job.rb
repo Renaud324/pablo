@@ -3,6 +3,7 @@ require 'googleauth'
 require 'googleauth/stores/file_token_store'
 require 'fileutils'
 require 'mail'
+require 'base64'
 
 class SendEmailJob < ApplicationJob
   queue_as :default
@@ -19,27 +20,23 @@ class SendEmailJob < ApplicationJob
 
     puts "#3-this is your access token : #{user.access_token}"
 
-    message = Mail.new do
-      To contact_email
-      from user.email
-      subject interaction.headline
-      body interaction.email_content
-    end
+    message = Mail.new
+    message[:from] = user.email
+    message[:to] = 'ahmedboussaada1@gmail.com'
+    message[:subject] = 'pablo the fox'
+    message[:body] = 'this is a test email from pablo the fox web app'
 
     puts "#4-this is your message : #{message}"
 
-    message_delivery = message.encoded
-    message_base64 = Base64.urlsafe_encode64(message_delivery)
-
-    puts "#5-this is your message_base64 : #{message_base64}"
+    message_rcf2822 = message.to_s
 
     begin
-      message_object = Google::Apis::GmailV1::Message.new(raw: message_base64)
-        puts "#6-this is your message_object : #{message_object}"
+      message_object = Google::Apis::GmailV1::Message.new(raw: message_rcf2822)
+        puts "#7-this is your message_object : #{message_object}"
       result = service.send_user_message('me', message_object)
-        puts "#7-this is your result : #{result.id}"
+        puts "#8-this is your result : #{result.id}"
     rescue Google::Apis::Error => e
-      puts "#8-this is your error message : #{e.message}"
+      puts "#9-this is your error message : #{e.message}"
     result = nil
     end
     result
