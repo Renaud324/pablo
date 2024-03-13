@@ -9,7 +9,6 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
 
-
   get "up" => "rails/health#show", as: :rails_health_check
   get 'openai', to: 'openai#index'
   get "search", to: "pages#search"

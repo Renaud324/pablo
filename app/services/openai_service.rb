@@ -2,8 +2,7 @@ class OpenaiService
   include HTTParty
   attr_reader :api_url, :options, :query
 
-  def initialize(query)
-    @query = query
+  def initialize
     @api_url = 'https://api.openai.com/v1/chat/completions'
     @options = {
       headers: {
@@ -28,7 +27,7 @@ class OpenaiService
       model: 'gpt-3.5-turbo',
       messages: [
         { role: 'system', content: pre_prompt }, # System message for pre-prompt
-        { role: 'user', content: prompt }         # User's actual 
+        { role: 'user', content: prompt }         # User's actual
       ]
     }
     response = HTTParty.post(api_url, body: body.to_json, headers: options[:headers], timeout: 500)
