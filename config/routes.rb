@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     patch :update_status, on: :member
     collection do
       post 'refresh'
+      get 'search' # Defines route for the search action
     end
   end
   resources :companies
@@ -31,4 +32,5 @@ Rails.application.routes.draw do
   resources :interactions, only: %i[index create destroy] do
     post 'send_email', on: :collection
   end
+
 end

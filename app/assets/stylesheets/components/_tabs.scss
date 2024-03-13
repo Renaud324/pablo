@@ -7,15 +7,15 @@
   color: $white;
   padding: 8px;
   margin: 8px;
-  opacity: .4;
+  opacity: 0.4;
   cursor: pointer;
   text-decoration: none;
   border-bottom: 3px solid transparent;
-  
+
 }
 
 .tabs-underlined .tab-underlined.active {
   opacity: 1;
-  // border-bottom: 3px solid transparent; /* Ajout d'une couleur transparente pour éviter la distorsion des autres propriétés */
+  border-bottom: 3px solid transparent; /* Ajout d'une couleur transparente pour éviter la distorsion des autres propriétés */
   border-image: linear-gradient(to right, #9796f0, #fbc7d4) 1; /* Ajout d'une valeur d'épaisseur pour la bordure */
 }

@@ -9,30 +9,62 @@
   display: flex;
 }
 
+.horizontal-scrolling {
+  max-width: 90%;
+  overflow-x: scroll;
+}
+
+.vertical-scrolling {
+  max-height: 90%;
+  overflow-y: scroll;
+}
+
 .job-card {
   padding-left: 11px;
   padding-top: 8px;
   padding-bottom: 0.5px;
+  padding-right: 15px;
   margin-bottom: 10px;
-  color: $white; /* Couleur du texte */
-  // border-image: linear-gradient(to right, #9796f0, #fbc7d4) 1;
-  height: fit-content;
-  margin-top: 15px;
-  border: 1px solid;
-  // border-image: linear-gradient(to top, #9796f0, #fbc7d4) 1;
-  background-image: linear-gradient(to top, #9796f0, #fbc7d4);
-  border-radius: 8px;
-  margin-left: 9px;
-  cursor: pointer;
-  font-size: 16px;
   margin-top: 12px;
-  width: 100% !important;
+  margin-left: 9px;
+  color: $white; /* Couleur du texte */
+  border: 1px solid;
+  border-radius: 8px;
+  background-image: linear-gradient(to right, rgba(151, 150, 240, 0.8), rgba(251, 199, 212, 0.8)); /* Changement ici */
+  cursor: pointer;
+  width: 200px;
+  height: 90px;
+}
+
+
+.job-card-grey {
+  padding-left: 11px;
+  padding-top: 8px;
+  padding-bottom: 0.5px;
+  padding-right: 15px;
+  margin-bottom: 10px;
+  margin-top: 12px;
+  margin-left: 9px;
+  color: $white; /* Couleur du texte */
+  border: 1px solid;
+  border-radius: 8px;
+  background-image: linear-gradient(to top, #1c1c1c, #262525);
+  cursor: pointer;
+  width: 200px;
+  height: 90px;
 }
 
 .job-card:hover {
-  transform: translateY(-5px) rotate(2deg); /* Translation vers le haut et rotation légère */
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre au survol */
-  background-image: linear-gradient(to top, #fbc7d4, #9796f0); /* Changement de couleur de fond */
+  transform: translateY(-5px) rotate(2deg);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  background-image: linear-gradient(to top, #fbc7d4, #9796f0);
+}
+
+.quote {
+  font-family: 'Dancing Script';
+  font-size: 27px;
+  color: #7b7b7b;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .job-details {

@@ -7,7 +7,54 @@ class JobApplicationsController < ApplicationController
     @first_interview_applications = JobApplication.where(status: :first_interview)
     @advanced_process_applications = JobApplication.where(status: :advanced)
     @offer_applications = JobApplication.where(status: :offer)
-    @tasks = Task.where(job_application_id: params[:id])
+    @tasks = Task.all
+    @companies = Company.all
+    @contacts = Contact.all
+    @interactions = Interaction.all
+  end
+
+  def search
+    @job_applications = JobApplication.all
+    if params[:query].present?
+      sql_subquery = <<~SQL
+        job_applications.job_title ILIKE :query
+        OR job_applications.job_location ILIKE :query
+        OR companies.name ILIKE :query
+      SQL
+      @job_applications = @job_applications.joins(:company).where(sql_subquery, query: "%#{params[:query]}%")
+    end
+
+    @tasks = Task.all
+    if params[:query].present?
+      sql_subquery = <<~SQL
+        tasks.name ILIKE :query
+      SQL
+      @tasks = @tasks.where(sql_subquery, query: "%#{params[:query]}%")
+    end
+
+    @companies = Company.all
+    if params[:query].present?
+      sql_subquery = <<~SQL
+        companies.name ILIKE :query
+      SQL
+      @companies = @companies.where(sql_subquery, query: "%#{params[:query]}%")
+    end
+
+    @contacts = Contact.all
+    if params[:query].present?
+      sql_subquery = <<~SQL
+        contacts.email ILIKE :query
+      SQL
+      @contacts = @contacts.where(sql_subquery, query: "%#{params[:query]}%")
+    end
+
+    @interactions = Interaction.all
+    if params[:query].present?
+      sql_subquery = <<~SQL
+        interactions.headline ILIKE :query
+      SQL
+      @interactions = @interactions.joins(:job_application).where(sql_subquery, query: "%#{params[:query]}%")
+    end
   end
 
   def refresh
@@ -32,7 +79,6 @@ class JobApplicationsController < ApplicationController
     else
       render :new
     end
-
   end
 
   def edit
@@ -56,7 +102,6 @@ class JobApplicationsController < ApplicationController
       redirect_to root_path, alert: 'Failed to update status.'
     end
   end
-
 
   private
 

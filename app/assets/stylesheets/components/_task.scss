@@ -44,25 +44,24 @@
 .custom-checkbox input[type=checkbox] + div > label {
   display: inline-block;
   position: relative;
-  width: 14px;
-  height: 14px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%; /* Rendre la case à cocher ronde */
-  background-color: #fff; /* Couleur de fond de la case à cocher */
+  background-color: $white; /* Couleur de fond de la case à cocher */
   border: 1px solid #9796f0; /* Bordure de la case à cocher */
   cursor: pointer; /* Curseur de la souris */
-  flex: 0 0 14px;
+  flex: 0 0 20px;
 }
 
 /* Modifier l'apparence de la case à cocher lorsqu'elle est cochée */
 .custom-checkbox input[type=checkbox]:checked + div > label {
   background-color: #ff4da6; /* Couleur de fond lorsque la case est cochée */
-  border: 2px solid $white;
+  border: 4px solid $white;
 }
 
 .custom-checkbox input[type=checkbox]:checked + div > .card-task {
-  text-decoration: line-through;
-  opacity: 0.5;
-
+  text-decoration: line-through #9796f0;
+  opacity: 0.9;
 }
 
 .line-between-divs {
@@ -106,3 +105,11 @@
 .close:hover { /* Change hover color as needed */
   color: $purple;
 }
+
+#newTaskModal {
+  backdrop-filter: contrast(0.5);
+}
+
+// .modal-backdrop {
+//   z-index: -10!important;
+// }

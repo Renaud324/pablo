@@ -10,6 +10,5 @@ class Interaction < ApplicationRecord
   validates :event_date, presence: true
   validates :headline, presence: true
   validates :job_application, presence: true
-  validates :interaction_type, presence: true
-
+  validates :interaction_type, presence: true  
 end

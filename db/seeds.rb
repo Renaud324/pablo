@@ -7,23 +7,10 @@ Task.destroy_all
 JobApplication.destroy_all
 Contact.destroy_all
 Company.destroy_all
-User.destroy_all
 
 # ########################-USER-###########################
 puts "seeding the user"
-user1 = User.create!(
-  email: 'olele@example.com',
-  password: 'password',
-  first_name: 'John',
-  last_name: 'Doe'
-)
-
-user2 = User.create!(
-  email: 'olele2@example.com',
-  password: 'password',
-  first_name: 'Patrick',
-  last_name: 'Martin'
-)
+user1 = User.where(email: "aloha.alice.pablo@gmail.com").first
 
 company1 = Company.create!(
   name: 'Monday.com',
@@ -246,7 +233,7 @@ interaction6 = Interaction.create(
   event_time: '14:00',
   location: '',
   interaction_type: 1,
-  user: user2,
+  user: user1,
   job_application: job_application6
 )
 

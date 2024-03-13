@@ -26,8 +26,6 @@
   height: fit-content;
   width: fit-content;
   padding: 8px;
-  border-image: linear-gradient(to right, #9796f0, #fbc7d4) 1;
-  border-radius: 16px;
 }
 
 .btn-add-task {
@@ -53,4 +51,31 @@
   color: transparent;
   border: $white;
   font-size: 16px;
+}
+
+.edition-button {
+  background-color: #007bff; /* Couleur de fond du bouton */
+  color: #fff; /* Couleur du texte */
+  border: none; /* Supprime la bordure */
+  border-radius: 4px; /* Arrondi des coins */
+  cursor: pointer; /* Curseur au survol */
+  transition: background-color 0.3s ease;
+}
+
+.edition-button:hover {
+  background-image: linear-gradient(to right, #9796f0, #fbc7d4);
+}
+
+.saving-button {
+  background-color: #007bff; /* Couleur de fond du bouton */
+  color: #fff; /* Couleur du texte */
+  border: none; /* Supprime la bordure */
+  padding: 8px 16px; /* Espacement intérieur du bouton */
+  border-radius: 4px; /* Arrondi des coins */
+  cursor: pointer; /* Curseur au survol */
+  transition: background-color 0.3s ease; /* Animation de transition */
+}
+
+.saving-button:hover {
+  background-image: linear-gradient(to right, #9796f0, #fbc7d4);
 }
