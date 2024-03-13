@@ -3,10 +3,10 @@ class JobApplicationsController < ApplicationController
 
   def index
     @job_applications = JobApplication.all
-    @just_applied_applications = JobApplication.where(status: :just_applied)
-    @first_interview_applications = JobApplication.where(status: :first_interview)
-    @advanced_process_applications = JobApplication.where(status: :advanced)
-    @offer_applications = JobApplication.where(status: :offer)
+    @just_applied_applications = JobApplication.where(status: 0)
+    @first_interview_applications = JobApplication.where(status: 1)
+    @advanced_process_applications = JobApplication.where(status: 2)
+    @offer_applications = JobApplication.where(status: 3)
     @tasks = Task.all
     @companies = Company.all
     @contacts = Contact.all
