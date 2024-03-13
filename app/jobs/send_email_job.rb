@@ -8,7 +8,9 @@ require 'base64'
 class SendEmailJob < ApplicationJob
   queue_as :default
 
-  def perform(interaction, user)
+  def perform(interaction, user, email_content)
+
+    puts "#O-this is the interaction instance : #{interaction}"
 
     service = initialize_gmail_service(user)
 
@@ -22,21 +24,23 @@ class SendEmailJob < ApplicationJob
 
     message = Mail.new
     message[:from] = user.email
-    message[:to] = 'ahmedboussaada1@gmail.com'
-    message[:subject] = 'pablo the fox'
-    message[:body] = 'this is a test email from pablo the fox web app'
+    message[:to] = contact_email
+    message[:subject] = interaction.headline
+    message[:body] = email_content
 
-    puts "#4-this is your message : #{message}"
+    puts "#4-this is the message content : #{email_content}"
+
+    puts "#5-this is your message : #{message}"
 
     message_rcf2822 = message.to_s
 
     begin
       message_object = Google::Apis::GmailV1::Message.new(raw: message_rcf2822)
-        puts "#7-this is your message_object : #{message_object}"
+        puts "#6-this is your message_object : #{message_object}"
       result = service.send_user_message('me', message_object)
-        puts "#8-this is your result : #{result.id}"
+        puts "#7-this is your result : #{result.id}"
     rescue Google::Apis::Error => e
-      puts "#9-this is your error message : #{e.message}"
+      puts "#8-this is your error message : #{e.message}"
     result = nil
     end
     result
