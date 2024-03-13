@@ -1,9 +1,13 @@
 <div class="simple-calendar" data>
- <div class="calendar-heading d-flex justify-content-between align-items-center mb-3">
-  <div>
-    <%= link_to '<i class="fa-solid fa-chevron-left"></i>'.html_safe, calendar.url_for_previous_view, remote: true, class: "fs-5 me-5" %>
-    <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
-    <%= link_to '<i class="fa-solid fa-chevron-right"></i>'.html_safe, calendar.url_for_next_view, remote: true, class: "fs-5 ms-5" %>
+ <div class="calendar-heading calendar-headhead d-flex justify-content-between align-items-center mb-3">
+  <div class="d-flex align-items-center">
+    <div style="width: 285px;">
+      <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
+    </div>
+    <div>
+      <%= link_to '<i class="fa-solid fa-chevron-left"></i>'.html_safe, calendar.url_for_previous_view, remote: true, class: "fs-5 ms-5 me-2" %>
+      <%= link_to '<i class="fa-solid fa-chevron-right"></i>'.html_safe, calendar.url_for_next_view, remote: true, class: "fs-5 ms-3" %>
+    </div>
   </div>
   <!-- Button to add a new event -->
    <button type="button" class="btn btn-flat" data-bs-toggle="modal" data-bs-target="#newInteractionModal">
