@@ -1,13 +1,12 @@
 <div class="modal fade" id="updateStatusModal<%= job_application.id %>">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
+    <div class="modal-content" style="background-color: #262525;">
       <div class="modal-header">
-       <img src="https://res.cloudinary.com/dkr1l2a2k/image/upload/v1710096907/Pablo_the_foxi_c36qx3.png" style="height: 200px;" alt="">
-        <h5 class="modal-title" id="statusUpdateModalLabel">Update <%= job_application.job_title %>'s status</h5>
-        <button type="button" style="color:white"class="btn-close align-self-start" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+        <h5 class="modal-title" id="statusUpdateModalLabel">Update status</h5>
+        <button type="button" style="color:white"class="btn-close align-self-start" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <h4 class="text-center mb-4" style="color: #9796F0;"><%= job_application.company.name %></h4> <!-- Company name centered and spaced -->
+        <h4 class="text-center mb-4"><%= job_application.job_title %> - <%= job_application.company.name %></h4> <!-- Company name centered and spaced -->
         <%= form_with(model: job_application, url: update_status_job_application_path(job_application), local: true, method: :patch) do |form| %>
           <div class="form-group mb-4"> <!-- Added margin-bottom for spacing -->
             <%= form.label :status, 'Status' %>
