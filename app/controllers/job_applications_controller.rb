@@ -65,6 +65,17 @@ class JobApplicationsController < ApplicationController
   def show
     @interaction = Interaction.new
     @interactions = Interaction.where(job_application_id: params[:id])
+
+    ## ----------finding contacts linked to the job_application---------- ##
+
+    # Find all interactions associated with the job application
+    interactions = @job_application.interactions
+
+    # Find all InteractionContact records associated with those interactions
+    interaction_contacts = InteractionContact.where(interaction_id: interactions.pluck(:id))
+
+    # Find all contacts associated with those InteractionContact records
+    @contacts = Contact.where(id: interaction_contacts.pluck(:contact_id))
   end
 
   def new
