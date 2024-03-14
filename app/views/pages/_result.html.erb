@@ -55,6 +55,7 @@
           <div>
             <p><%= company.name %> </p>
             <p class="search-card-details">Details</p>
+            <a href="<%= job_application_path(company) %>" class="btn btn-task" style="text-decoration: underline;">See details</a>
           </div>
           <div>
             <p class="search-tag-company">#COMPANY</p>
@@ -71,6 +72,7 @@
           <div>
            <p> <%= contact.email %> - <%= contact.company.name %></p>
             <p class="search-card-details"><%= contact.phone_number %> </p>
+            <a href="<%= job_application_path(contact.company_id) %>" class="btn btn-task" style="text-decoration: underline;">See details</a>
           </div>
           <div>
             <p class="search-tag-contact">#CONTACT</p>
@@ -84,12 +86,11 @@
       <% @interactions.each do |interaction| %>
         <div class="d-flex search-card justify-content-between">
           <div>
-
-           <p> <%= interaction.headline %> - <%= Date.parse(interaction.event_date.to_s).strftime('%B %d, %Y')  %></p>
+            <p> <%= interaction.headline %> - <%= Date.parse(interaction.event_date.to_s).strftime('%B %d, %Y')  %></p>
             <p class="search-card-details"><%= interaction.location %> </p>
             <p class="search-card-details"><%= interaction.job_application.company.name %> </p>
             <p class="search-card-details"><%= interaction.job_application.job_title %> </p>
-
+            <a href="<%= job_application_path(interaction) %>" class="btn btn-task" style="text-decoration: underline;">See details</a>
           </div>
           <div>
             <p class="search-tag-event">#EVENT</p>

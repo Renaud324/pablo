@@ -17,6 +17,16 @@
               </div>
               <div class="modal-body">
                 <div class="container">
+
+                  <div class="row">
+                    <div class="col-4">
+                      <i class="fa-solid fa-user-astronaut"></i><p style="display: inline";>    Job<p>
+                    </div>
+                    <div class="col-8">
+                      <p><%= "#{interaction.job_application.job_title} @#{interaction.job_application.company.name}" %><p>
+                    </div>
+                  </div>
+
                   <div class="row">
                     <div class="col-4">
                       <i class="fa-solid fa-thumbtack"></i><p style="display: inline";>    Event type<p>
@@ -52,6 +62,7 @@
                       <p><%= interaction.location %><p>
                     </div>
                   </div>
+
                 </div>
               </div>
               <div class="modal-footer modal-border-top d-flex justify-content-between">
