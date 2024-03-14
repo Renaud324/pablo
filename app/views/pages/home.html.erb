@@ -45,7 +45,9 @@
         </div>
 
         <div class="d-flex justify-content-end">
-          <%= button_to 'Generate Tasks', generate_tasks_path, method: :post, class: 'btn btn-primary' %>
+         <%= link_to generate_tasks_path, data: { turbo_method: :post }, class: 'btn btn-task' do %>
+            <i class="fa-solid fa-robot"> </i> Ai task
+          <% end %>
         </div>
 
 
