@@ -22,7 +22,8 @@ class InteractionsController < ApplicationController
         @interaction = Interaction.new
         render json: {
           html: render_to_string(partial: 'job_applications/interactions', formats: [:html]),
-          status: :ok }
+          status: :ok
+        }
       end
     else
       render json: {
