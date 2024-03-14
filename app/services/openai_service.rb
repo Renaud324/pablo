@@ -17,7 +17,7 @@ class OpenaiService
     [
     {
       job_application_id: 'job_application.id',
-      name: 'name of the task (6 words max length)',
+      name: 'name of the task (should be an action 'call, write etc..' 4 words max length)',
       description: 'description of the task linked to the job_application_id (16 words max length)'
     }
     ].ATTENTION, IL FAUT JUSTE LE HASH SOUS AU FORMAT JSON POUR PARSER LE RÉSULTAT EN HASH RUBY PAR LA SUITE FACILEMENT, DONC LES CLÉS ENTRE DOUBLE GUILLEMET COMME UN JSON CLASSIQUE."
