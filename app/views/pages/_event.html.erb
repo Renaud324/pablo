@@ -1,13 +1,12 @@
 <div class='upcoming' style="height: 210px; overflow-y: scroll;">
   <!-- Ajouter une condition pour vérifier si la liste d'événements est vide -->
   <% if @upcoming_interactions.empty? %>
-    <!-- Afficher l'image si la liste d'événements est vide -->
     <p class="quote text-align-center">No events at the moment</p>
-    <img src="https://res.cloudinary.com/dkr1l2a2k/image/upload/v1710413417/No_events_dsnq0y.png" alt="No upcoming events" style="width: 50%; margin-left: 70px; margin-right: 70px;">
+    <%# <img src="https://res.cloudinary.com/dkr1l2a2k/image/upload/v1710413417/No_events_dsnq0y.png" alt="No upcoming events" style="width: 50%; margin-left: 70px; margin-right: 70px;"> %>
   <% else %>
     <div class="flexbox">
       <% @upcoming_interactions.each do |interaction| %>
-        <div class="event-container"> <!-- Changement de la classe container en event-container -->
+        <div class="event-container">
           <div class="row ps-3 pe-3">
             <%= link_to "/interactions", class: "row ms-1 event-card" do %>
               <div class="col-2">

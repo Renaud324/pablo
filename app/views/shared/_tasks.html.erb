@@ -1,9 +1,9 @@
 <div class="container mb-2" data-bs-toggle="modal" data-search-bar-target="tasks">
 
-<%# ------------- // TASKS CARDS // ------- %>
+  <%# ------------- // TASKS CARDS // ------- %>
   <div style="max-height: 385px; overflow-y: scroll;" class="p-1">
     <div class="d-flex flex-column mb-3 card-task">
-      <% if current_user.present? %>
+      <% if current_user.present? && @tasks.present? %>
         <% @tasks.each do |task| %>
           <div class="d-flex align-items-center custom-checkbox card-task-ui" style="position: relative;">
             <input class="custom-checkbox" type="checkbox" id="task_<%= task.id %>" name="task_<%= task.id %>" style="transform: scale(1.5);"/>
@@ -18,7 +18,9 @@
           </div>
         <% end %>
       <% else %>
-        <p>No task available.</p>
+        <%# Introduce an image if there are no tasks %>
+        <%# <img src="https://res.cloudinary.com/dkr1l2a2k/image/upload/v1710413417/No_events_dsnq0y.png" alt="No tasks available" style="width: 100%; max-height: 200px;"> %>
+        <p class="quote">No tasks for today.</p>
       <% end %>
     </div>
   </div>
