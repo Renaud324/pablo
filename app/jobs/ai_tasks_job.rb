@@ -48,6 +48,7 @@ class AiTasksJob < ApplicationJob
       tasks_array.each do |task|
         Task.create!(
           job_application_id: task['job_application_id'],
+          name: task['name'],
           description: task['description'],
           status: :pending
         )
@@ -60,11 +61,3 @@ class AiTasksJob < ApplicationJob
     end
   end
 end
-
-      # #recording the result in the JobResult model
-      # JobResult.create!(
-      #   job_id: self.job_id,
-      #   user_id: user_id,
-      #   status: 'completed',
-      #   result: response_content
-      # )
