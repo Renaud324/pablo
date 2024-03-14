@@ -1,33 +1,36 @@
-<div>
- <div class="container" data-search-bar-target="list">
+<div class="ms-2">
+ <div class="container" data-search-bar-target="list" >
     <div class="d-flex justify-content-center">
       <i class="fa-solid fa-trophy me-2" style="font-size: 24px"></i>
       <h4 class="tab-underlined active mb-3" style="font-size: 20px">OFFER</h4>
     </div>
 
-    <% if @offer_applications.empty? %>
-    <div class="d-flex align-items-center justify-content-center">
-      <img src="https://res.cloudinary.com/dkr1l2a2k/image/upload/v1710414665/No_events_1_gumh9d.png" alt="Pablo the rockstar" style="height: 70px; width: 70px; margin-right: 10px">
-      <p class="quote mt-3">Keep pushing, darling!</p>
-    </div>
+    <div class="column-content horizontal-scrolling d-flex justify-content-center" data-dragndrop-target="column4" data-id="3">
+  <% if @offer_applications.empty? %>
+    <!-- Utilisez 'justify-content-center' et 'align-items-center' pour centrer verticalement et horizontalement -->
+    <div class="empty-offer-message <%= 'hidden' unless @offer_applications.empty? %>" style="height: 100%;" data-dragndrop-target="offerMessage">
+      <img src="https://res.cloudinary.com/dkr1l2a2k/image/upload/v1710236245/52d6fd4d-f801-477e-9a88-0216ac81632e_xkxngc.png" alt="Empty" style="height: 70px; width: 70px;">
+      <p class="quote mt-3">Keep pushing darling!</p>
+  <% else %>
+    <% @offer_applications.each do |job_application| %>
+      <%= render 'job_card', job_application: job_application %>
+      <%= render 'shared/update_Job_application_status', job_application: job_application %>
     <% end %>
-
-    <div class="column-content d-flex horizontal-scrolling">
-      <% @offer_applications.each do |job_application| %>
-        <%= render 'job_card', job_application: job_application %>
-        <%= render 'shared/update_Job_application_status', job_application: job_application %>
-      <% end %>
+  <% end %>
     </div>
+</div>
 
+
+<!---->
     <hr>
 
-      <div class="row justify-content-between">
+    <div class="row justify-content-between" >
       <div class="col-md-4">
         <div class="d-flex justify-content-center">
           <i class="fa-regular fa-paper-plane me-2"></i>
           <h4 class="tab-underlined active" style="font-size: 16px">JUST APPLIED</h4>
         </div>
-        <div class="vertical-scrolling">
+        <div class="vertical-scrolling" data-dragndrop-target="column1" data-id="0">
           <% @just_applied_applications.each do |job_application| %>
             <%= render 'job_card', job_application: job_application %>
             <%= render 'shared/update_Job_application_status', job_application: job_application %>
@@ -41,7 +44,7 @@
           <i class="fa-regular fa-comments me-2"></i>
           <h4 class="tab-underlined active" style="font-size: 16px">FIRST INTERVIEW</h4>
         </div>
-        <div class="vertical-scrolling">
+        <div class="vertical-scrolling" data-dragndrop-target="column2" data-id="1">
           <% @first_interview_applications.each do |job_application| %>
             <%= render 'job_card', job_application: job_application %>
             <%= render 'shared/update_Job_application_status', job_application: job_application %>
@@ -55,14 +58,13 @@
           <i class="fa-solid fa-gears me-2"></i>
           <h4 class="tab-underlined active" style="font-size: 16px">ADVANCED</h4>
         </div>
-        <div class="vertical-scrolling">
+        <div class="vertical-scrolling" data-dragndrop-target="column3" data-id="2">
           <% @advanced_process_applications.each do |job_application| %>
             <%= render 'job_card', job_application: job_application %>
             <%= render 'shared/update_Job_application_status', job_application: job_application %>
           <% end %>
         </div>
       </div>
-
     </div>
   </div>
 </div>

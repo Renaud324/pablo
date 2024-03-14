@@ -15,7 +15,7 @@
   overflow-x: scroll;
 }
 
-.vertical-scrolling {
+.vertical-scrolling 
   min-height: 65%;
   max-height: 65%;
   overflow-y: scroll;
@@ -75,4 +75,15 @@
 
 .job-details:hover {
   display: contents;
+}
+
+.empty-offer-message {
+  display: flex; /* Pour s'assurer que flexbox est appliqué */
+  justify-content: center;
+  gap: 8px;
+  align-items: center;
+}
+
+.hidden {
+  display: none;
 }

@@ -97,12 +97,9 @@ class JobApplicationsController < ApplicationController
 
   def update
     if @job_application.update(job_application_params)
-      respond_to do |format|
-        format.html { redirect_to @job_application, notice: 'Job application was successfully updated.' }
-        format.json { render json: { notes: render_to_string(partial: 'notes', locals: { job_application: @job_application }, formats: [:html]) }, status: :ok }
-      end
+      render json: { status: 'success', data: @job_application }, status: :ok
     else
-      render :edit
+      render json: { status: 'error', error: @job_application.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
