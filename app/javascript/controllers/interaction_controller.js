@@ -23,7 +23,6 @@ export default class extends Controller {
     .then((response) => response.json())
     .then((data) => {
       if (data.status == 'ok') {
-        console.log(data.form)
         if (data.page == "calendar") {
           this.formTarget.outerHTML = data.form
           this.calendarTarget.innerHTML = data.html

@@ -1,10 +1,9 @@
 <div class="modal fade" id="newTaskModal" tabindex="-1" aria-labelledby="newTaskModalLabel" aria-hidden="true" data-bs-backdrop="false">
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content" style="background-color: #262525;">
       <div class="modal-header">
-        <img src="https://res.cloudinary.com/dkr1l2a2k/image/upload/v1710096907/Pablo_the_foxi_c36qx3.png" style="height: 200px;" alt="">
-          <h5 class="modal-title" id="newTaskModalLabel">Your time to shine</h5>
-          <button type="button" style="color:white"class="btn-close align-self-start" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+        <h5 class="modal-title" id="newTaskModalLabel">Your time to shine</h5>
+          <button type="button" style="color: $white;" class="btn-close align-self-start" data-bs-dismiss="modal" aria-label="Close"></i></button>
       </div>
       <div class="modal-body">
         <%= simple_form_for(task) do |f| %>

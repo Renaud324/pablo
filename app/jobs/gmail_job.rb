@@ -93,15 +93,15 @@ class GmailJob < ApplicationJob
   def normalize_status(status)
     case status
     when "Just Applied"
-      :just_applied
+      0
     when "First Interview"
-      :first_interview
+      1
     when "Advanced"
-      :advanced
+      2
     when "Offer"
-      :offer
+      3
     else
-      :just_applied
+      0
     end
   end
   

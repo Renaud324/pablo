@@ -21,8 +21,11 @@ class InteractionsController < ApplicationController
       else
         @interaction = Interaction.new
         render json: {
-          html: render_to_string(partial: 'job_applications/interactions', formats: [:html]),
-          status: :ok }
+          html: render_to_string(partial: 'job_applications/interactions', formats: [:html], locals: {
+            job_application_id: JobApplication.find(params[:interaction][:job_application_id]).id.to_i
+          }),
+          status: :ok
+        }
       end
     else
       render json: {

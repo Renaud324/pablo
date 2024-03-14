@@ -6,7 +6,7 @@
         <button type="button" style="color:white" class="btn-close align-self-start" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
       </div>
       <div class="modal-body" id="modal">
-        <%= render 'interactions/form', interaction: @interaction %>
+        <%= render 'interactions/form', { interaction: @interaction, job_application: params[:id] ? params[:id] : job_application_id } %>
       </div>
     </div>
   </div>
@@ -14,7 +14,7 @@
 
 <div class="modal fade" id="sendEmail" data-interaction-target="modal">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
+    <div class="modal-content" style="background-color: #262525;">
       <div class="modal-header">
         <h5 class="modal-title" id="sendEmaillLabel">New Interaction</h5>
         <button type="button" class="close" data-action="click->interaction#closeModal" aria-label="Close">
@@ -22,7 +22,7 @@
         </button>
       </div>
       <div class="modal-body" id="modal">
-        <%= render 'interactions/email', interaction: @interaction %>
+        <%= render 'interactions/email', { interaction: @interaction, job_application: params[:id] ? params[:id] : job_application_id } %>
       </div>
     </div>
   </div>
@@ -31,7 +31,7 @@
 <div class="m-2 bordered-note" style="position: relative;">
   <div class="mb-3 card-task" style="align-items: center; padding-bottom: 15px">
     <p style="font-size: 12px; padding: 6px; background-color: #DDF5E3; width: fit-content; border-radius: 4px; color: #161515;">Interactions</p>
-    <% if current_user.present? %>
+    <% if current_user.present? && @interactions.present? %>
       <% @interactions.each do |interaction| %>
         <div class="d-flex mb-3 align-items-center">
           <div class="icon-task" style="margin-left: 10px;">
@@ -47,7 +47,7 @@
         </div>
       <% end %>
     <% else %>
-      <p>No interaction yet, keep pushing</p>
+      <p class="quote">No interaction yet, keep pushing</p>
     <% end %>
 
     <%# --------------/// BUTTON ADD //---------- %>

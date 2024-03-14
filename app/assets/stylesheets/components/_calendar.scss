@@ -1,3 +1,20 @@
+.event-card {
+  background-color: transparent;
+  text-decoration: none !important;
+  margin-top: -10px;
+}
+
+.event-card:hover {
+  background-image: linear-gradient(to right, #fbc7d4, $white);
+  border-radius: 8px;
+  color: #171637 !important;
+  font-weight: bold;
+}
+
+.event-card:hover i {
+    color: #171637;
+}
+
 .upcoming {
   display: flex;
   flex-direction: column;

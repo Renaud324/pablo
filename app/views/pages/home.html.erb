@@ -1,43 +1,43 @@
 
 
 <div class="main-content">
-  <div class="row justify-content-between ms-5 me-2">
+  <div class="justify-content-between ms-5 row">
 
 
 <%# // -------- PIPELINE ------------ // %>
-    <div class="col-md-8 mt-3 row justify-content-around mt-2">
+    <div class="col-md-8 mt-3 row justify-content-around mt-2" data-controller="dragndrop">
       <div class="col-md-3 square-column text-center">
         <div class="gradient-container pt-1">
           <i class="fa-regular fa-paper-plane"></i>
           <p><strong>Just Applied</strong></p>
-          <p class="gradient-text" style="font-weight: bold; font-size: 30px; margin-top: -12px;"><%= @just_applied_applications.count %></p>
+          <p class="gradient-text" style="font-weight: bold; font-size: 30px; margin-top: -12px;" data-dragndrop-target="count" data-id="0"><%= @just_applied_applications.count %></p>
         </div>
       </div>
       <div class="col-md-3 square-column text-center">
         <div class="gradient-container pt-1">
           <i class="fa-regular fa-comments"></i>
           <p><strong>1st interview</strong></p>
-          <p class="gradient-text" style="font-weight: bold; font-size: 30px; margin-top: -12px;"><%= @first_interview_applications.count %></p>
+          <p class="gradient-text" style="font-weight: bold; font-size: 30px; margin-top: -12px;" data-dragndrop-target="count" data-id="1"><%= @first_interview_applications.count %></p>
         </div>
       </div>
       <div class="col-md-3 square-column text-center">
         <div class="gradient-container pt-1">
           <i class="fa-solid fa-gears"></i>
           <p><strong>Advanced</strong></p>
-          <p class="gradient-text" style="font-weight: bold; font-size: 30px; margin-top: -12px;"><%= @advanced_process_applications.count %></p>
+          <p class="gradient-text" style="font-weight: bold; font-size: 30px; margin-top: -12px;" data-dragndrop-target="count" data-id="2"><%= @advanced_process_applications.count %></p>
         </div>
       </div>
       <div class="col-md-3 square-column text-center">
         <div class="gradient-container-offer pt-1">
           <i class="fa-solid fa-trophy" style="font-size: 20px;"></i>
           <p><strong>Offer</strong></p>
-          <p style="font-weight: bold; font-size: 30px; margin-top: -12px;"><%= @offer_applications.count %></p>
+          <p style="font-weight: bold; font-size: 30px; margin-top: -12px;" data-dragndrop-target="count" data-id="3"><%= @offer_applications.count %></p>
           <img class="foxi" src="https://res.cloudinary.com/dkr1l2a2k/image/upload/v1710241646/output-onlinegiftools_1_aprppf.gif" alt="">
         </div>
       </div>
 
-      <div class="mt-4 container-colored">
-        <div class="d-flex justify-content-end">
+      <div class="mt-4 container-colored" style="height: 590px;">
+        <div class="d-flex justify-content-end mt-2">
           <%# <h5 class="mt-3" style="padding: 10px;">My job applications</h5> %>
           <%= link_to refresh_job_applications_path, data: { turbo_method: :post }, class: "btn btn-task", style: "" do %>
           <i class="fa-solid fa-arrows-rotate"></i> Refresh
@@ -56,16 +56,18 @@
 
 
         <div class="ms-2">
+
+        <div>
           <%= render "job_applications/pipeline" %>
         </div>
       </div>
     </div>
     <div class="col-md-4 mt-3 sideright">
-      <div class="mb-5">
+      <div class="mb-3">
         <h5 class="mt-6" style="padding: 10px;">Upcoming events</h5>
         <%= render "pages/event" %>
       </div>
-      <hr>
+      <hr class="mb-3">
       <div >
         <div class="d-flex justify-content-between align-items-center">
           <h5 class="mt-6" style="padding: 10px;">Today's tasks</h5>

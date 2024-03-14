@@ -3,10 +3,10 @@ class JobApplicationsController < ApplicationController
 
   def index
     @job_applications = JobApplication.all
-    @just_applied_applications = JobApplication.where(status: :just_applied)
-    @first_interview_applications = JobApplication.where(status: :first_interview)
-    @advanced_process_applications = JobApplication.where(status: :advanced)
-    @offer_applications = JobApplication.where(status: :offer)
+    @just_applied_applications = JobApplication.where(status: 0)
+    @first_interview_applications = JobApplication.where(status: 1)
+    @advanced_process_applications = JobApplication.where(status: 2)
+    @offer_applications = JobApplication.where(status: 3)
     @tasks = Task.all
     @companies = Company.all
     @contacts = Contact.all
@@ -59,7 +59,7 @@ class JobApplicationsController < ApplicationController
 
   def refresh
     GmailJob.perform_later(current_user)
-    redirect_to job_applications_path, notice: 'Refresh in progress. Please wait a moment for changes to reflect.'
+    redirect_to root_path, notice: 'Refresh in progress. Please wait a moment for changes to reflect.'
   end
 
   def show
@@ -97,12 +97,9 @@ class JobApplicationsController < ApplicationController
 
   def update
     if @job_application.update(job_application_params)
-      respond_to do |format|
-        format.html { redirect_to @job_application, notice: 'Job application was successfully updated.' }
-        format.json { render json: { notes: render_to_string(partial: 'notes', locals: { job_application: @job_application }, formats: [:html]) }, status: :ok }
-      end
+      render json: { status: 'success', data: @job_application }, status: :ok
     else
-      render :edit
+      render json: { status: 'error', error: @job_application.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
