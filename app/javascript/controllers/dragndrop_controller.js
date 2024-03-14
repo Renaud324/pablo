@@ -2,56 +2,83 @@ import { Controller } from "@hotwired/stimulus";
 import Sortable from "sortablejs";
 
 export default class extends Controller {
-
-  static targets = ["column1", "column2", "column3", "column4"];
+  static targets = ["column1", "column2", "column3", "column4", "count", "offerMessage"];
 
   connect() {
-    this.sortableColumns = [this.column1Target, this.column2Target, this.column3Target, this.column4Target].map((column) => {
+    this.sortableColumns = [this.column1Target, this.column2Target, this.column3Target, this.column4Target].map((column, index) => {
       return new Sortable(column, {
         group: 'shared', // same group
         animation: 150,
         onEnd: this.updateJobApplicationStatus.bind(this)
       });
-    });    
+    });
   }
 
-  async updateJobApplicationStatus(event){
+  async updateJobApplicationStatus(event) {
     event.preventDefault();
     const item = event.item;
-    const id = item.dataset.id; 
-    const columnId = item.parentElement.dataset.id;
-    const columnIdNumber = parseInt(columnId, 10); // because columnId was a string, model was expecting an integer
-    console.log("ici");
-    const response = await fetch(`/job_applications/${id}`, {
+    const id = item.dataset.id;
+    const oldColumnId = event.from.dataset.id;
+    const newColumnId = event.to.dataset.id;
+    const response = await this.sendUpdateRequest(id, newColumnId);
+    if (response.ok) {
+      const data = await response.json();
+      console.log(data);
+      this.updateCounts(oldColumnId, newColumnId);
+      this.checkOfferColumn();
+    } else {
+      console.error('Request failed with status:', response.status);
+    }
+  }
+
+  async sendUpdateRequest(id, status) {
+    const statusNumber = parseInt(status, 10);
+    return fetch(`/job_applications/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
         'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content
       },
-      body: JSON.stringify({ job_application: { status: columnIdNumber } })
-    })
-    // remove empty message if needed
-    console.log("ici2");
-    if (response.ok) {
-      const data = await response.json();
-      console.log(data);
-      const columnOffer = this.column4Target;
-      const isEmpty = columnOffer.children.length === 0;
-      const emptyMessageContainer = columnOffer.querySelector('.empty-offer-message');
-      if (isEmpty && !emptyMessageContainer) {
-        const messageHtml = `
-          <div class="empty-offer-message d-flex gap-4">
-            <img src="https://res.cloudinary.com/dkr1l2a2k/image/upload/v1710236245/52d6fd4d-f801-477e-9a88-0216ac81632e_xkxngc.png" alt="Empty" style="height: 70px; width: 70px;">
-            <p class="quote mt-3">Keep pushing darling!</p>
-          </div>
-        `;
-        columnOffer.innerHTML += messageHtml;
-      } else if (!isEmpty && emptyMessageContainer) {
-        emptyMessageContainer.remove();
-      }    
-    } else {
-      console.error('Request failed with status:', response.status);
+      body: JSON.stringify({ job_application: { status: statusNumber } })
+    });
+  }
+
+  updateCounts(oldColumnId, newColumnId) {
+    if (oldColumnId !== newColumnId) {
+      this.decrementCount(oldColumnId);
+      this.incrementCount(newColumnId);
     }
-    console.log("la");
+  }
+
+  checkOfferColumn() {
+    const offerColumn = this.column4Target;
+    const offerCards = offerColumn.querySelectorAll('.job-card'); // Assurez-vous que cette classe correspond à celle de vos cartes.
+    const offerMessage = offerColumn.querySelector('.empty-offer-message'); // Cette classe doit correspondre à celle de votre message/image.
+  
+    // Vérifiez si l'élément offerMessage est présent dans le DOM
+    if (!offerMessage) return;
+  
+    if (offerCards.length === 0 && offerMessage.classList.contains('hidden')) {
+      offerMessage.classList.remove('hidden');
+    } else if (offerCards.length !== 0 && !offerMessage.classList.contains('hidden')) {
+      offerMessage.classList.add('hidden');
+    }
+  }
+  
+  
+  decrementCount(columnId) {
+    const countTarget = this.countTargets.find(target => target.dataset.id === columnId);
+    if (countTarget) {
+      let count = parseInt(countTarget.textContent, 10);
+      countTarget.textContent = count > 0 ? count - 1 : 0;
+    }
+  }
+
+  incrementCount(columnId) {
+    const countTarget = this.countTargets.find(target => target.dataset.id === columnId);
+    if (countTarget) {
+      let count = parseInt(countTarget.textContent, 10);
+      countTarget.textContent = count + 1;
+    }
   }
 }
