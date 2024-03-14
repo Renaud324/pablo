@@ -5,19 +5,21 @@
       <h4 class="tab-underlined active mb-3" style="font-size: 20px">OFFER</h4>
     </div>
 
-    <div class="column-content d-flex horizontal-scrolling" data-dragndrop-target="column4" data-id="3" style="<% if @offer_applications.empty? %>min-height: 100px; justify-content: center; align-items: center;<% end %>">
-        <% if @offer_applications.empty? %>
-          <div class="d-flex gap-4 empty-offer-message">
-            <img src="https://res.cloudinary.com/dkr1l2a2k/image/upload/v1710236245/52d6fd4d-f801-477e-9a88-0216ac81632e_xkxngc.png" alt="Empty" style="height: 70px; width: 70px;">
-            <p class="quote mt-3">Keep pushing darling!</p>
-          </div>
-        <% else %>
-        <% @offer_applications.each do |job_application| %>
-          <%= render 'job_card', job_application: job_application %>
-          <%= render 'shared/update_Job_application_status', job_application: job_application %>
-        <% end %>
-      <% end %>
+    <div class="column-content horizontal-scrolling d-flex justify-content-center" data-dragndrop-target="column4" data-id="3">
+  <% if @offer_applications.empty? %>
+    <!-- Utilisez 'justify-content-center' et 'align-items-center' pour centrer verticalement et horizontalement -->
+    <div class="empty-offer-message <%= 'hidden' unless @offer_applications.empty? %>" style="height: 100%;" data-dragndrop-target="offerMessage">
+      <img src="https://res.cloudinary.com/dkr1l2a2k/image/upload/v1710236245/52d6fd4d-f801-477e-9a88-0216ac81632e_xkxngc.png" alt="Empty" style="height: 70px; width: 70px;">
+      <p class="quote mt-3">Keep pushing darling!</p>
+  <% else %>
+    <% @offer_applications.each do |job_application| %>
+      <%= render 'job_card', job_application: job_application %>
+      <%= render 'shared/update_Job_application_status', job_application: job_application %>
+    <% end %>
+  <% end %>
     </div>
+</div>
+
 
 <!---->
     <hr>
