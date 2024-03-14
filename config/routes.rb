@@ -24,7 +24,6 @@ Rails.application.routes.draw do
     patch :update_status, on: :member
     collection do
       post 'refresh'
-      put "dragndrop"
       get 'search' # Defines route for the search action
     end
   end
