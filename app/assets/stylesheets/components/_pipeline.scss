@@ -74,3 +74,14 @@
 .job-details:hover {
   display: contents;
 }
+
+.empty-offer-message {
+  display: flex; /* Pour s'assurer que flexbox est appliqué */
+  justify-content: center;
+  gap: 8px;
+  align-items: center;
+}
+
+.hidden {
+  display: none;
+}
