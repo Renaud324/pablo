@@ -31,7 +31,7 @@
 <div class="m-2 bordered-note" style="position: relative;">
   <div class="mb-3 card-task" style="align-items: center; padding-bottom: 15px">
     <p style="font-size: 12px; padding: 6px; background-color: #DDF5E3; width: fit-content; border-radius: 4px; color: #161515;">Interactions</p>
-    <% if current_user.present? %>
+    <% if current_user.present? && @interactions.present? %>
       <% @interactions.each do |interaction| %>
         <div class="d-flex mb-3 align-items-center">
           <div class="icon-task" style="margin-left: 10px;">
@@ -47,7 +47,7 @@
         </div>
       <% end %>
     <% else %>
-      <p>No interaction yet, keep pushing</p>
+      <p class="quote">No interaction yet, keep pushing</p>
     <% end %>
 
     <%# --------------/// BUTTON ADD //---------- %>

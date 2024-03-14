@@ -1,26 +1,17 @@
-  <div class="m-2" style="height: 300px;" data-controller="notes-form">
-    <div class="m-2 bordered-note " style="position : relative;">
-      <p style="font-size: 12px; padding: 6px; background-color: #DDF5E3; width: fit-content; border-radius: 4px; color: #161515;">My note</p>
-      <%# <button name="button" type="submit" class="btn">
-        <i class="fa-solid fa-circle-plus btn-text"></i> Add a note
-      </button>
-      <div class="d-flex mb-3 card-task" style="align-items: center;">
-      <div class="icon-task p-3">
-        <i class="fa-regular fa-note-sticky"></i>
-      </div>
-        <div class="p-3">
-          <p class="padding-card card-task-title d-flex">Title - Date</p>
-          <p class="padding-card">Content</p>
-        </div>
-        </div> %>
+<div class="m-2" style="height: 300px;" data-controller="notes-form">
+  <div class="m-2 bordered-note " style="position: relative;">
+    <p style="font-size: 12px; padding: 6px; background-color: #DDF5E3; width: fit-content; border-radius: 4px; color: #161515;">My note</p>
 
-
+    <% if job_application.notes.present? %>
       <%= simple_format job_application.notes %>
+    <% else %>
+      <p class="quote">Write your first note here</p>
+    <% end %>
 
     <div>
       <div>
         <div class="mt-5 text-center">
-          <button data-action="click->notes-form#fire" class="edition-button" style="position: absolute; top: 9px; right: 10px;" ><strong><i class="fa-solid fa-pen-nib"></i></strong></button>
+          <button data-action="click->notes-form#fire" class="edition-button" style="position: absolute; top: 9px; right: 10px;"><strong><i class="fa-solid fa-pen-nib"></i></strong></button>
           <div data-notes-form-target="togglableElement" class="d-none" style="width:100%">
             <%= render "edit_notes", job_application: @job_application %>
           </div>
@@ -28,6 +19,5 @@
       </div>
     </div>
 
-
-    </div>
   </div>
+</div>
