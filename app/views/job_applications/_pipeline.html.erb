@@ -21,13 +21,13 @@
 
     <hr>
 
-    <div class="row justify-content-between">
+    <div class="row justify-content-between" data-controller="dragndrop">
       <div class="col-md-4">
         <div class="d-flex justify-content-center">
           <i class="fa-regular fa-paper-plane me-2"></i>
           <h4 class="tab-underlined active" style="font-size: 16px">JUST APPLIED</h4>
         </div>
-        <div class="vertical-scrolling">
+        <div class="vertical-scrolling" data-action="click->dragndrop#click" data-dragndrop-target="column1">
           <% @just_applied_applications.each do |job_application| %>
             <%= render 'job_card', job_application: job_application %>
             <%= render 'shared/update_Job_application_status', job_application: job_application %>
@@ -41,7 +41,7 @@
           <i class="fa-regular fa-comments me-2"></i>
           <h4 class="tab-underlined active" style="font-size: 16px">FIRST INTERVIEW</h4>
         </div>
-        <div class="vertical-scrolling">
+        <div class="vertical-scrolling" data-action="click->dragndrop#click" data-dragndrop-target="column2">
           <% @first_interview_applications.each do |job_application| %>
             <%= render 'job_card', job_application: job_application %>
             <%= render 'shared/update_Job_application_status', job_application: job_application %>
@@ -55,7 +55,7 @@
           <i class="fa-solid fa-gears me-2"></i>
           <h4 class="tab-underlined active" style="font-size: 16px">ADVANCED</h4>
         </div>
-        <div class="vertical-scrolling">
+        <div class="vertical-scrolling" data-action="click->dragndrop#click" data-dragndrop-target="column3">
           <% @advanced_process_applications.each do |job_application| %>
             <%= render 'job_card', job_application: job_application %>
             <%= render 'shared/update_Job_application_status', job_application: job_application %>
