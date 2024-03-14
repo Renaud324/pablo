@@ -1,46 +1,70 @@
-# app/jobs/ai_tasks_job.rb
 class AiTasksJob < ApplicationJob
   queue_as :default
 
   def perform(user_id)
 
-    user = User.find(user_id)
+  user = User.find(user_id)
 
-    # Initialize an empty prompt
-    prompt = "Job applications overview for #{user.fullname}:\n can you prepare a list of 5 tasks for me. my objective is to find a job a move my current applications to the next level  my goal is to have an offer. here you can find all my current activities"
+  # Adding all past interactions of the user to the prompt
+  interactions = Interaction.includes(:interaction_contacts).where(user_id: user_id)
 
-    # Fetch job applications for the user
-    job_applications = JobApplication.includes(:company, tasks: []).where(user_id: user_id)
+  contact_ids = interactions.flat_map do |interaction|
+    interaction.interaction_contacts.pluck(:contact_id)
+  end.uniq
 
-    # Constructing the prompt for job applications and tasks
-    job_applications.each do |application|
-      prompt += "Job Application: #{application.job_title}, Company: #{application.company.name}, Status: #{application.status}, Location: #{application.job_location}\n"
+  # Fetch all unique contacts based on the collected contact_ids
+  contacts = Contact.where(id: contact_ids)
 
-      # Tasks related to the job application
-      application.tasks.each do |task|
-        prompt += "  Task: #{task.name}, Description: #{task.description}, Deadline: #{task.deadline_date}, Status: #{task.status}\n"
-      end
-    end
+  # Retrieve the job_applications of the current user
+  job_applications = JobApplication.includes(:company, tasks: []).where(user_id: user_id)
 
-    # Interactions associated with the user
-    interactions = Interaction.includes(:interaction_contacts).where(user_id: user_id)
+  # Construct a string with contact names (or other details you find relevant)
+  contact_details = contacts.map { |contact| "#{contact.name} (#{contact.job_title} at #{contact.company.name})" }.join(', ')
 
-    prompt += "Interactions:\n"
-    interactions.each do |interaction|
-      prompt += " Interaction: #{interaction.headline}, Type: #{interaction.interaction_type}, Date: #{interaction.event_date}, Location: #{interaction.location}\n"
+  # Simplify and focus the prompt for clarity and directness
+  prompt = <<~PROMPT
+    #{user.fullname} is actively seeking employment Based on their current job applications and recent interactions below :
 
-      # Contacts involved in the interaction
-      interaction.interaction_contacts.each do |interaction_contact|
-        contact = Contact.find(interaction_contact.contact_id)
-        prompt += "    Contact: #{contact.name}, Job Title: #{contact.job_title}, Company: #{Company.find(contact.company_id).name}\n"
-      end
-    end
+    - #{user.fullname} Applied to #{job_applications.size} positions including roles at #{job_applications.map { |app| app.company.name }.uniq.join(', ')} as #{job_applications.map { |app| app.job_title }.uniq.join(', ')}, that have respectively these id #{job_applications.map(&:id).join(', ')}.
+    - #{user.fullname} Engaged in #{interactions.size} recent interactions related to job applications, including interviews and follow-ups.
+    - The contacts that #{user.fullname} discussed with are: #{contact_details}
 
+    Objective:
+    Create a list of 5 actionable, specifically linked to each job application, tasks for this week to maximize #{user.fullname} chance of having an offer in the coming two months.
+   PROMPT
 
     puts "--------your prompt is here : #{prompt}"
 
-    openai_service = OpenaiService.new
-    response = openai_service.call(prompt)
-    puts "--------your response is here : #{response}"
+    begin
+
+      #instantiating the service all to openAI
+      openai_service = OpenaiService.new
+
+
+      response_content = openai_service.taskCall(prompt)
+      tasks_array = JSON.parse(response_content)
+
+
+      tasks_array.each do |task|
+        Task.create!(
+          job_application_id: task['job_application_id'],
+          description: task['description'],
+          status: :pending
+        )
+      end
+
+    rescue => error
+
+      Rails.logger.error "Failed to call OpenAI service: #{error.message}"
+
+    end
   end
 end
+
+      # #recording the result in the JobResult model
+      # JobResult.create!(
+      #   job_id: self.job_id,
+      #   user_id: user_id,
+      #   status: 'completed',
+      #   result: response_content
+      # )

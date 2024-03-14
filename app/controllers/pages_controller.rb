@@ -11,13 +11,13 @@ class PagesController < ApplicationController
     @interactions = Interaction.where(user_id: current_user.id)
     @upcoming_interactions = @interactions.where("event_date >= ?", Date.today)
 
-    job_result = JobResult.find_by(job_id: params[:job_id])
-    if job_result
-      render json: { status: job_result.status, result: job_result.result }
-    else
-      render json: { status: 'pending' }, status: :not_found
-    end
 
+
+  end
+
+  def generate_tasks
+    AiTasksJob.perform_later(current_user.id)
+    redirect_to root_path, notice: 'Tasks generation initiated, will show up in some time...'
   end
 
   def search

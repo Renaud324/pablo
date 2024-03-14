@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
   get 'openai', to: 'openai#index'
   get "search", to: "pages#search"
+  post 'generate_tasks', to: 'pages#generate_tasks'
 
   authenticate :user, ->(user) { user.admin? } do
     mount Sidekiq::Web => '/sidekiq'
