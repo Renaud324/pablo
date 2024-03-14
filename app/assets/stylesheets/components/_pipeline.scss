@@ -28,14 +28,14 @@
   padding-right: 15px;
   margin-bottom: 10px;
   margin-top: 12px;
-  margin-left: 9px;
   color: $white; /* Couleur du texte */
-  border: 1px solid;
+  border: 1px solid #171717;
   border-radius: 8px;
   background-image: linear-gradient(to right, rgba(151, 150, 240, 1), rgba(251, 199, 212, 1)); /* Changement ici */
   cursor: pointer;
   min-width: 200px;
   height: 90px;
+  transition: all 0.5s ease-out;
 }
 
 
@@ -57,9 +57,11 @@
 }
 
 .job-card:hover {
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-  background-image: linear-gradient(to right, #fbc7d4, #9796f0);
+  background-image: linear-gradient(to right, $pink, $purple);
   cursor: grabbing;
+  transition: background-image 0.9s ease;
+  border: 2px solid $white;
+  box-shadow: 0 4px 8px rgba(151, 150, 240, 0.3);
 }
 
 .quote {

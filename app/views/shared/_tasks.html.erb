@@ -1,7 +1,7 @@
 <div class="container mb-2" data-bs-toggle="modal" data-search-bar-target="tasks">
 
   <%# ------------- // TASKS CARDS // ------- %>
-  <div style="max-height: 385px; overflow-y: scroll;" class="p-1">
+  <div style="max-height: 380px; overflow-y: scroll;" class="p-1">
     <div class="d-flex flex-column mb-3 card-task">
       <% if current_user.present? && @tasks.present? %>
         <% @tasks.each do |task| %>
@@ -11,7 +11,8 @@
               <label for="task_<%= task.id %>">
               </label>
               <div class="card-task">
-                <p style="font-size: 16px;"><span style="color: #9796f0;"><%= task.name %></span> - <%= task.job_application.job_title %> @<%= task.job_application.company.name %></p>
+                <p style="font-size: 16px; font-weight: bold;"><span style="color: #9796f0;"><%= task.name %></span></p>
+                <p style="font-size: 14px; margin-top: -15px"><span style="color: $white;"><%= task.job_application.job_title %> @<%= task.job_application.company.name %></span>
                 <p style="margin-top: -15px; font-size: 12px; color: #7E7E7E;"><%= task.description %></p>
               </div>
             </div>
