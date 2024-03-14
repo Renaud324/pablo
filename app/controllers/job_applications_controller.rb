@@ -62,6 +62,10 @@ class JobApplicationsController < ApplicationController
     redirect_to root_path, notice: 'Refresh in progress. Please wait a moment for changes to reflect.'
   end
 
+  def dragndrop
+    puts "Drag and drop"
+  end
+
   def show
     @interaction = Interaction.new
     @interactions = Interaction.where(job_application_id: params[:id])
