@@ -1,5 +1,5 @@
 <%= link_to job_application_path(job_application), class: "text-decoration-none" do %>
-  <div class="job-card" style="position: relative;">
+  <div class="job-card" style="position: relative;" data-id=<%= job_application.id %>>
     <div class="d-flex justify-content-between me-2 align-items-center">
       <h5 style="font-size: 14px; color: #171637;" ><%= job_application.job_title %></h5>
 <% end %>
