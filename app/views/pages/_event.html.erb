@@ -1,29 +1,32 @@
 <div class='upcoming' style="height: 210px; overflow-y: scroll;">
   <div class="flexbox">
     <% @upcoming_interactions.each do |interaction| %>
-      <div class="event-container"> <!-- Changez la classe container en event-container -->
-        <div class="row mb-1 ms-2 me-2 p-2 card-task-ui">
-          <div class="col-2">
-            <div class="img-div">
-              <% if interaction.interaction_type == "Phonecall" %>
-                <i class="fa-solid fa-phone"></i>
-              <% elsif interaction.interaction_type == "Videocall" %>
-                <i class="fa-solid fa-video"></i>
-              <% elsif interaction.interaction_type == "Face-to-face" %>
-                <i class="fa-solid fa-map-marker-alt"></i>
-              <% else %>
-                <i class="fa-solid fa-map-marker-alt"></i>
-              <% end %>
+      <div> <!-- Changez la classe container en event-container -->
+        <div class="row ps-3 pe-3">
+          <%# Remplacez 'votre_lien' par l'URL appropriée à laquelle vous souhaitez rediriger %>
+          <%= link_to "/interactions", class: "row ms-1 event-card" do %>
+            <div class="col-2">
+              <div class="img-div">
+                <% if interaction.interaction_type == "Phonecall" %>
+                  <i class="fa-solid fa-phone"></i>
+                <% elsif interaction.interaction_type == "Videocall" %>
+                  <i class="fa-solid fa-video"></i>
+                <% elsif interaction.interaction_type == "Face-to-face" %>
+                  <i class="fa-solid fa-map-marker-alt"></i>
+                <% else %>
+                  <i class="fa-solid fa-map-marker-alt"></i>
+                <% end %>
+              </div>
             </div>
-          </div>
-          <div class="col-6">
-            <h3><%= interaction.headline %></h3>
-            <p><%= interaction.event_date.strftime('%b %d, %A') %></p>
-          </div>
-          <div class="col-4">
-            <h3><%= interaction.event_time.strftime('%I:%M %p') %></h3>
-            <p><%= interaction.location %></p>
-          </div>
+            <div class="col-6">
+              <h3><%= interaction.headline %></h3>
+              <p><%= interaction.event_date.strftime('%b %d, %A') %></p>
+            </div>
+            <div class="col-4">
+              <h3><%= interaction.event_time.strftime('%I:%M %p') %></h3>
+              <p><%= interaction.location %></p>
+            </div>
+          <% end %>
         </div>
       </div>
     <% end %>

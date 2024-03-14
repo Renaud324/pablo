@@ -9,7 +9,7 @@
 
 .card-task {
   font-size: 14px;
-  margin-left: 1rem;
+  margin-left: 10px;
 }
 
 .card-task-ui:hover {
@@ -23,6 +23,10 @@
   color: #171637;
 }
 
+.card-task-ui {
+  text-decoration: none;
+}
+
 .card-task-title {
   font-weight: 600;
 }
@@ -33,7 +37,7 @@
 }
 
 .custom-checkbox {
-  padding: 0.5rem;
+  padding: 3px;
 }
 /* Ne pas cacher la case à cocher par défaut */
 .custom-checkbox input[type=checkbox] {
@@ -45,13 +49,13 @@
 .custom-checkbox input[type=checkbox] + div > label {
   display: inline-block;
   position: relative;
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   border-radius: 50%; /* Rendre la case à cocher ronde */
   background-color: $white; /* Couleur de fond de la case à cocher */
   border: 1px solid #9796f0; /* Bordure de la case à cocher */
   cursor: pointer; /* Curseur de la souris */
-  flex: 0 0 20px;
+  flex: 0 0 15px;
 }
 
 /* Modifier l'apparence de la case à cocher lorsqu'elle est cochée */

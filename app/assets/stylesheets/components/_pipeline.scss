@@ -55,9 +55,8 @@
 }
 
 .job-card:hover {
-  transform: translateY(-5px) rotate(2deg);
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-  background-image: linear-gradient(to top, #fbc7d4, #9796f0);
+  background-image: linear-gradient(to right, #fbc7d4, #9796f0);
 }
 
 .quote {
