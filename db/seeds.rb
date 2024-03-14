@@ -34,7 +34,7 @@ company3 = Company.create!(
 puts "seeding the contacts"
 
 contact1 = Contact.create!(
-  name: 'adrien lebriquier',
+  name: 'Adrien Lebriquier',
   email: 'adrien-hr@monday.com',
   phone_number: '123-456-7890',
   job_title: 'CEO',
@@ -42,7 +42,7 @@ contact1 = Contact.create!(
 )
 
 contact2 = Contact.create!(
-  name: 'boby fisher',
+  name: 'Bobby Fisher',
   email: 'bob@techinnovations.com',
   phone_number: '123-456-7890',
   job_title: 'COO',
@@ -50,18 +50,10 @@ contact2 = Contact.create!(
 )
 
 contact3 = Contact.create!(
-  name: 'sergey brin',
+  name: 'Sergey Brin',
   email: 'recrutement@google.com',
   phone_number: '098-765-4321',
-  job_title: 'chairman',
-  company: company3
-)
-
-contact4 = Contact.create!(
-  name: 'randy hoffman',
-  email: 'ahmedboussaada1@gmail.com',
-  phone_number: '098-765-4321',
-  job_title: 'head of operations',
+  job_title: 'HR manager',
   company: company3
 )
 
@@ -76,11 +68,10 @@ job_application1 = JobApplication.create!(
   notes: 'Application sent',
   job_description: 'Develop and maintain web applications using Next.js. Next.js and React.js experience required. Supabase experience required, Docker and Kubernetes experience a plus. AWS experience a plus.',
   salary:
-
-80000,
-application_source: 'Indeed',
-user: user1,
-company: company1
+  80000,
+  application_source: 'Indeed',
+  user: user1,
+  company: company1
 )
 
 job_application2 = JobApplication.create!(
@@ -122,7 +113,7 @@ job_description: 'Develop and maintain web applications using Node.js. Nest.js e
 salary: 75000,
 application_source: 'Welcome to the jungle',
 user: user1,
-company: company3
+company: company1
 )
 
 job_application5 = JobApplication.create!(
@@ -136,7 +127,7 @@ job_description: 'Develop and maintain web applications using Rust. Actix experi
 salary: 140000,
 application_source: 'Welcome to the jungle',
 user: user1,
-company: company3
+company: company2
 )
 
 job_application6 = JobApplication.create!(
@@ -164,7 +155,7 @@ job_description: 'Coordinate and lead product development teams to align with bu
 salary: 100000,
 application_source: 'Welcome to the jungle',
 user: user1,
-company: company3
+company: company1
 )
 
 job_application8 = JobApplication.create!(
@@ -192,7 +183,7 @@ job_description: "Develop and maintain web applications using React.js and Sprin
 salary: 70000,
 application_source: 'Indeed',
 user: user1,
-company: company1
+company: company3
 )
 
 job_application10 = JobApplication.create!(
@@ -278,46 +269,100 @@ event_time: '14:00',
 location: 'Paris',
 interaction_type: 2,
 user: user1,
-job_application: job_application2
+job_application: job_application3
 )
 
 interaction4 = Interaction.create!(
 headline: 'On-site technical interview',
-event_date: Date.today + 15,
+event_date: Date.today + 35,
 event_time: '14:00',
 location: 'London',
 interaction_type: 5,
 user: user1,
-job_application: job_application2
+job_application: job_application4
 )
 
 interaction5 = Interaction.create!(
-headline: 'Call with HR',
-event_date: Date.today + 15,
-event_time: '14:00',
-location: '',
-interaction_type: 1,
-user: user1,
-job_application: job_application2
+  headline: 'Call with HR',
+  event_date: Date.today + 4,
+  event_time: '14:00',
+  location: '',
+  interaction_type: 1,
+  user: user1,
+  job_application: job_application5
 )
 
 interaction6 = Interaction.create!(
-headline: 'Call with HR',
-event_date: Date.today + 15,
-event_time: '14:00',
-location: '',
-interaction_type: 1,
-user: user1,
-job_application: job_application6
+  headline: 'Call with HR',
+  event_date: Date.today + 25,
+  event_time: '14:00',
+  location: '',
+  interaction_type: 1,
+  user: user1,
+  job_application: job_application6
 )
+
+interaction6 = Interaction.create!(
+  headline: 'Call with HR',
+  event_date: Date.today + 1,
+  event_time: '14:00',
+  location: '',
+  interaction_type: 1,
+  user: user1,
+  job_application: job_application6
+  )
+
+  interaction7 = Interaction.create!(
+    headline: 'Call with HR',
+    event_date: Date.today + 7,
+    event_time: '14:00',
+    location: '',
+    interaction_type: 1,
+    user: user1,
+    job_application: job_application7
+    )
+
+  interaction8 = Interaction.create!(
+    headline: 'Call with HR',
+    event_date: Date.today + 20,
+    event_time: '14:00',
+    location: '',
+    interaction_type: 1,
+    user: user1,
+    job_application: job_application8
+    )
+
+  interaction9 = Interaction.create!(
+    headline: 'Call with HR',
+    event_date: Date.today + 5,
+    event_time: '14:00',
+    location: '',
+    interaction_type: 1,
+    user: user1,
+    job_application: job_application9
+  )
+
+  interaction10 = Interaction.create!(
+    headline: 'Call with HR',
+    event_date: Date.today + 2,
+    event_time: '14:00',
+    location: '',
+    interaction_type: 1,
+    user: user1,
+    job_application: job_application10
+  )
 ########################-INTERACTIONS/CONACTS-###########################
 
 puts "linking interactions and contacts"
 InteractionContact.create!(contact: contact1, interaction: interaction1)
 InteractionContact.create!(contact: contact2, interaction: interaction2)
-InteractionContact.create!(contact: contact2, interaction: interaction3)
-InteractionContact.create!(contact: contact2, interaction: interaction4)
-InteractionContact.create!(contact: contact3, interaction: interaction5)
-InteractionContact.create!(contact: contact4, interaction: interaction6)
+InteractionContact.create!(contact: contact3, interaction: interaction3)
+InteractionContact.create!(contact: contact1, interaction: interaction4)
+InteractionContact.create!(contact: contact2, interaction: interaction5)
+InteractionContact.create!(contact: contact3, interaction: interaction6)
+InteractionContact.create!(contact: contact1, interaction: interaction7)
+InteractionContact.create!(contact: contact2, interaction: interaction8)
+InteractionContact.create!(contact: contact3, interaction: interaction9)
+InteractionContact.create!(contact: contact1, interaction: interaction10)
 
 puts "finished seeding"

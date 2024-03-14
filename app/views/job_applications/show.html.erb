@@ -14,6 +14,7 @@
 <%# // -------------TIMELINE--------------- // %>
   <div class="d-flex flex-column container-timeline">
     <img src="https://res.cloudinary.com/dkr1l2a2k/image/upload/v1710244429/Pablo_the_foxi_2_adnfeg.png" alt="Pablo Rockstar" style="width: 150px; position: absolute; left: -60px; bottom: -9px;">
+    <div class="block-timeline">
     <div class="d-flex align-items-center justify-content-center timeline" style="padding-bottom: 45px;">
       <div style="width: 11%;"></div>
       <div class="icone-sent my-1">
@@ -31,30 +32,27 @@
           <div class="timeline-item-content">
             <h3 class=<%= @job_application.status == "just_applied" ? "border-active-process" : "" %>>STEP 1</h3>
             <h3><strong>Just applied</strong></h3>
-            <span class="timeline-item-date">01/01/2023</span>
           </div>
         </div>
         <div class="timeline-item">
           <div class="timeline-item-content">
             <h3 class=<%= @job_application.status == "first_interview" ? "border-active-process" : "" %>>STEP 2</h3>
             <h3><strong>1st interview</strong></h3>
-            <span class="timeline-item-date">01/01/2023</span>
           </div>
         </div>
         <div class="timeline-item">
           <div class="timeline-item-content">
             <h3 class=<%= @job_application.status == "advanced" ? "border-active-process" : "" %>>STEP 3</h3>
             <h3><strong>Advanced process</strong></h3>
-            <span class="timeline-item-date">01/01/2023</span>
           </div>
         </div>
         <div class="timeline-item">
           <div class="timeline-item-content">
             <h3 class=<%= @job_application.status == "offer" ? "border-active-process" : "" %>>STEP 4</h3>
             <h3><strong>Offer</strong></h3>
-            <span class="timeline-item-date">01/01/2023</span>
           </div>
         </div>
+    </div>
     </div>
   </div>
 
@@ -113,7 +111,7 @@
                     Job source: <%= @job_application.application_source %>
                   </a>
                 </div>
-            <p style="font-size: 20px; font-weight: bold; position: absolute; top: -14px; left: 64px;">Further details</p>
+            <p style="font-size: 20px; font-weight: bold; position: absolute; top: -14px; left: 64px; border: 2px solid #262525;">Further details</p>
             </div>
 
             <div class="mt-5">
