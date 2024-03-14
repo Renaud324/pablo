@@ -6,7 +6,7 @@
         <button type="button" style="color:white" class="btn-close align-self-start" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
       </div>
       <div class="modal-body" id="modal">
-        <%= render 'interactions/form', interaction: @interaction %>
+        <%= render 'interactions/form', { interaction: @interaction, job_application: params[:id] ? params[:id] : job_application_id } %>
       </div>
     </div>
   </div>
@@ -22,7 +22,7 @@
         </button>
       </div>
       <div class="modal-body" id="modal">
-        <%= render 'interactions/email', interaction: @interaction %>
+        <%= render 'interactions/email', { interaction: @interaction, job_application: params[:id] ? params[:id] : job_application_id } %>
       </div>
     </div>
   </div>

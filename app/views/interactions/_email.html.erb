@@ -1,8 +1,7 @@
 <%= simple_form_for interaction, url: send_email_interactions_path, method: :post, html: { data: { interaction_target: "form" } } do |f| %>
-  <%= f.hidden_field :job_application_id, value: params[:id] %>
-  <%= f.collection_select :contact_ids, Contact.joins(:interaction_contacts).where(interaction_contacts: { interaction_id: JobApplication.find(params[:id]).interactions.pluck(:id) }).distinct, :id, :email, { prompt: "Select contacts" }, {multiple: true} %>
+  <%= f.hidden_field :job_application_id, value: job_application %>
+  <%= f.collection_select :contact_ids, Contact.joins(:interaction_contacts).where(interaction_contacts: { interaction_id: JobApplication.find(job_application).interactions.pluck(:id) }).distinct, :id, :email, { prompt: "Select contacts" }, {multiple: true} %>
   <%= f.input :headline, as: :text, label: "subject of the email" %>
   <%= f.input :email_content, as: :text, label: "Email content" %>
   <%= f.button :submit, "Send Email", class: 'btn-flat justify-content-center' %>
 <% end %>
-

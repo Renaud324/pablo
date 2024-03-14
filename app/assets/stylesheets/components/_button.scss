@@ -9,6 +9,7 @@
 .btn-flat:hover {
   background-image: linear-gradient(to left, #9796f0, #fbc7d4);
   color: $white;
+  transition: background 0.3s ease;
 }
 
 .btn-task i{
@@ -36,11 +37,13 @@
   padding: 4px;
   background-image: linear-gradient(to right, #9796f0, #fbc7d4);
   border-radius: 16px;
+  transition: background-image 0.3s ease;
 }
 
 .btn-add-task:hover {
   background-image: linear-gradient(to left, #9796f0, #fbc7d4);
   font-weight: bolder;
+  transition: background-image 0.3s ease;
 }
 
 .btn-text {
@@ -78,4 +81,5 @@
 
 .saving-button:hover {
   background-image: linear-gradient(to right, #9796f0, #fbc7d4);
+  transition: background-image 0.3s ease;
 }
