@@ -18,7 +18,7 @@
   height: 96%;
   width: 350px;
   padding: 10px 14px;
-  background: #262525;
+  background: #171717;
   transition: width 0.25s ease;
   border-radius: 12px;
 }
@@ -30,7 +30,7 @@
   height: 100%;
   width: 250px;
   padding: 10px 14px;
-  background: #262525;
+  background: #171717;
   transition: width 0.25s ease;
 }
 
@@ -178,12 +178,14 @@ header .image-text .header-text {
 
 .sidebar li a:hover {
   transform: scale(1.1); /* Agrandit l'élément */
-  color: $white; /* Change la couleur du texte en blanc */
+  color: $white;
+  // transition: background-image 0.9s ease; /* Change la couleur du texte en blanc */
 }
 
 .sidebar li a:hover .icon {
   color: $white;
   transform: scale(1.1);
+  // transition: background-image 0.9s ease;
 }
 
 .sidebar .menu-bar {
