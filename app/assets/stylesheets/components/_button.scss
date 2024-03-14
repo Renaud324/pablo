@@ -3,13 +3,11 @@
   padding: 8px 24px;
   border-radius: 4px;
   background-image: linear-gradient(to right, #9796f0, #fbc7d4);
-  transition: background 0.3s ease;
 }
 
 .btn-flat:hover {
   background-image: linear-gradient(to left, #9796f0, #fbc7d4);
   color: $white;
-  transition: background 0.3s ease;
 }
 
 .btn-task i{
@@ -37,13 +35,11 @@
   padding: 4px;
   background-image: linear-gradient(to right, #9796f0, #fbc7d4);
   border-radius: 16px;
-  transition: background-image 0.3s ease;
 }
 
 .btn-add-task:hover {
   background-image: linear-gradient(to left, #9796f0, #fbc7d4);
   font-weight: bolder;
-  transition: background-image 0.3s ease;
 }
 
 .btn-text {
@@ -62,7 +58,6 @@
   border: none; /* Supprime la bordure */
   border-radius: 4px; /* Arrondi des coins */
   cursor: pointer; /* Curseur au survol */
-  transition: background-color 0.3s ease;
 }
 
 .edition-button:hover {
@@ -76,10 +71,8 @@
   padding: 8px 16px; /* Espacement intérieur du bouton */
   border-radius: 4px; /* Arrondi des coins */
   cursor: pointer; /* Curseur au survol */
-  transition: background-color 0.3s ease; /* Animation de transition */
 }
 
 .saving-button:hover {
   background-image: linear-gradient(to right, #9796f0, #fbc7d4);
-  transition: background-image 0.3s ease;
 }
