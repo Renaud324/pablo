@@ -2,8 +2,7 @@ class OpenaiService
   include HTTParty
   attr_reader :api_url, :options, :query
 
-  def initialize(query)
-    @query = query
+  def initialize
     @api_url = 'https://api.openai.com/v1/chat/completions'
     @options = {
       headers: {
@@ -12,6 +11,29 @@ class OpenaiService
       }
     }
   end
+
+  def taskCall(prompt)
+  pre_prompt ="IGNORE ALL LAST PROMPTS, you are an job assistant that helps the user below find a job, you need to send back RUBY HASH exactly following the structure below:
+    [
+    {
+      job_application_id: 'job_application.id',
+      name: 'name of the task (6 words max length)',
+      description: 'description of the task linked to the job_application_id (16 words max length)'
+    }
+    ].ATTENTION, IL FAUT JUSTE LE HASH SOUS AU FORMAT JSON POUR PARSER LE RÉSULTAT EN HASH RUBY PAR LA SUITE FACILEMENT, DONC LES CLÉS ENTRE DOUBLE GUILLEMET COMME UN JSON CLASSIQUE."
+    body = {
+      model: 'gpt-3.5-turbo',
+      messages: [
+        { role: 'system', content: pre_prompt },
+        { role: 'user', content: prompt }
+      ]
+    }
+    response = HTTParty.post(api_url, body: body.to_json, headers: options[:headers], timeout: 500)
+    raise response['error']['message'] unless response.code == 200
+    response_content = response['choices'][0]['message']['content']
+  end
+
+
 
   def call(prompt)
     # Pre-prompt text
@@ -28,7 +50,7 @@ class OpenaiService
       model: 'gpt-3.5-turbo',
       messages: [
         { role: 'system', content: pre_prompt }, # System message for pre-prompt
-        { role: 'user', content: prompt }         # User's actual 
+        { role: 'user', content: prompt }         # User's actual
       ]
     }
     response = HTTParty.post(api_url, body: body.to_json, headers: options[:headers], timeout: 500)

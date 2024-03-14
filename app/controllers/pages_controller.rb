@@ -12,6 +12,12 @@ class PagesController < ApplicationController
     @upcoming_interactions = @interactions.where("event_date >= ?", Date.today)
 
 
+
+  end
+
+  def generate_tasks
+    AiTasksJob.perform_later(current_user.id)
+    redirect_to root_path, notice: 'Tasks generation initiated, will show up in some time...'
   end
 
   def search

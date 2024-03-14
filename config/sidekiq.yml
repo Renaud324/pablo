@@ -1,5 +1,5 @@
 :concurrency: 3
-:timeout: 60
+:timeout: 25
 :verbose: false
 :queues:
   # Queue priority:
