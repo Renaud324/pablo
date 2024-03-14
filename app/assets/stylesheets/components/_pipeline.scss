@@ -10,12 +10,14 @@
 }
 
 .horizontal-scrolling {
-  max-width: 90%;
+  min-width: 98%;
+  max-width: 98%;
   overflow-x: scroll;
 }
 
 .vertical-scrolling {
-  max-height: 90%;
+  min-height: 65%;
+  max-height: 65%;
   overflow-y: scroll;
 }
 
@@ -32,7 +34,7 @@
   border-radius: 8px;
   background-image: linear-gradient(to right, rgba(151, 150, 240, 1), rgba(251, 199, 212, 1)); /* Changement ici */
   cursor: pointer;
-  width: 200px;
+  min-width: 200px;
   height: 90px;
 }
 
