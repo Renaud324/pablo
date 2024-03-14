@@ -21,6 +21,7 @@ export default class extends Controller {
     const oldColumnId = event.from.dataset.id;
     const newColumnId = event.to.dataset.id;
     const response = await this.sendUpdateRequest(id, newColumnId);
+    console.log(response);
     if (response.ok) {
       const data = await response.json();
       console.log(data);
