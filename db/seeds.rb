@@ -81,7 +81,7 @@ status: 0,
 job_location: 'Remote',
 notes: 'First round interview completed.',
 job_description: 'Develop and maintain web applications.',
-salary: 85
+salary: 85,
 application_source: 'Indeed',
 user: user1,
 company: company2
