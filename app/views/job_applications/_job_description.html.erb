@@ -1,5 +1,12 @@
- <div class="m-2" style="height: 300px;">
+<% if @job_application.job_description.present? %>
+  <div class="m-2" style="height: 300px;">
     <div class="p-2 bordered-note">
-    <p style="font-size: 12px; padding: 6px; background-color: #DDF5E3; width: fit-content; border-radius: 4px; color: #161515;">Job details</p>
-    <%= @job_application.job_description %></div>
+      <p style="font-size: 12px; padding: 6px; background-color: #DDF5E3; width: fit-content; border-radius: 4px; color: #161515;">Job details</p>
+      <%= @job_application.job_description %>
+    </div>
   </div>
+<% else %>
+  <div class="m-2" style="height: 300px;">
+    <p class="quote">No job description available</p>
+  </div>
+<% end %>
