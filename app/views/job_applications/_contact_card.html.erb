@@ -2,8 +2,7 @@
   <div class="p-2 mb-3 justify-content-center d-flex align-items-center" style="flex-direction: column; background-image: linear-gradient(to right, #9796f0, #fbc7d4); border-radius: 16px;">
     <img src="https://cdn-icons-png.flaticon.com/128/5125/5125316.png" alt="Avatar contact" class="contact-card-img">
     <p style="color: #262525; font-weight: bold;" class="padding-card d-flex"><%= contact.name %></p>
-    <p style="color: #a62160; font-size: 14px;" class="padding-card"><%= contact.company.name %></p>
-    <p style="color: #262525; font-size: 14px;" class="padding-card"><%= contact.job_title %></p>
+    <p style="color: #262525; font-size: 14px;" class="padding-card"><%= contact.job_title %> - <%= contact.company.name %></p>
     <div>
       <i style="color: #262525;" class="fa-solid fa-phone contact-card-i"></i>
       <i style="color: #262525;" class="fa-solid fa-envelope contact-card-i"></i>
