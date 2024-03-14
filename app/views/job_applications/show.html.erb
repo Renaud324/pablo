@@ -100,22 +100,20 @@
 
 
           <div class="col-md-3">
-            <div class="p-4" style="position: relative; background-color: #262525; border-radius: 16px;">
+            <div class="" style=" padding: 1rem !important; position: relative; background-color: #262525; border-radius: 16px;">
                 <div class="m-1" >
                   <p style="font-size: 16px;">
-                    <i style="font-size: 14px;" class="fa-solid fa-location-dot m-2"></i>Location: <%= @job_application.job_location %></p>
+                    <i style="font-size: 14px;" class="fa-solid fa-location-dot m-2"></i>   <%= @job_application.job_location %></p>
                   <p style="font-size: 16px;">
-                    <i style="font-size: 14px;" class="fa-solid fa-sack-dollar m-2"></i>Salary: <%= @job_application.salary %>€</p>
+                    <i style="font-size: 14px;" class="fa-solid fa-sack-dollar m-2"></i> <%= @job_application.salary %>k€</p>
                   <a style="font-size: 16px; color: white; text-decoration: none;" href="<%= @job_application.offer_link %>">
                     <i style="font-size: 14px;" class="fa-solid fa-circle-arrow-right m-2"></i>
-                    Job source: <%= @job_application.application_source %>
+                     <%= @job_application.application_source %>
                   </a>
                 </div>
-            <p style="font-size: 20px; font-weight: bold; position: absolute; top: -14px; left: 64px; border: 2px solid #262525;">Further details</p>
             </div>
 
             <div class="mt-5">
-              <h4 style="font-size: 16px; text-align: center">Contacts</h4>
               <div class="mb-3" style="align-items: center;">
                 <% @contacts.each do |contact| %>
                   <%= render "contact_card", contact: contact %>
