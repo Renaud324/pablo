@@ -52,10 +52,9 @@ export default class extends Controller {
 
   checkOfferColumn() {
     const offerColumn = this.column4Target;
-    const offerCards = offerColumn.querySelectorAll('.job-card'); // Assurez-vous que cette classe correspond à celle de vos cartes.
-    const offerMessage = offerColumn.querySelector('.empty-offer-message'); // Cette classe doit correspondre à celle de votre message/image.
+    const offerCards = offerColumn.querySelectorAll('.job-card'); 
+    const offerMessage = offerColumn.querySelector('.empty-offer-message');
   
-    // Vérifiez si l'élément offerMessage est présent dans le DOM
     if (!offerMessage) return;
   
     if (offerCards.length === 0 && offerMessage.classList.contains('hidden')) {
