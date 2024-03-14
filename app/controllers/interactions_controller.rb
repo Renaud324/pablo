@@ -42,8 +42,6 @@ class InteractionsController < ApplicationController
 
   def send_email
 
-
-
     @job_application = JobApplication.find(params["interaction"]["job_application_id"])
     @interaction = Interaction.new(interaction_params)
     @interaction.event_date = Time.zone.now.to_date

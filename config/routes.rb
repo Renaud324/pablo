@@ -9,10 +9,10 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
 
-
   get "up" => "rails/health#show", as: :rails_health_check
   get 'openai', to: 'openai#index'
   get "search", to: "pages#search"
+  post 'generate_tasks', to: 'pages#generate_tasks', as: :generate_tasks
 
   authenticate :user, ->(user) { user.admin? } do
     mount Sidekiq::Web => '/sidekiq'
